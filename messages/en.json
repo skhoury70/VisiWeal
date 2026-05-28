@@ -1,0 +1,1366 @@
+{
+  "meta": {
+    "title": "Visiweal — Strategic M&A & Financial Advisory",
+    "description": "Premium M&A, Financial Advisory, and Fractional CFO services for enterprise clients across the Middle East and beyond."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "trackRecord": "Track Record",
+    "team": "Team",
+    "insights": "Insights",
+    "founder": "Founder",
+    "contact": "Contact",
+    "bookConsultation": "Book Consultation",
+    "allServices": "All Services",
+    "maAdvisory": "M&A Advisory",
+    "financialAdvisory": "Financial Advisory",
+    "digitalTransformation": "Digital Transformation",
+    "fractionalCFO": "Fractional CFO",
+    "corporateRestructuring": "Corporate Restructuring",
+    "feasibilityStudies": "Feasibility Studies"
+  },
+  "services": {
+    "maAdvisory": "M&A Advisory",
+    "financialAdvisory": "Financial Advisory",
+    "digitalTransformation": "Digital Transformation",
+    "fractionalCFO": "Fractional CFO",
+    "corporateRestructuring": "Corporate Restructuring",
+    "feasibilityStudies": "Feasibility Studies",
+    "explore": "Explore",
+    "viewAll": "All Services →",
+    "notSure": "Not Sure Which Service Fits?",
+    "bookConsultation": "Book a Consultation"
+  },
+  "hero": {
+    "badge": "Strategic Advisory for MENA's Executive Market",
+    "headline1": "Transforming Vision",
+    "headline2": "into Wealth",
+    "sub": "Premium M&A, Financial Advisory, and Fractional CFO services for enterprise clients across the Middle East and beyond.",
+    "cta1": "Book Consultation",
+    "cta2": "View Track Record",
+    "stat1": "AED 4.2B+",
+    "stat1Label": "Advisory Volume",
+    "stat2": "18+",
+    "stat2Label": "Markets",
+    "stat3": "200+",
+    "stat3Label": "C-Suite Clients"
+  },
+  "stats": {
+    "volume": "AED 4.2B+",
+    "volumeLabel": "Advisory Volume",
+    "transactions": "127+",
+    "transactionsLabel": "Transactions",
+    "countries": "18",
+    "countriesLabel": "Countries",
+    "retention": "94%",
+    "retentionLabel": "Client Retention"
+  },
+  "servicesSection": {
+    "title": "What We Do",
+    "sub": "Comprehensive financial advisory services for the MENA region's most discerning enterprises",
+    "explore": "Explore →"
+  },
+  "servicesDetails": {
+    "ma": {
+      "title": "M&A Advisory",
+      "short": "Full-cycle M&A advisory from target identification to post-merger integration",
+      "desc": "Our M&A advisory practice delivers end-to-end transaction support, from strategic target identification and valuation to negotiation, due diligence, and post-merger integration. We represent both buyers and sellers across the Middle East's most dynamic sectors.",
+      "heroBadge": "Strategic Advisory",
+      "heroTitle": "M&A Advisory",
+      "heroSub": "Full-cycle transaction support from target identification through post-merger integration",
+      "overviewDesc1": "Our M&A advisory practice delivers end-to-end transaction support, combining deep regional market knowledge with global best practices. We represent both buyers and sellers across the Middle East's most dynamic sectors.",
+      "overviewDesc2": "Each engagement is led by a senior partner who brings decades of transaction experience, ensuring strategic alignment, rigorous execution, and optimal outcomes for our clients.",
+      "stats": [
+        {
+          "value": "AED 2.8B+",
+          "label": "Transaction Value"
+        },
+        {
+          "value": "85+",
+          "label": "Completed Deals"
+        },
+        {
+          "value": "12",
+          "label": "Countries Covered"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Corporate Acquirers",
+          "desc": "Strategic buyers seeking growth through acquisition, with support across the entire deal lifecycle from target screening to integration."
+        },
+        {
+          "title": "Private Equity Firms",
+          "desc": "Full-suite deal support including platform identification, bolt-on acquisition sourcing, due diligence, and exit preparation."
+        },
+        {
+          "title": "Family Offices",
+          "desc": "Discreet, senior-led advisory for complex transactions, portfolio company acquisitions, and direct investment opportunities."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Target Identification",
+          "desc": "Systematic screening of acquisition targets aligned with strategic criteria, leveraging our regional network and proprietary databases."
+        },
+        {
+          "title": "Valuation & Financial Modeling",
+          "desc": "Comprehensive valuation analysis including DCF, comparable company analysis, precedent transactions, and LBO modeling."
+        },
+        {
+          "title": "Due Diligence Management",
+          "desc": "Coordinated due diligence across financial, commercial, legal, and operational workstreams with clear findings and recommendations."
+        },
+        {
+          "title": "Negotiation & Deal Structuring",
+          "desc": "Expert negotiation support including valuation tactics, earn-out structures, and regulatory clearance strategy."
+        },
+        {
+          "title": "Post-Merger Integration",
+          "desc": "Integration blueprint development and execution support to capture projected synergies and minimize disruption."
+        }
+      ],
+      "process": [
+        {
+          "title": "Discovery",
+          "desc": "Deep immersion in your strategic objectives, industry dynamics, and acquisition criteria to define the engagement framework.",
+          "num": "01"
+        },
+        {
+          "title": "Screening",
+          "desc": "Systematic target identification and preliminary assessment against financial, strategic, and cultural fit criteria.",
+          "num": "02"
+        },
+        {
+          "title": "Execution",
+          "desc": "Rigorous valuation, due diligence coordination, negotiation support, and deal structuring through to signing.",
+          "num": "03"
+        },
+        {
+          "title": "Integration",
+          "desc": "Post-close integration planning and monitoring to ensure value capture and operational continuity.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "financial",
+        "feasibility"
+      ]
+    },
+    "financial": {
+      "title": "Financial Advisory",
+      "short": "Strategic financial planning, capital raising, and corporate finance solutions",
+      "desc": "We provide comprehensive financial advisory services including capital raising, debt advisory, financial restructuring, and strategic financial planning tailored to the unique dynamics of MENA markets.",
+      "heroBadge": "Capital Markets",
+      "heroTitle": "Financial Advisory",
+      "heroSub": "Strategic capital raising, debt advisory, and corporate finance solutions across MENA",
+      "overviewDesc1": "We provide comprehensive financial advisory services spanning capital raising, debt advisory, financial restructuring, and strategic financial planning. Our team combines deep regional market knowledge with international capital markets experience.",
+      "overviewDesc2": "We maintain strong relationships with regional and international lenders, investors, and financial institutions, enabling us to structure and execute optimal financing solutions for our clients.",
+      "stats": [
+        {
+          "value": "AED 1.4B+",
+          "label": "Capital Raised"
+        },
+        {
+          "value": "40+",
+          "label": "Financings"
+        },
+        {
+          "value": "25+",
+          "label": "Lender Relationships"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Growth Companies",
+          "desc": "Capital raising and financial strategy for companies scaling operations, entering new markets, or preparing for institutional investment."
+        },
+        {
+          "title": "Corporate Treasuries",
+          "desc": "Debt advisory, refinancing, and capital structure optimization for established corporates seeking to optimize their balance sheets."
+        },
+        {
+          "title": "Government Entities",
+          "desc": "Strategic financial advisory for sovereign wealth funds, development funds, and government-related entities across the region."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Capital Raising",
+          "desc": "Equity and debt capital raising across public and private markets, including IPO advisory, private placements, and structured finance."
+        },
+        {
+          "title": "Debt Advisory",
+          "desc": "Syndicated loans, project finance, sukuk issuance, and refinancing advisory with comprehensive lender outreach and term sheet negotiation."
+        },
+        {
+          "title": "Financial Restructuring",
+          "desc": "Balance sheet optimization, liability management, and covenant restructuring for companies navigating financial challenges."
+        },
+        {
+          "title": "Strategic Financial Planning",
+          "desc": "Long-term financial strategy, capital allocation frameworks, and treasury optimization aligned with corporate objectives."
+        }
+      ],
+      "process": [
+        {
+          "title": "Assessment",
+          "desc": "Comprehensive review of financial position, capital structure, and strategic objectives to identify optimal financing pathways.",
+          "num": "01"
+        },
+        {
+          "title": "Strategy",
+          "desc": "Development of tailored capital markets strategy including instrument selection, timing, and target investor universe.",
+          "num": "02"
+        },
+        {
+          "title": "Execution",
+          "desc": "Active management of the fundraising process including documentation, due diligence, investor roadshows, and negotiation.",
+          "num": "03"
+        },
+        {
+          "title": "Closing",
+          "desc": "Transaction closing support, post-deal financial planning, and ongoing capital markets advisory relationship.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "ma",
+        "cfo"
+      ]
+    },
+    "digital": {
+      "title": "Digital Transformation",
+      "short": "End-to-end digital strategy and transformation for traditional enterprises",
+      "desc": "From digital strategy to implementation, we help traditional enterprises navigate digital disruption, modernize operations, and build new technology-enabled business models.",
+      "heroBadge": "Technology & Innovation",
+      "heroTitle": "Digital Transformation",
+      "heroSub": "Enterprise-wide technology modernization and AI strategy for durable competitive advantage",
+      "overviewDesc1": "From digital strategy to implementation, we help traditional enterprises navigate digital disruption, modernize operations, and build new technology-enabled business models that create lasting competitive advantage.",
+      "overviewDesc2": "Our team combines deep technology expertise with practical business acumen, ensuring that digital initiatives are grounded in commercial reality and deliver measurable ROI.",
+      "stats": [
+        {
+          "value": "50+",
+          "label": "Transformations"
+        },
+        {
+          "value": "AED 600M+",
+          "label": "Value Generated"
+        },
+        {
+          "value": "15+",
+          "label": "Sectors Served"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Traditional Enterprises",
+          "desc": "Legacy modernization, operating model redesign, and digital capability building for established companies facing digital disruption."
+        },
+        {
+          "title": "Financial Institutions",
+          "desc": "Digital banking transformation, core system modernization, AI-driven operations, and regtech implementation for banks and insurers."
+        },
+        {
+          "title": "Government Entities",
+          "desc": "Digital government strategy, smart city initiatives, citizen service transformation, and public sector innovation programs."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Digital Strategy & Roadmap",
+          "desc": "Comprehensive digital vision, target architecture, capability assessment, and phased implementation roadmap aligned with business priorities."
+        },
+        {
+          "title": "AI & Automation Strategy",
+          "desc": "Enterprise AI opportunity assessment, use case prioritization, data strategy, and responsible AI governance framework."
+        },
+        {
+          "title": "Technology Architecture",
+          "desc": "Target state architecture design, cloud strategy, platform selection, and integration architecture for scalable digital operations."
+        },
+        {
+          "title": "Operating Model Transformation",
+          "desc": "Organizational design, agile operating model, digital talent strategy, and governance frameworks for the digital enterprise."
+        },
+        {
+          "title": "Change Management",
+          "desc": "Stakeholder engagement, communication strategy, capability building programs, and cultural transformation to drive adoption."
+        }
+      ],
+      "process": [
+        {
+          "title": "Discovery",
+          "desc": "Digital maturity assessment, opportunity identification, and strategic framing aligned with business objectives and market dynamics.",
+          "num": "01"
+        },
+        {
+          "title": "Strategy",
+          "desc": "Vision definition, target architecture design, capability gap analysis, and business case development with clear ROI metrics.",
+          "num": "02"
+        },
+        {
+          "title": "Execution",
+          "desc": "Agile delivery across workstreams, technology implementation, process redesign, and organizational change management.",
+          "num": "03"
+        },
+        {
+          "title": "Optimize",
+          "desc": "Post-implementation optimization, capability transfer, continuous improvement framework, and ongoing strategic guidance.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "cfo",
+        "feasibility"
+      ]
+    },
+    "cfo": {
+      "title": "Fractional CFO",
+      "short": "World-class CFO expertise on a flexible, part-time basis",
+      "desc": "Access senior financial leadership without the full-time commitment. Our Fractional CFO service provides strategic financial management, reporting, forecasting, and investor relations.",
+      "heroBadge": "Financial Leadership",
+      "heroTitle": "Fractional CFO",
+      "heroSub": "Strategic financial leadership on demand for high-growth enterprises",
+      "overviewDesc1": "Access institutional-grade financial leadership without the full-time commitment. Our Fractional CFO service provides strategic financial management, FP&A, board reporting, and investor relations tailored to your specific needs and stage of growth.",
+      "overviewDesc2": "Each engagement is led by a seasoned CFO with decades of experience across multinational corporations and high-growth enterprises, bringing both strategic insight and operational rigor.",
+      "stats": [
+        {
+          "value": "40+",
+          "label": "CFO Engagements"
+        },
+        {
+          "value": "94%",
+          "label": "Client Retention"
+        },
+        {
+          "value": "12+",
+          "label": "Avg Years Experience"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Growth-Stage Companies",
+          "desc": "CFO expertise to build financial infrastructure, manage rapid scaling, and prepare for institutional investment or exit."
+        },
+        {
+          "title": "Mid-Market Enterprises",
+          "desc": "Strategic financial leadership to optimize performance, improve reporting, and drive value creation initiatives."
+        },
+        {
+          "title": "PE-Backed Portfolio",
+          "desc": "Interim or part-time CFO support for portfolio companies, including transaction support, performance monitoring, and exit readiness."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Strategic FP&A",
+          "desc": "Comprehensive financial planning, budgeting, forecasting, and management reporting with actionable strategic insights."
+        },
+        {
+          "title": "Board & Investor Relations",
+          "desc": "Board package preparation, investor communications, KPI dashboards, and stakeholder presentation support."
+        },
+        {
+          "title": "Cash Flow & Working Capital",
+          "desc": "Cash flow forecasting, working capital optimization, treasury management, and liquidity planning."
+        },
+        {
+          "title": "Capital Allocation",
+          "desc": "Capital structure optimization, investment evaluation, M&A support, and fundraising strategy and execution."
+        },
+        {
+          "title": "Financial Operations",
+          "desc": "Systems implementation, process improvement, internal controls, and finance team development."
+        }
+      ],
+      "process": [
+        {
+          "title": "Assessment",
+          "desc": "Deep dive into financial operations, systems, team capabilities, and strategic priorities to define the engagement scope.",
+          "num": "01"
+        },
+        {
+          "title": "Foundation",
+          "desc": "Establish core financial processes, reporting cadence, systems infrastructure, and governance frameworks.",
+          "num": "02"
+        },
+        {
+          "title": "Optimization",
+          "desc": "Working capital improvement, cost optimization, FP&A enhancement, and strategic initiative support.",
+          "num": "03"
+        },
+        {
+          "title": "Partnership",
+          "desc": "Ongoing strategic partnership with regular cadence of board reporting, advisory, and value creation initiatives.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "financial",
+        "restructuring"
+      ]
+    },
+    "restructuring": {
+      "title": "Corporate Restructuring",
+      "short": "Strategic turnaround and operational restructuring for sustained value",
+      "desc": "We help companies facing operational or financial challenges to restructure, optimize performance, and emerge stronger. Our approach combines financial engineering with operational expertise.",
+      "heroBadge": "Turnaround & Recovery",
+      "heroTitle": "Corporate Restructuring",
+      "heroSub": "Strategic turnaround and operational restructuring for sustained value recovery",
+      "overviewDesc1": "We help companies facing operational or financial challenges to restructure, optimize performance, and emerge stronger. Our approach combines rigorous financial analysis with deep operational expertise to deliver sustainable turnarounds.",
+      "overviewDesc2": "Our team has decades of experience navigating complex restructuring situations across the MENA region, working constructively with all stakeholders to achieve optimal outcomes.",
+      "stats": [
+        {
+          "value": "25+",
+          "label": "Restructuring Cases"
+        },
+        {
+          "value": "90%",
+          "label": "Success Rate"
+        },
+        {
+          "value": "AED 800M+",
+          "label": "Value Preserved"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Distressed Companies",
+          "desc": "Comprehensive restructuring support for companies facing financial or operational distress, from assessment through implementation."
+        },
+        {
+          "title": "Creditors & Lenders",
+          "desc": "Independent advisory for creditor committees, including financial analysis, restructuring options assessment, and negotiation support."
+        },
+        {
+          "title": "Private Equity Firms",
+          "desc": "Portfolio company turnaround support, including operational improvement, management strengthening, and exit optimization."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Financial & Operational Assessment",
+          "desc": "Comprehensive diagnostic of financial position, operational performance, cash flow drivers, and value leakage points."
+        },
+        {
+          "title": "Balance Sheet Restructuring",
+          "desc": "Debt restructuring, covenant renegotiation, equity infusion, and capital structure optimization to restore financial health."
+        },
+        {
+          "title": "Stakeholder Management",
+          "desc": "Creditor communication, negotiation strategy, and consensus building across diverse stakeholder groups."
+        },
+        {
+          "title": "Operational Turnaround",
+          "desc": "Cost reduction, working capital improvement, organizational redesign, and operational efficiency programs."
+        },
+        {
+          "title": "Implementation Support",
+          "desc": "Post-restructuring monitoring, performance tracking, and ongoing advisory to ensure sustained recovery."
+        }
+      ],
+      "process": [
+        {
+          "title": "Diagnostic",
+          "desc": "Rapid assessment of financial position, operational health, cash flow outlook, and stakeholder dynamics.",
+          "num": "01"
+        },
+        {
+          "title": "Strategy",
+          "desc": "Development of restructuring plan including financial, operational, and organizational components with clear milestones.",
+          "num": "02"
+        },
+        {
+          "title": "Negotiation",
+          "desc": "Stakeholder engagement, creditor negotiations, court processes, and consensus building around the restructuring plan.",
+          "num": "03"
+        },
+        {
+          "title": "Implementation",
+          "desc": "Execution of restructuring plan with active monitoring, course correction, and post-restructuring value creation.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "financial",
+        "feasibility"
+      ]
+    },
+    "feasibility": {
+      "title": "Feasibility Studies",
+      "short": "Comprehensive market and financial feasibility analysis for new ventures",
+      "desc": "Rigorous feasibility analysis covering market assessment, financial modeling, risk analysis, and regulatory review for greenfield projects and new market entries across the MENA region.",
+      "heroBadge": "Project Assessment",
+      "heroTitle": "Feasibility Studies",
+      "heroSub": "Comprehensive market and financial feasibility analysis for new ventures",
+      "overviewDesc1": "Rigorous feasibility analysis covering market assessment, financial modeling, risk analysis, and regulatory review for greenfield projects and new market entries across the MENA region.",
+      "overviewDesc2": "Our studies meet the highest standards for investment committee and lender requirements, providing the clarity and confidence needed to make informed investment decisions.",
+      "stats": [
+        {
+          "value": "60+",
+          "label": "Studies Completed"
+        },
+        {
+          "value": "AED 1.2B+",
+          "label": "Project Value Assessed"
+        },
+        {
+          "value": "8",
+          "label": "Industry Verticals"
+        }
+      ],
+      "whoItsFor": [
+        {
+          "title": "Investors & Developers",
+          "desc": "Independent feasibility assessment for greenfield projects, expansions, and new market entries across the MENA region."
+        },
+        {
+          "title": "Financial Institutions",
+          "desc": "Technical and financial due diligence for project finance, acquisition financing, and investment committee decision-making."
+        },
+        {
+          "title": "Government Entities",
+          "desc": "Socio-economic impact studies, public-private partnership feasibility, and infrastructure project assessment."
+        }
+      ],
+      "deliverables": [
+        {
+          "title": "Market Analysis",
+          "desc": "Comprehensive market sizing, demand assessment, competitive landscape analysis, and pricing study."
+        },
+        {
+          "title": "Financial Modeling",
+          "desc": "Detailed financial projections, sensitivity analysis, NPV/IRR calculations, and funding requirement assessment."
+        },
+        {
+          "title": "Risk Assessment",
+          "desc": "Systematic risk identification, quantification, and mitigation strategy across all relevant risk categories."
+        },
+        {
+          "title": "Regulatory Review",
+          "desc": "Regulatory landscape assessment, licensing requirements, compliance obligations, and government approvals pathway."
+        },
+        {
+          "title": "Investment-Grade Report",
+          "desc": "Comprehensive feasibility report meeting international standards for investment committee and lender requirements."
+        }
+      ],
+      "process": [
+        {
+          "title": "Scoping",
+          "desc": "Engagement framing, key assumptions definition, data requirements identification, and work plan development.",
+          "num": "01"
+        },
+        {
+          "title": "Research",
+          "desc": "Primary and secondary research across market, technical, financial, and regulatory dimensions.",
+          "num": "02"
+        },
+        {
+          "title": "Analysis",
+          "desc": "Quantitative and qualitative analysis including financial modeling, risk assessment, and scenario planning.",
+          "num": "03"
+        },
+        {
+          "title": "Reporting",
+          "desc": "Comprehensive feasibility report with executive summary, detailed findings, recommendations, and supporting appendices.",
+          "num": "04"
+        }
+      ],
+      "relatedServices": [
+        "ma",
+        "financial"
+      ]
+    },
+    "overview": {
+      "heroSub": "Comprehensive financial advisory and strategic consulting for the MENA region's most discerning enterprises",
+      "heroTitle": "Our Services",
+      "cards": [
+        {
+          "desc1": "Full-cycle acquisition and divestiture support from target identification through post-merger integration.",
+          "num": "01",
+          "link": "ma-advisory",
+          "title": "M&A Advisory",
+          "whoItsFor": "Corporate acquirers, PE firms, family offices",
+          "desc2": "Our team represents both buyers and sellers across the Middle East's most dynamic sectors.",
+          "desc3": "Each engagement is led by a senior partner with deep transaction experience in your industry.",
+          "deliverables": [
+            "Target identification & screening",
+            "Valuation & financial modeling",
+            "Due diligence management",
+            "Negotiation & deal structuring",
+            "Post-merger integration planning"
+          ]
+        },
+        {
+          "desc1": "Strategic capital raising, debt advisory, and corporate finance solutions for enterprises across MENA.",
+          "num": "02",
+          "link": "financial-advisory",
+          "title": "Financial Advisory",
+          "whoItsFor": "Growth companies, corporates, government entities",
+          "desc2": "We connect clients with optimal capital structures across public and private markets.",
+          "desc3": "Our deep relationships with regional and international lenders ensure optimal outcomes.",
+          "deliverables": [
+            "Capital raising & placement",
+            "Debt advisory & syndication",
+            "Financial restructuring",
+            "Strategic financial planning",
+            "Transaction execution"
+          ]
+        },
+        {
+          "desc1": "Enterprise-wide technology modernization and AI strategy designed to create durable competitive advantage.",
+          "num": "03",
+          "link": "digital-transformation",
+          "title": "Digital Transformation",
+          "whoItsFor": "Traditional enterprises, financial institutions, government entities",
+          "desc2": "We help traditional enterprises navigate digital disruption and build new technology-enabled business models.",
+          "desc3": "Our approach combines strategic vision with practical implementation roadmaps.",
+          "deliverables": [
+            "Digital strategy & roadmap",
+            "AI & automation strategy",
+            "Technology architecture design",
+            "Operating model transformation",
+            "Change management & capability building"
+          ]
+        },
+        {
+          "desc1": "Strategic financial leadership on demand - FP&A, capital allocation, board reporting, and investor relations.",
+          "num": "04",
+          "link": "fractional-cfo",
+          "title": "Fractional CFO",
+          "whoItsFor": "Growth-stage companies, mid-market enterprises, PE-backed portfolio companies",
+          "desc2": "Access institutional-grade financial management without the overhead of a full-time executive hire.",
+          "desc3": "Our CFOs bring decades of experience across multinational corporations and high-growth enterprises.",
+          "deliverables": [
+            "Strategic financial planning & analysis",
+            "Board reporting & investor relations",
+            "Cash flow & working capital management",
+            "Capital allocation & fundraising support",
+            "Financial systems & process optimization"
+          ]
+        },
+        {
+          "desc1": "Balance sheet optimization, operational turnaround, and stakeholder negotiation for complex situations.",
+          "num": "05",
+          "link": "corporate-restructuring",
+          "title": "Corporate Restructuring",
+          "whoItsFor": "Distressed companies, creditors, PE firms with portfolio issues",
+          "desc2": "We help companies facing operational or financial challenges restructure and emerge stronger.",
+          "desc3": "Our approach combines financial engineering with deep operational expertise.",
+          "deliverables": [
+            "Financial & operational assessment",
+            "Balance sheet restructuring",
+            "Stakeholder negotiation & management",
+            "Operational turnaround planning",
+            "Chapter 11 advisory & support"
+          ]
+        },
+        {
+          "desc1": "Independent technical and financial assessments for greenfield projects and new market entries.",
+          "num": "06",
+          "link": "feasibility-studies",
+          "title": "Feasibility Studies",
+          "whoItsFor": "Investors, developers, government entities, financial institutions",
+          "desc2": "Rigorous analysis covering market assessment, financial modeling, risk analysis, and regulatory review.",
+          "desc3": "Our reports meet the highest standards for investment committee and lender requirements.",
+          "deliverables": [
+            "Market analysis & demand assessment",
+            "Financial modeling & projections",
+            "Risk assessment & mitigation",
+            "Regulatory & legal review",
+            "Investment-grade feasibility report"
+          ]
+        }
+      ]
+    },
+    "sectionLabels": {
+      "explore": "Explore →",
+      "ctaSub": "Schedule a 45-minute confidential consultation with a senior advisor to discuss your needs.",
+      "related": "Related Services",
+      "ctaTitle": "Not Sure Which Service Fits?",
+      "overview": "Overview",
+      "who": "Who It's For",
+      "process": "Our Process",
+      "stats": "By the Numbers",
+      "book": "Book a Consultation",
+      "deliverables": "Key Deliverables",
+      "processSub": "A proven methodology refined across 127+ engagements"
+    }
+  },
+  "whatWeDo": {
+    "title": "What We Do",
+    "sub": "Value-driven financial solutions for enterprise transformation",
+    "items": [
+      {
+        "num": "01",
+        "title": "Strategic M&A Advisory",
+        "desc": "Full-cycle transaction support from target identification through post-merger integration, combining deep regional knowledge with global best practices."
+      },
+      {
+        "num": "02",
+        "title": "Digital Transformation",
+        "desc": "Enterprise-wide technology modernization and AI strategy designed to create durable competitive advantage in a rapidly evolving landscape."
+      },
+      {
+        "num": "03",
+        "title": "Fractional CFO",
+        "desc": "Institutional-grade financial leadership on demand — FP&A, capital allocation, board reporting, and investor relations for high-growth enterprises."
+      },
+      {
+        "num": "04",
+        "title": "Enduring Value Creation",
+        "desc": "Measurable, sustainable value delivery through rigorous financial engineering, operational optimization, and long-term strategic partnership."
+      }
+    ]
+  },
+  "featured": {
+    "title": "Featured Services",
+    "sub": "Core expertise areas driving client success"
+  },
+  "clients": {
+    "title": "Trusted by Leading Institutions"
+  },
+  "process": {
+    "title": "How We Work",
+    "sub": "A proven methodology refined across 127+ transactions",
+    "steps": [
+      {
+        "num": "01",
+        "title": "Discovery",
+        "desc": "Deep immersion in your business, industry, and strategic objectives to frame the engagement."
+      },
+      {
+        "num": "02",
+        "title": "Framework",
+        "desc": "Rigorous analytical framework design — tailored models, data requirements, and success metrics."
+      },
+      {
+        "num": "03",
+        "title": "Architecture",
+        "desc": "Comprehensive solution architecture combining financial engineering, strategic insight, and operational expertise."
+      },
+      {
+        "num": "04",
+        "title": "Execution",
+        "desc": "Flawless execution with real-time adaptation, stakeholder management, and milestone tracking."
+      },
+      {
+        "num": "05",
+        "title": "Value",
+        "desc": "Sustainable value delivery with post-engagement monitoring and ongoing strategic partnership."
+      }
+    ]
+  },
+  "industries": {
+    "title": "Industries We Serve",
+    "sub": "Deep domain expertise across the sectors driving MENA's economic transformation",
+    "items": [
+      "Technology",
+      "Real Estate",
+      "Energy",
+      "Healthcare",
+      "Manufacturing",
+      "Financial Services",
+      "Retail",
+      "Infrastructure"
+    ]
+  },
+  "testimonials": {
+    "title": "What Our Clients Say",
+    "items": [
+      {
+        "quote": "Visiweal's M&A advisory expertise was instrumental in our AED 450M acquisition. Their team's depth of regional knowledge and transaction experience is unmatched.",
+        "author": "Group CEO",
+        "company": "UAE Real Estate Conglomerate"
+      },
+      {
+        "quote": "Their Fractional CFO service transformed our financial operations within 6 months. We gained institutional-grade financial management without the overhead of a full-time hire.",
+        "author": "Founder & Chairman",
+        "company": "GCC Technology Company"
+      },
+      {
+        "quote": "Unparalleled strategic insight for our regional expansion. True partners who understand both the numbers and the narrative behind them.",
+        "author": "CFO",
+        "company": "MENA Healthcare Group"
+      }
+    ]
+  },
+  "cta": {
+    "title": "Ready to Transform Your Financial Future?",
+    "sub": "Schedule a confidential consultation with our senior advisory team",
+    "cta1": "Book Consultation",
+    "cta2": "Download Capabilities Deck"
+  },
+  "footer": {
+    "tagline": "Premium M&A, Financial Advisory, and Consulting for MENA's leading enterprises.",
+    "services": "Services",
+    "company": "Company",
+    "about": "About",
+    "trackRecord": "Track Record",
+    "founder": "Founder",
+    "insights": "Insights",
+    "contact": "Contact",
+    "maAdvisory": "M&A Advisory",
+    "financialAdvisory": "Financial Advisory",
+    "digitalTransformation": "Digital Transformation",
+    "fractionalCFO": "Fractional CFO",
+    "corporateRestructuring": "Corporate Restructuring",
+    "feasibilityStudies": "Feasibility Studies",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "beirut": "Beirut - Rabweh - Lebanon",
+    "email": "info@visiweal.com",
+    "phone": "+961-71-828281",
+    "allRights": "All rights reserved."
+  },
+  "trackRecord": {
+    "title": "A Proven Track Record of Value Creation",
+    "sub": "Data-driven results across 127+ transactions in 18 countries",
+    "dealVolume": "Deal Volume Over Time",
+    "dealVolumeSub": "Advisory deal volume by year (AED millions)",
+    "portfolio": "Portfolio Breakdown",
+    "geographic": "Geographic Presence",
+    "dealFlow": "M&A Deal Flow",
+    "dealFlowSub": "Transaction flow visualization across advisory types, structures, and outcomes",
+    "transactions": "Selected Transactions",
+    "filterAll": "All",
+    "filterMA": "M&A",
+    "filterCFO": "CFO",
+    "filterRestructuring": "Restructuring",
+    "filterDigital": "Digital",
+    "growth": "Our Growth Trajectory",
+    "kpi1": "AED 4.2B",
+    "kpi1Label": "Total Advisory Volume",
+    "kpi2": "127",
+    "kpi2Label": "Transactions",
+    "kpi3": "18",
+    "kpi3Label": "Countries",
+    "kpi4": "12",
+    "kpi4Label": "Years of Excellence"
+  },
+  "about": {
+    "title": "We Bridge Vision and Wealth",
+    "sub": "Visiweal was founded on a simple conviction: that the Middle East's most ambitious enterprises deserve financial advisory of the highest global standard.",
+    "mission1": "We are a premier strategic advisory firm headquartered in Dubai, serving enterprise clients across the Middle East and beyond. Our name — Visiweal — embodies our purpose: transforming strategic vision into measurable wealth.",
+    "mission2": "With deep expertise across M&A, financial advisory, digital transformation, and CFO services, we bring institutional-grade capabilities to every engagement, combined with the agility and personal commitment of a focused partnership.",
+    "timeline": [
+      {
+        "year": "2013",
+        "title": "Founded",
+        "desc": "Visiweal established in Dubai with a vision to redefine MENA advisory"
+      },
+      {
+        "year": "2015",
+        "title": "First MENA Advisory",
+        "desc": "Completed first cross-border M&A transaction in the GCC region"
+      },
+      {
+        "year": "2018",
+        "title": "50 Transactions",
+        "desc": "Reached 50 transaction milestone with expansion into digital advisory"
+      },
+      {
+        "year": "2021",
+        "title": "Regional Expansion",
+        "desc": "Opened Riyadh and Cairo offices, launched Fractional CFO practice"
+      },
+      {
+        "year": "2024",
+        "title": "Digital Practice",
+        "desc": "Launched dedicated Digital Transformation practice, surpassing AED 4B in advisory volume"
+      }
+    ],
+    "values": [
+      {
+        "title": "Integrity",
+        "desc": "Uncompromising ethical standards in every engagement. Our reputation is built on trust."
+      },
+      {
+        "title": "Precision",
+        "desc": "Meticulous analysis and flawless execution. We leave nothing to chance."
+      },
+      {
+        "title": "Impact",
+        "desc": "Measurable, sustainable value creation that transforms businesses and markets."
+      }
+    ],
+    "difference": {
+      "title": "The Visiweal Difference",
+      "traditional": "Traditional Firm",
+      "visiweal": "Visiweal",
+      "items": [
+        [
+          "Off-the-shelf solutions",
+          "Tailored to your specific context"
+        ],
+        [
+          "Transaction-focused",
+          "Long-term strategic partnership"
+        ],
+        [
+          "Regional limitations",
+          "Global perspective, local execution"
+        ],
+        [
+          "Slow decision-making",
+          "Agile, senior-led engagements"
+        ],
+        [
+          "Generic reporting",
+          "Data-rich, actionable insights"
+        ]
+      ]
+    }
+  },
+  "team": {
+    "title": "The Minds Behind Visiweal",
+    "sub": "A team of seasoned advisors with deep expertise across M&A, finance, digital, and operations",
+    "filterAll": "All",
+    "filterAdvisory": "Advisory",
+    "filterDigital": "Digital",
+    "filterFinance": "Finance",
+    "filterOperations": "Operations",
+    "joinUs": "Join Our Team",
+    "joinUsSub": "We're always looking for exceptional talent. Reach out to start a conversation.",
+    "members": [
+      {
+        "name": "Ahmed Al-Rashidi",
+        "nameAr": "أحمد الرشيدي",
+        "title": "Managing Partner",
+        "practice": "M&A Advisory",
+        "location": "Dubai",
+        "bio": "Over 25 years of investment banking and M&A advisory experience across the MENA region.",
+        "category": "advisory"
+      },
+      {
+        "name": "Sarah Chen",
+        "nameAr": "سارة تشن",
+        "title": "Partner",
+        "practice": "Digital Transformation",
+        "location": "London",
+        "bio": "Former McKinsey digital practice lead specializing in large-scale enterprise transformation.",
+        "category": "digital"
+      },
+      {
+        "name": "Omar Hassan",
+        "nameAr": "عمر حسن",
+        "title": "Senior Advisor",
+        "practice": "CFO Services",
+        "location": "Riyadh",
+        "bio": "Ex-PwC CFO advisory partner with deep expertise in financial strategy and capital markets.",
+        "category": "finance"
+      },
+      {
+        "name": "Layla Mansour",
+        "nameAr": "ليلى منصور",
+        "title": "Director",
+        "practice": "Restructuring",
+        "location": "Cairo",
+        "bio": "Specializes in corporate turnaround and operational restructuring across the MENA region.",
+        "category": "advisory"
+      },
+      {
+        "name": "Karim Nasser",
+        "nameAr": "كريم ناصر",
+        "title": "Vice President",
+        "practice": "M&A Advisory",
+        "location": "Dubai",
+        "bio": "Executed 30+ transactions totaling over AED 2B in enterprise value across diverse sectors.",
+        "category": "advisory"
+      },
+      {
+        "name": "Noora Al Suwaidi",
+        "nameAr": "نورة السويدي",
+        "title": "Director",
+        "practice": "Operations",
+        "location": "Dubai",
+        "bio": "Drives operational excellence and engagement delivery across all Visiweal practices.",
+        "category": "operations"
+      }
+    ]
+  },
+  "insights": {
+    "title": "Insights & Perspectives",
+    "sub": "Thought leadership on M&A, finance, digital transformation, and MENA markets",
+    "categories": {
+      "all": "All",
+      "ma": "M&A",
+      "cfo": "CFO",
+      "digital": "Digital",
+      "markets": "Markets",
+      "mena": "MENA Focus"
+    },
+    "featured": {
+      "category": "M&A",
+      "title": "The MENA M&A Boom: What Corporate Owners Must Know Before Selling",
+      "excerpt": "The Middle East M&A market recorded 884 transactions totaling $106.1B in the latest cycle. For Gulf corporate owners, this is a clear signal that your equity is highly liquid.",
+      "author": "Sleiman El-Khoury",
+      "readTime": "12 min read",
+      "slug": "mena-ma-boom-2026",
+      "image": "/images/The MENA M&A Boom.avif"
+    },
+    "newsletter": {
+      "title": "Subscribe for Executive Insights",
+      "sub": "Monthly analysis on M&A, markets, and strategic finance for MENA executives.",
+      "placeholder": "Enter your email",
+      "cta": "Subscribe",
+      "privacy": "No spam. Unsubscribe anytime."
+    },
+    "articles": [
+      {
+        "category": "CFO",
+        "title": "Fractional CFO vs Full-Time CFO: A Strategic Framework for Growth-Stage Companies",
+        "excerpt": "How to evaluate the trade-offs between fractional and full-time financial leadership.",
+        "author": "Omar Hassan",
+        "readTime": "6 min read",
+        "slug": "fractional-cfo-vs-full-time-cfo-strategic-framework",
+        "image": "/images/Insights-Article.avif"
+      },
+      {
+        "category": "Digital",
+        "title": "Digital Transformation in MENA Banking: Beyond the Hype",
+        "excerpt": "What truly drives successful digital transformation in traditional financial institutions.",
+        "author": "Sarah Chen",
+        "readTime": "10 min read",
+        "slug": "digital-transformation-mena-banking-beyond-hype",
+        "image": "/images/Insights-Article.avif"
+      },
+      {
+        "category": "Markets",
+        "title": "Sovereign Wealth Funds: Reshaping Global Capital Flows",
+        "excerpt": "How MENA SWFs are redefining investment strategies and influencing global markets.",
+        "author": "Karim Nasser",
+        "readTime": "12 min read",
+        "slug": "sovereign-wealth-funds-reshaping-capital-flows",
+        "image": "/images/Insights-Article.avif"
+      },
+      {
+        "category": "MENA",
+        "title": "Saudi Vision 2030: Five Years of Economic Transformation",
+        "excerpt": "An assessment of the opportunities and challenges emerging from the Kingdom's diversification program.",
+        "author": "Ahmed Al-Rashidi",
+        "readTime": "15 min read",
+        "slug": "saudi-vision-2030-economic-transformation",
+        "image": "/images/Insights-Article.avif"
+      },
+      {
+        "category": "CFO",
+        "title": "Capital Raising in Volatile Markets: A Practical Guide for CFOs",
+        "excerpt": "Strategies for navigating uncertain markets and securing optimal financing terms.",
+        "author": "Omar Hassan",
+        "readTime": "7 min read",
+        "slug": "capital-raising-volatile-markets-guide-cfos",
+        "image": "/images/Insights-Article.avif"
+      },
+      {
+        "category": "Digital",
+        "title": "AI in Enterprise Finance: From Automation to Strategic Intelligence",
+        "excerpt": "How artificial intelligence is transforming financial operations and strategic decision-making.",
+        "author": "Sarah Chen",
+        "readTime": "9 min read",
+        "slug": "ai-enterprise-finance-automation-strategic-intelligence",
+        "image": "/images/Insights-Article.avif"
+      }
+    ],
+    "articleContents": {
+      "mena-ma-boom-2026": {
+        "title": "The MENA M&A Boom: What Corporate Owners Must Know Before Selling",
+        "category": "M&A",
+        "author": "Sleiman El-Khoury",
+        "readTime": "12 min read",
+        "image": "/images/The MENA M&A Boom.avif",
+        "sections": [
+          {
+            "content": "The numbers demand attention. The latest EY MENA M&A Insights report recorded 884 transactions across the Middle East totaling $106.1 billion. This represents a 26% year-on-year surge in deal volume, signaling a market running at high velocity. For corporate owners in the Gulf, this is not background noise. It is a clear signal that your corporate equity is more liquid than ever.\n\nThe buyer pool is changing fast. Sovereign wealth funds, including Abu Dhabi\u2019s ADIA, Mubadala, and the Public Investment Fund (PIF) in Riyadh, are deploying capital with unprecedented focus. Combined with an influx of international private equity, the UAE and Saudi Arabia alone drew 59% of total transaction activity in this cycle. The pool of potential acquirers is concentrated, and the window is highly competitive.\n\nYet, many founders enter these discussions unprepared. They leave massive value on the table or watch promising deals fall apart during due diligence. If you are a CFO or family office principal planning an exit, you must understand how the transactional landscape has changed."
+          },
+          {
+            "heading": "The MENA Market Landscape",
+            "subheading": "The Capital Surge in Riyadh and Dubai",
+            "content": "Global corporate acquirers no longer view the Gulf as a mere source of capital. It has become a primary target. This shift reflects ambitious structural programs like Saudi Arabia\u2019s Vision 2030 and the UAE Centennial 2071, which demand private sector consolidation and corporate expansion.\n\nFor corporate leaders, these initiatives provide immense tailwinds. Financial centers like the Dubai International Financial Centre (DIFC) and Abu Dhabi Global Market (ADGM) offer international-grade legal frameworks. Saudi Arabia\u2019s Capital Market Authority (CMA) has similarly streamlined its rules. This environment has made mid-market assets in Cairo, Amman, and Kuwait highly attractive to global corporate buyers.\n\nBut running a profitable enterprise does not automatically make you transaction-ready. Most founders have never executed a structured corporate sale. They understand operations, but they rarely know how an institutional buyer dissects a balance sheet. That expertise gap is where negotiations stall."
+          },
+          {
+            "heading": "Three Realities Shaping Gulf Deals"
+          },
+          {
+            "heading": "Insight #1 \u2014 The Multiple You Want Is Built Years Before the Sale",
+            "content": "Most sellers assume their enterprise valuation is decided when a buyer presents a letter of intent. That is an expensive mistake. Real valuation is constructed over years of deliberate financial hygiene.\n\nBuyers assess factors that founders often ignore: audited reporting standards, clean corporate governance, and minimal dependence on the original founder. A firm generating 50 million UAE dirhams in revenue might secure an outstanding multiple, or it might face a heavy discount. The difference lies entirely in whether the accounting relies on localized systems or clean, IFRS-compliant reporting.\n\nWe frequently see a frustrating dynamic in Riyadh and Dubai. A buyer proposes an attractive initial valuation. But as due diligence begins, they uncover unrecorded related-party transactions, informal supplier agreements, or unstructured management contracts. The transaction either collapses or undergoes severe price downward revision.\n\nIf you plan to transition your firm in the next three years, you must start building your documentation now. This is where early preparation pays dividends."
+          },
+          {
+            "heading": "Insight #2 \u2014 Why Global Private Equity Expects More Than Your Local Bank",
+            "content": "Cross-border M&A dominated the latest deal cycle, representing 61% of total transaction value. Buyers from London, New York, and Tokyo are actively chasing yield in Gulf markets.\n\nThis exposure brings an asymmetrical mismatch in expertise. A global corporate buyer arrives with a dedicated transaction team consisting of investment bankers, international lawyers, and tax specialists. The local seller is often navigating this level of institutional scrutiny for the first time.\n\nTo protect your equity, you must manage the process with equal rigor:\n\nEngage a specialized corporate finance firm before receiving external offers to build competitive tension.\n\nRestructure your legal entities to align with international jurisdictions like DIFC or ADGM.\n\nPrepare a comprehensive information memorandum that addresses tax liabilities across jurisdictions.\n\nRelying on a single unsolicited buyer is the fastest way to lose leverage. A structured, competitive process ensures that you dictate the terms rather than reacting to them."
+          },
+          {
+            "heading": "Insight #3 \u2014 The Coming Five-Year Window: Why Preparation Beats Speed",
+            "content": "The structural momentum carrying Middle East deals will persist. Saudi Arabia is executing large-scale economic diversification, while Cairo\u2019s massive consumer market of over 100 million people continues to offer consolidation plays for regional buyers.\n\nCertain sectors will command premium pricing over the next five years. Technology platforms with recurring revenue, logistics enterprises tied to trade corridors, and specialized healthcare providers are high on corporate shopping lists.\n\nBut the most lucrative exits are rarely the fastest ones. Founders who invest 18 to 24 months in strengthening their margins and building a resilient management layer always command better terms. They also avoid the post-deal integration friction that leaves unprepared sellers holding uncollectable earn-out agreements.\n\nFurthermore, institutional buyers now examine governance structures with intense detail. Demonstrating solid compliance and structured labor standards is no longer optional. It is the baseline for entering the transaction room."
+          },
+          {
+            "heading": "The Advisor\u2019s Perspective",
+            "subheading": "Five Priorities for Sellers",
+            "content": "If you are considering a corporate transaction in the next two to three years, several steps will protect your valuation.\n\nFirst, ensure your historical books are clean. Your financial records must be audited by a reputable firm and compliant with international standards. Buyers will not accept internal spreadsheets or informal cash-flow statements.\n\nNext, you need to structure your entity for international scrutiny. Formalize corporate governance. Establish a clear, independent board structure to show that your operations do not depend entirely on family dynamics.\n\nEvaluate tax implications early. Assess how capital gains will be treated under domestic laws, particularly with recent regulatory adjustments in the GCC.\n\nConstruct a clear transition plan. Buyers pay a premium when they know the leadership team will remain in place to guide the enterprise post-acquisition.\n\nFinally, partner with experienced professionals. Bringing specialized financial advisors and legal counsel to the table before signing any preliminary terms is essential to maintaining negotiation leverage. Developing a clear transaction plan remains the single most reliable way to secure your hard-earned corporate value."
+          },
+          {
+            "heading": "Expert Perspectives",
+            "content": "\u201cThe Gulf M&A market has entered a mature phase. Local founders must recognize that institutional buyers look for structural institutionalization, not just historical cash flow.\u201d\n\n\u2014 Corporate Finance Partner, Riyadh\n\nThe recent transaction volume data confirms this outlook. The 15% increase in total deal value across 884 transactions highlights a highly sophisticated buyer landscape. Buyers are no longer seeking simple market entry; they are building institutional platforms across borders.\n\nFrom our view, the data shows a market that rewards preparation. Those who arrive with institutional governance, clean compliance records, and structured operations are securing excellent multiples. Those who rush to the table unprepared are finding themselves facing aggressive price adjustments or aborted deals."
+          },
+          {
+            "heading": "Critical Considerations for the Gulf",
+            "subheading": "What Sellers Must Navigate"
+          },
+          {
+            "heading": "DIFC, ADGM, and Onshore Acquisitions",
+            "content": "Executing a transaction in the GCC requires managing distinct legal frameworks. If your firm operates in the DIFC or ADGM, you will benefit from common-law structures familiar to international buyers. Onshore transactions, however, operate under local federal codes that require careful coordination.\n\nSaudi Arabia presents its own regulatory pathways. Mergers in the financial space involve direct oversight from the Saudi Central Bank (SAMA). Furthermore, foreign buyers must secure approvals from the Capital Market Authority (CMA) for listed equity transactions. Understanding these steps early prevents costly delays in the final weeks of a deal."
+          },
+          {
+            "heading": "When the Family Table Dictates the Boardroom Valuation",
+            "content": "Family-owned conglomerates dominate the private sector across Kuwait, Oman, and Qatar. While these family enterprises are highly sophisticated, their internal decision-making can introduce complexity to an M&A transaction. Issues such as minority shareholder rights, cross-generational succession, and informal related-party agreements frequently emerge during due diligence.\n\nAddressing these issues before entering the market is a practical necessity. When a family office takes the time to formalize its internal agreements and clearly define its exit objectives, it removes a major risk perception for potential buyers."
+          },
+          {
+            "heading": "Why Buyers Scrutinize More Than EBITDA",
+            "content": "The modern buyer\u2019s checklist has expanded beyond financial performance. International private equity firms and regional consolidation vehicles increasingly evaluate environmental, social, and governance (ESG) metrics during due diligence. This is not a superficial exercise; it directly affects debt financing terms and post-acquisition integration.\n\nFirms that can demonstrate solid corporate governance, transparent labor standards, and clear regulatory compliance will naturally attract a broader, more sophisticated pool of buyers. Preparing these disclosures is just as critical as cleaning up your balance sheet."
+          },
+          {
+            "heading": "Conclusion",
+            "content": "The current transactional activity in the Middle East represents a generational shift in how local capital is deployed. The rise in sovereign wealth deployment, combined with structural economic diversification, means the window for high-value corporate exits remains wide open.\n\nBut realizing that value requires a deliberate approach. The corporate sellers who succeed will be those who view preparation not as a distraction from daily operations, but as a core pillar of their long-term plans.\n\nIf you are considering a full exit or a partnership in the coming years, starting your transaction readiness assessment early is the single most important decision you can make. Let us help you structure your next corporate chapter."
+          },
+          {
+            "heading": "Additional Resources",
+            "content": "Recommended Regional Reports & Readings:\n\n[EY MENA M&A Insights 2025 Report](https://www.ey.com/en_qa/newsroom/2026/02/m-a-activity-in-mena-region-experienced-strong-growth-in-2025-with-884-deals-totaling-us-106-1b) (Released February 2026)\n\n[IMF Regional Economic Outlook: Middle East and Central Asia](https://www.imf.org/en/publications/reo/meca)\n\n[PwC Deals MENA \u2014 Emerging Market M&A Trends](https://www.pwc.com/m1/en/media-centre/2026/transact-middle-east-2026.html)\n\nInternal Service Pages:\n\n[Corporate M&A Advisory](/{locale}/services/ma-advisory) \u2014 Our Approach & Services\n\n[Corporate Restructuring Services for Gulf Businesses](/{locale}/services/corporate-restructuring)\n\n[Feasibility Studies & Valuation Services](/{locale}/services/feasibility-studies)\n\nRelevant Events & Tools:\n\n[Saudi Capital Markets Forum (SCMF)](https://global-cmf.com/) \u2014 Riyadh, Annual\n\n[UAE Investment Forum](https://moneyexpoglobal.com/abudhabi/register/en) \u2014 Abu Dhabi, Annual\n\n[DIFC Deal Tracker](https://dxbinteract.com/dubai-projects-construction-progress/difc-living) \u2014 M&A data for UAE market participants"
+          }
+        ]
+      }
+    }
+  },
+  "consultation": {
+    "title": "Let's Talk Strategy",
+    "sub": "A 45-minute confidential conversation with a senior Visiweal advisor",
+    "whatToExpect": [
+      "Understanding your strategic objectives and challenges",
+      "Sharing relevant experience and case studies from your sector",
+      "Outlining a proposed engagement framework"
+    ],
+    "step": "Step",
+    "contactTitle": "Contact Information",
+    "serviceTitle": "What Service Are You Interested In?",
+    "serviceMulti": "You can select multiple services",
+    "dateTitle": "Pick a Date & Time",
+    "timeTitle": "Available Time Slots",
+    "summaryTitle": "Booking Summary",
+    "date": "Date",
+    "time": "Time",
+    "detailsTitle": "Engagement Details",
+    "notesTitle": "Anything Else?",
+    "notes": "Tell us about your situation...",
+    "fullName": "Full Name",
+    "company": "Company Name",
+    "jobTitle": "Job Title",
+    "email": "Email",
+    "phone": "Phone",
+    "revenue": "Company Revenue",
+    "urgency": "Urgency",
+    "hearAbout": "How did you hear about us?",
+    "selectHearAbout": "Select an option",
+    "next": "Next",
+    "back": "Back",
+    "submit": "Submit Booking",
+    "submitting": "Submitting...",
+    "success": "Your consultation has been scheduled. We'll be in touch within 24 hours to confirm.",
+    "successSub": "We'll be in touch within 24 hours to confirm.",
+    "error": "Something went wrong. Please try again.",
+    "required": "This field is required",
+    "requiredLabel": "Required fields",
+    "emailInvalid": "Please enter a valid email address",
+    "urgencyNow": "Within 1 week",
+    "urgencyMonth": "Within 2 weeks",
+    "urgencyQuarter": "Within 1 month",
+    "urgencyExploring": "Not urgent — exploring options"
+  },
+  "contact": {
+    "title": "Get in Touch",
+    "sub": "We'd love to hear from you. Reach out to start a conversation.",
+    "email": "info@visiweal.com",
+    "phone": "+961-71-828281",
+    "emailLabel": "Email us",
+    "phoneLabel": "Call us",
+    "offices": "Our Offices",
+    "info": {
+      "title": "Let's Start a Conversation",
+      "sub": "Reach out to discuss how Visiweal can help your business navigate complex financial decisions.",
+      "phone": "+961 71 828 281",
+      "beirut": "Beirut - Rabweh - Lebanon"
+    },
+    "form": {
+      "name": "Name",
+      "company": "Company",
+      "email": "Email",
+      "phone": "Phone",
+      "serviceInterest": "Service Interest",
+      "message": "Message",
+      "preferredContact": "Preferred Contact Method",
+      "send": "Send Message",
+      "sending": "Sending...",
+    "required": "This field is required",
+    "requiredLabel": "Required fields",
+    "emailInvalid": "Please enter a valid email address",
+      "error": "Something went wrong. Please try again.",
+      "success": "Thank you. We'll be in touch within 24 hours.",
+      "services": [
+        "M&A Advisory",
+        "Financial Advisory",
+        "Digital Transformation",
+        "Fractional CFO",
+        "Corporate Restructuring",
+        "Feasibility Studies"
+      ],
+      "contactMethods": [
+        "Email",
+        "Phone",
+        "Video Call"
+      ]
+    }
+  },
+  "founder": {
+    "title": "Sleiman El-Khoury - Founder & CEO, Visiweal",
+    "sub": "Over 35 years of institutional-grade strategic and financial advisory",
+    "name": "Sleiman El-Khoury",
+    "role": "Founder, VisiWeal Strategic & Financial Advisory"
+  },
+  "privacyPolicy": {
+    "title": "Privacy Policy",
+    "lastUpdated": "Last Updated: May 2026",
+    "sections": [
+      {
+        "title": "Introduction",
+        "content": "At VisiWeal, we uphold the highest standards of privacy and discretion in our commitment to protecting the personal and business information of our clients. With services that span across Financial Analysis, Business Planning, Feasibility Studies, Interim CFO provisions, Financial Advisory, and Business Valuation, we recognize the critical importance of confidentiality and security in the financial consulting and advisory realm. This Privacy Policy serves as our pledge to responsibly manage, safeguard, and utilize the information entrusted to us by our esteemed clientele."
+      },
+      {
+        "title": "Acceptance of This Privacy Statement",
+        "content": "Your use of VisiWeal's services and website signifies your acceptance of our Privacy Statement and Policy. If you do not agree with any aspect of this policy, please refrain from using our services and digital platforms."
+      },
+      {
+        "title": "Information That We Collect, and How We Use It",
+        "content": "We collect both personal and business information necessary to provide you with tailored financial consulting services. This includes, but is not limited to:\n\nPersonal Identification Information: Contact details such as name, email address, phone number, and company affiliation, necessary for communication and service provision.\n\nBusiness and Financial Information: Data related to your business activities, financial statements, business plans, valuation reports, and other pertinent documentation necessary to provide our services.\n\nTechnical Data: Information such as IP addresses, browser types, and operating systems to ensure our website's compatibility and security.\n\nUsage Data: Interaction with our website to improve navigation and service delivery.\n\nThe information collected is utilized to: Deliver customized financial consulting and advisory services. Enhance our service offerings through informed business and financial analysis. Communicate effectively with clients regarding their inquiries and service requirements. Facilitate operational and technical aspects of our services, including support and maintenance."
+      },
+      {
+        "title": "How We Might Share Your Information",
+        "content": "The confidentiality of your financial and personal information is paramount. We will only share your information with:\n\nTrusted third-party service providers who assist us in operating our website, conducting our business, or serving our users, so long as those parties agree to keep this information confidential.\n\nLegal entities if required by law, or to protect ours or others' rights, property, or safety."
+      },
+      {
+        "title": "Retention of Your Personal Information",
+        "content": "We retain your personal information only for as long as necessary to provide you with our services and as required by applicable law. If you wish to terminate your engagement with us, we will delete your personal data in accordance with legal and regulatory requirements."
+      },
+      {
+        "title": "Marketing",
+        "content": "VisiWeal may use your personal information to contact you with newsletters, marketing or promotional materials, and other information that may be of interest to you. You may opt-out of receiving any of these communications from us by following the unsubscribe link or instructions provided in any email we send."
+      },
+      {
+        "title": "Cookies and Other Tracking Technologies",
+        "content": "We use cookies and similar tracking technologies to track the activity on our website and hold certain information. These are used to enhance your experience with our website and services. You may instruct your browser to refuse all cookies or to indicate when a cookie is being sent."
+      },
+      {
+        "title": "Security Processes",
+        "content": "Our security measures include industry-standard physical, electronic, and managerial procedures to safeguard and secure the information we collect online. While no method of transmission over the Internet, or method of electronic storage, is 100% secure, we strive to use commercially acceptable means to protect your personal information."
+      },
+      {
+        "title": "Links to Other Web Sites",
+        "content": "Our Service may contain links to other sites that are not operated by us. If you click on a third-party link, you will be directed to that third party's site. We strongly advise you to review the Privacy Policy of every site you visit."
+      },
+      {
+        "title": "Compliance with Law",
+        "content": "We will disclose your personal information where required to do so by law or subpoena or if we believe such action is necessary to comply with the law and the reasonable requests of law enforcement or to protect the security or integrity of our Service."
+      },
+      {
+        "title": "Your Rights",
+        "content": "You have the right to access, correct, amend, or delete your personal information. Please contact us if you would like to exercise this right. Note that we may ask you to verify your identity before responding to such requests."
+      },
+      {
+        "title": "Children",
+        "content": "VisiWeal understands the importance of protecting children's privacy, particularly in their online interactions. This Site is not designed for and does not intentionally target or solicit children 18 years of age and younger."
+      },
+      {
+        "title": "Use of VisiWeal Web Sites",
+        "content": "By accessing or using our website and services, you consent to the collection, use, and sharing of your information as outlined in this Privacy Policy and certain other terms and conditions, contained in our Terms and Conditions of Use."
+      }
+    ]
+  },
+  "termsOfService": {
+    "title": "Terms of Service",
+    "lastUpdated": "Last Updated: May 2026",
+    "sections": [
+      {
+        "title": "Acceptance of Terms",
+        "content": "By accessing, browsing, or using the Visiweal website and its associated services, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree with the Terms and Conditions, you are not authorized to use this site."
+      },
+      {
+        "title": "Right to Change, Modify, or Delete the Terms and Conditions",
+        "content": "Visiweal reserves the right, at its sole discretion, to change, modify, or delete any parts of these Terms and Conditions at any time without prior notice. It is your responsibility to check these Terms and Conditions periodically for changes."
+      },
+      {
+        "title": "Privacy",
+        "content": "Your use of the site is also governed by our Privacy Policy, which is incorporated into these Terms and Conditions by this reference."
+      },
+      {
+        "title": "Copyright and Use of Site Content",
+        "content": "The content on the Visiweal site, including but not limited to text, graphics, images, and software, is the property of Visiweal or its content suppliers and protected by copyright laws. You may not modify, distribute, transmit, display, perform, reproduce, publish, license, create derivative works from, transfer, or sell any information, software, products, or services obtained from Visiweal without our express written consent."
+      },
+      {
+        "title": "Content Management and Removal",
+        "content": "Visiweal has the right, but not the obligation, to monitor and manage submissions to the site as it deems appropriate. We may remove content that we determine in our sole discretion is unlawful, offensive, threatening, libelous, defamatory, pornographic, obscene, or otherwise objectionable or violates any party's intellectual property or these Terms and Conditions."
+      },
+      {
+        "title": "Non-Endorsement",
+        "content": "The site may contain links to third-party websites or services that are not owned or controlled by Visiweal. Visiweal has no control over, and assumes no responsibility for, the content, privacy policies, or practices of any third-party websites or services."
+      },
+      {
+        "title": "Subscriber Qualifications",
+        "content": "By subscribing to our services, you affirm that you are legally competent to enter into these Terms and Conditions and that you will provide accurate and complete information as requested."
+      },
+      {
+        "title": "Registrant Information",
+        "content": "You agree to maintain the accuracy of the information provided at registration, and any failure to do so may result in the suspension of your account."
+      },
+      {
+        "title": "Third Parties",
+        "content": "Our website may employ the services of third parties to aid our activities. However, even if the third party is affiliated with Visiweal, we have no control over these services and we do not assume any liability related to the use of these third-party services."
+      },
+      {
+        "title": "Access to and Availability of the Site",
+        "content": "Access to the site is not guaranteed and may be suspended temporarily without notice in the case of system failure, maintenance, repair, or for reasons beyond our control."
+      },
+      {
+        "title": "Restriction, Suspension, or Termination",
+        "content": "We reserve the right to restrict, suspend, or terminate your access to the site at any time without notice for any reason whatsoever."
+      },
+      {
+        "title": "Disclaimer of Warranties",
+        "content": "The site and its content are provided 'as is' without warranty of any kind, whether express or implied."
+      },
+      {
+        "title": "Indemnification",
+        "content": "You agree to indemnify, defend, and hold harmless Visiweal, its officers, directors, employees, agents, licensors, and suppliers from and against all losses, expenses, damages, and costs, including reasonable attorneys' fees, resulting from any violation of these Terms and Conditions or any activity related to your account."
+      },
+      {
+        "title": "Entire Agreement",
+        "content": "These Terms and Conditions constitute the entire agreement between you and Visiweal with regard to your use of the site."
+      },
+      {
+        "title": "No Amendment or Waiver",
+        "content": "No amendment to or waiver of any part of these Terms and Conditions shall be effective unless in writing and signed by Visiweal."
+      }
+    ]
+  },
+  "notFound": {
+    "title": "404",
+    "headline": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "returnHome": "Return Home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "message": "An unexpected error occurred. Please try again.",
+    "tryAgain": "Try Again",
+    "returnHome": "Return Home"
+  }
+}
