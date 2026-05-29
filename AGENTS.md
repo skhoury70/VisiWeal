@@ -42,3 +42,9 @@ Complete all audit findings and enhance the Visiweal booking system with email n
 ## Build Status
 - Lint: 0 errors, 0 warnings
 - Build: 20 routes + 2 API routes, all passing
+
+## Deployment
+See `DEPLOYMENT.md` for the full deployment protocol. In short:
+- Say "Deploy the changes" and the AI handles commit + push
+- Vercel auto-deploys after push to `main`
+- If new `.env` vars were added, they must also be added to Vercel (see DEPLOYMENT.md for current list)

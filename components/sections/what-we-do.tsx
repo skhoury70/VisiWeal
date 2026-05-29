@@ -28,16 +28,18 @@ const ease = [0.16, 1, 0.3, 1] as const;
 function Visual({ index }: { index: number }) {
   const v = visuals[index];
   return (
-    <div className="relative flex h-32 w-32 items-center justify-center md:h-40 md:w-40">
-      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-brand-500/5 to-transparent" />
+    <div className="relative flex h-36 w-36 items-center justify-center md:h-44 md:w-44">
+      <div className="absolute inset-0 rounded-full border border-brand-400/15" />
+      <div className="absolute inset-3 rounded-full bg-gradient-to-b from-brand-500/8 to-brand-500/3 shadow-inner shadow-brand-500/5" />
+      <div className="absolute inset-7 rounded-full bg-brand-500/15" />
       <svg
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1"
+        strokeWidth="1.5"
         strokeLinecap="round"
         strokeLinejoin="round"
-        className="h-14 w-14 text-brand-400/30 md:h-16 md:w-16"
+        className="relative h-11 w-11 text-brand-400/70 md:h-12 md:w-12"
       >
         <path d={v.path} />
       </svg>
@@ -88,16 +90,16 @@ export default function WhatWeDo() {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.8, delay: i * 0.2, ease }}
             >
-              <div className="col-span-2 flex items-start md:col-span-1">
+              <div className="col-span-12 flex items-start md:col-span-2">
                 <span
-                  className="font-display text-[6rem] leading-none tracking-tight text-brand-300/20 md:text-[8.75rem] select-none"
+                  className="font-display text-[6rem] leading-none tracking-tight text-brand-300/15 md:text-[8.75rem] select-none"
                   style={{ fontFamily: "var(--font-display), serif" }}
                 >
                   {item.num}
                 </span>
               </div>
 
-              <div className="col-span-7 md:col-span-7">
+              <div className="col-span-8 -mt-2 md:col-span-6 md:col-start-3 md:mt-2">
                 <h3 className="text-heading-2 mb-4 tracking-tight text-text-primary">
                   {item.title}
                 </h3>
@@ -107,7 +109,7 @@ export default function WhatWeDo() {
                 <div className="mt-6 h-px w-16 bg-gradient-to-r from-brand-500/40 to-transparent" />
               </div>
 
-              <div className="col-span-3 flex items-start justify-center md:col-span-4 md:justify-end">
+              <div className="col-span-4 flex items-center justify-center md:col-span-4 md:justify-end">
                 <Visual index={i} />
               </div>
             </motion.div>

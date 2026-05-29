@@ -1,14 +1,16 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Marquee } from "@/components/ui/marquee";
 import { Section } from "@/components/ui/section";
 import { Container } from "@/components/ui/container";
 
 const clients = [
-  "Goldman Sachs", "J.P. Morgan", "Morgan Stanley",
-  "BlackRock", "KKR & Co.", "The Carlyle Group",
-  "Apollo Global", "Ares Management", "TPG Capital",
+  { name: "Fattal", logo: "/images/clients/Fattal.svg", w: 140, h: 55, url: "https://www.fattal.com.lb/home.html" },
+  { name: "Multilane", logo: "/images/clients/Multilane.svg", w: 130, h: 56, url: "https://multilaneinc.com/" },
+  { name: "Obegi Chemicals Group", logo: "/images/clients/Obegi.svg", w: 150, h: 44, url: "https://www.linkedin.com/company/obegi-chemicals-group/" },
+  { name: "PwC (Tyconz)", logo: "/images/clients/pwc.svg", w: 44, h: 44, url: "https://www.pwc.com/m1/en.html" },
 ];
 
 const ease = [0.16, 1, 0.3, 1] as const;
@@ -31,17 +33,25 @@ export default function ClientsMarquee() {
 
         <Marquee
           pauseOnHover
-          className="mt-10 [--duration:50s] [--gap:4rem]"
+          repeat={6}
+          className="mt-10 [--duration:80s] [--gap:4rem]"
         >
-          {clients.map((name) => (
-            <div
+          {clients.map(({ name, logo, w, h, url }) => (
+            <a
               key={name}
-              className="flex items-center justify-center rounded-lg border border-border-subtle bg-white/[0.04] px-8 py-4 backdrop-blur-sm"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group flex items-center justify-center rounded-lg border border-border-subtle bg-white/[0.04] px-8 py-4 backdrop-blur-sm transition-all duration-500 [perspective:400px] hover:border-white hover:bg-white/[0.08]"
             >
-              <span className="whitespace-nowrap text-sm font-medium tracking-wider text-text-tertiary transition-colors duration-300 hover:text-text-secondary">
-                {name}
-              </span>
-            </div>
+              <Image
+                src={logo}
+                alt={name}
+                width={w}
+                height={h}
+                className="h-10 w-auto object-contain opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:[transform:rotateX(2deg)_rotateY(-8deg)_scale(1.08)]"
+              />
+            </a>
           ))}
         </Marquee>
       </Container>
