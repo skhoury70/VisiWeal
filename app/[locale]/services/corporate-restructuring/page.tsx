@@ -82,6 +82,7 @@ export default async function CorporateRestructuringPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="restructuring"
         locale={locale}
+        hideStats
       />
     </>
   );

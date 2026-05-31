@@ -82,6 +82,7 @@ export default async function FeasibilityStudiesPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="feasibility"
         locale={locale}
+        hideStats
       />
     </>
   );

@@ -45,6 +45,7 @@ interface ServicePageTemplateProps {
   chartSection?: React.ReactNode;
   comparisonSection?: React.ReactNode;
   methodologySection?: React.ReactNode;
+  hideStats?: boolean;
 }
 
 export default function ServicePageTemplate({
@@ -53,12 +54,13 @@ export default function ServicePageTemplate({
   chartSection,
   comparisonSection,
   methodologySection,
+  hideStats,
 }: ServicePageTemplateProps) {
   const t = useTranslations("servicesDetails");
   const section = t.raw(serviceKey) as Record<string, unknown>;
   const labels = t.raw("sectionLabels") as Record<string, string>;
 
-  const stats = section.stats as Stat[];
+  const stats = (hideStats ? [] : section.stats) as Stat[];
   const whoItsFor = section.whoItsFor as WhoItem[];
   const deliverables = section.deliverables as DeliverableItem[];
   const process = section.process as ProcessStep[];

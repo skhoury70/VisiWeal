@@ -82,6 +82,7 @@ export default async function DigitalTransformationPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="digital"
         locale={locale}
+        hideStats
       />
     </>
   );

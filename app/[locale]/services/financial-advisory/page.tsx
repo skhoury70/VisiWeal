@@ -82,6 +82,7 @@ export default async function FinancialAdvisoryPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="financial"
         locale={locale}
+        hideStats
       />
     </>
   );

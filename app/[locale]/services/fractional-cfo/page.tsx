@@ -86,6 +86,7 @@ export default async function FractionalCFOPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="cfo"
         locale={locale}
+        hideStats
         chartSection={
           <section className="py-28 md:py-36">
             <div className="container-base">
