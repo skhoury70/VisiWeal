@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import CfoEngagementProcess from "@/components/sections/cfo-engagement-process";
 import CfoRoiCalculator from "@/components/charts/cfo-roi-calculator";
 import CfoDiagnostic from "@/components/diagnostic/cfo-diagnostic";
 import ScrollReveal from "@/components/effects/scroll-reveal";
@@ -87,6 +88,7 @@ export default async function FractionalCFOPage({ params }: Props) {
         serviceKey="cfo"
         locale={locale}
         hideStats
+        methodologySection={<CfoEngagementProcess />}
         chartSection={
           <section className="py-28 md:py-36">
             <div className="container-base">
