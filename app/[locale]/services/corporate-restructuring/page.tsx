@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import RestructuringProcess from "@/components/sections/restructuring-process";
 import {
   ServiceSchema,
   FAQPageSchema,
@@ -83,6 +84,7 @@ export default async function CorporateRestructuringPage({ params }: Props) {
         serviceKey="restructuring"
         locale={locale}
         hideStats
+        methodologySection={<RestructuringProcess />}
       />
     </>
   );
