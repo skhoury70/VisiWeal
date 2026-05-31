@@ -13,17 +13,17 @@ const steps = [
   {
     num: "02",
     title: "Strategy & Positioning",
-    desc: "Instrument selection, deal sizing, pricing expectations, timing \u2014 each decision here shapes how the market receives you. We build a capital markets strategy specific to your profile: who to approach, in what sequence, and how to frame the opportunity so the right counterparties engage on the right terms. Sequence matters as much as substance.",
+    desc: "Instrument selection, deal sizing, pricing expectations, timing - each decision here shapes how the market receives you. We build a capital markets strategy specific to your profile: who to approach, in what sequence, and how to frame the opportunity so the right counterparties engage on the right terms. Sequence matters as much as substance.",
   },
   {
     num: "03",
     title: "Market Approach & Execution",
-    desc: "This is where preparation meets reality. We manage transaction documentation, due diligence coordination, investor roadshows, and lender outreach \u2014 running the process so your management team can stay focused on the business. Momentum in a financing process is not accidental. It is managed.",
+    desc: "This is where preparation meets reality. We manage transaction documentation, due diligence coordination, investor roadshows, and lender outreach - running the process so your management team can stay focused on the business. Momentum in a financing process is not accidental. It is managed.",
   },
   {
     num: "04",
     title: "Negotiation & Closing",
-    desc: "Terms, pricing, covenants, and conditions \u2014 each carries consequences that outlast the deal itself. We negotiate with that in mind, protecting your position without walking away from achievable outcomes. From final term sheet through to funds flow, we manage every closing requirement until completion is confirmed.",
+    desc: "Terms, pricing, covenants, and conditions - each carries consequences that outlast the deal itself. We negotiate with that in mind, protecting your position without walking away from achievable outcomes. From final term sheet through to funds flow, we manage every closing requirement until completion is confirmed.",
   },
   {
     num: "05",
@@ -60,7 +60,7 @@ export default function CapitalAdvisoryProcess() {
             How We Take a Financing Mandate from Structure to Close
           </h2>
           <p className="mb-16 max-w-3xl text-body text-text-tertiary leading-relaxed">
-            Most financing processes fail before they reach market &mdash; not because the business is weak, but because the preparation was not serious. We run a five-stage process designed to correct that: starting with structure, ending with terms that hold, and staying present long after the ink dries.
+            Most financing processes fail before they reach market - not because the business is weak, but because the preparation was not serious. We run a five-stage process designed to correct that: starting with structure, ending with terms that hold, and staying present long after the ink dries.
           </p>
         </ScrollReveal>
         <motion.div
