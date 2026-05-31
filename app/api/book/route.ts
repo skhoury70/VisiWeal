@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import nodemailer from "nodemailer";
+import { createTransporter } from "@/lib/email";
 import { supabase } from "@/lib/supabase";
 import { createCalendarEvent, hasAnyCalendarCreds } from "@/lib/google-calendar";
 
@@ -82,15 +82,7 @@ export async function POST(request: NextRequest) {
     }
 
     try {
-      const transporter = nodemailer.createTransport({
-        host: process.env.ZOHO_SMTP_HOST,
-        port: Number(process.env.ZOHO_SMTP_PORT) || 587,
-        secure: false,
-        auth: {
-          user: process.env.ZOHO_EMAIL,
-          pass: process.env.ZOHO_PASSWORD,
-        },
-      });
+      const transporter = createTransporter();
 
       await transporter.sendMail({
         from: `"Visiweal Website" <${process.env.ZOHO_EMAIL}>`,

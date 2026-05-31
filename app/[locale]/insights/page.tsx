@@ -6,6 +6,7 @@ import { Container } from "@/components/ui/container";
 import { Badge } from "@/components/ui/badge";
 import { BreadcrumbSchema } from "@/components/seo/json-ld";
 import InsightsContent from "@/components/sections/insights-content";
+import NewsletterForm from "@/components/sections/newsletter-form";
 
 type Props = {
   params: Promise<{ locale: string }>;
@@ -105,33 +106,13 @@ export default async function InsightsPage({ params }: Props) {
 
       <SectionDivider />
 
-      <section className="py-28 md:py-36">
-        <Container>
-          <ScrollReveal>
-            <div className="mx-auto max-w-xl text-center">
-              <h2 className="mb-4 text-3xl font-display font-light text-white md:text-4xl">
-                {t("newsletter.title")}
-              </h2>
-              <p className="mb-8 text-gray-400">
-                {t("newsletter.sub")}
-              </p>
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder={t("newsletter.placeholder")}
-                  className="flex-1 rounded-full border border-white/10 bg-white/[0.03] px-5 py-3 text-sm text-white outline-none transition-all placeholder:text-gray-600 focus:border-teal-500/30"
-                />
-                <button className="rounded-full bg-gradient-to-r from-teal-600 to-teal-400 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:shadow-teal-500/40">
-                  {t("newsletter.cta")}
-                </button>
-              </div>
-              <p className="mt-4 text-xs text-gray-600">
-                {t("newsletter.privacy")}
-              </p>
-            </div>
-          </ScrollReveal>
-        </Container>
-      </section>
+      <NewsletterForm
+        title={t("newsletter.title")}
+        sub={t("newsletter.sub")}
+        placeholder={t("newsletter.placeholder")}
+        cta={t("newsletter.cta")}
+        privacy={t("newsletter.privacy")}
+      />
     </>
   );
 }

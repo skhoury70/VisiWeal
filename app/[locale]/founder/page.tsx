@@ -377,7 +377,7 @@ export default async function FounderPage({ params }: Props) {
               </p>
               <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
                 <Link
-                  href={`/${locale}/contact`}
+                  href={`/${locale}/book-consultation`}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-teal-400 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:shadow-teal-500/40"
                 >
                   Book Consultation

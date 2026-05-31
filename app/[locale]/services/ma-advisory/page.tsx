@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import MAMethodologyPipeline from "@/components/sections/ma-methodology-pipeline";
 import MaDealSankey from "@/components/charts/ma-deal-sankey";
 import ScrollReveal from "@/components/effects/scroll-reveal";
 import GlassCard from "@/components/effects/glass-card";
@@ -69,6 +70,22 @@ export default async function MAAdvisoryPage({ params }: Props) {
             question: "What is the typical M&A advisory process?",
             answer: "The typical M&A advisory process includes four phases: discovery (understanding strategic objectives), target screening and assessment, execution (valuation, due diligence, negotiation), and post-merger integration planning and monitoring.",
           },
+          {
+            question: "What is proprietary deal sourcing in M&A?",
+            answer: "We originate proprietary opportunities through market mapping, sector intelligence, and trusted relationships — giving clients access to strategic targets before competitive processes begin.",
+          },
+          {
+            question: "What does M&A due diligence cover?",
+            answer: "We lead a structured diligence process to validate performance, identify risks, test assumptions, and translate findings into valuation, structure, and negotiation strategy.",
+          },
+          {
+            question: "What is Post-Merger Integration in M&A?",
+            answer: "We support post-merger integration to convert transaction logic into realized value through synergy tracking, operating model alignment, governance, reporting, and Day 1 readiness.",
+          },
+          {
+            question: "What is an Indication of Interest in M&A?",
+            answer: "We develop a compelling Indication of Interest that positions the client credibly, anchors valuation expectations, and opens the path toward exclusivity and deeper diligence.",
+          },
         ]}
       />
       <BreadcrumbSchema
@@ -81,6 +98,7 @@ export default async function MAAdvisoryPage({ params }: Props) {
       <ServicePageTemplate
         serviceKey="ma"
         locale={locale}
+        methodologySection={<MAMethodologyPipeline />}
         chartSection={
           <section className="py-28 md:py-36">
             <div className="container-base">

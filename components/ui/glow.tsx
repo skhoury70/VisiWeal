@@ -18,7 +18,6 @@ const intensityClasses: Record<GlowIntensity, string> = {
 interface GlowProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: GlowSize;
   intensity?: GlowIntensity;
-  color?: "teal" | "brand";
   animation?: "shift" | "secondary" | "none";
   blur?: "default" | "heavy";
 }

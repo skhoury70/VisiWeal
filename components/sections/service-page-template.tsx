@@ -44,6 +44,7 @@ interface ServicePageTemplateProps {
   locale: string;
   chartSection?: React.ReactNode;
   comparisonSection?: React.ReactNode;
+  methodologySection?: React.ReactNode;
 }
 
 export default function ServicePageTemplate({
@@ -51,6 +52,7 @@ export default function ServicePageTemplate({
   locale,
   chartSection,
   comparisonSection,
+  methodologySection,
 }: ServicePageTemplateProps) {
   const t = useTranslations("servicesDetails");
   const section = t.raw(serviceKey) as Record<string, unknown>;
@@ -67,7 +69,7 @@ export default function ServicePageTemplate({
       <HeroSection badge={section.heroBadge as string} title={section.heroTitle as string} sub={section.heroSub as string} locale={locale} serviceKey={serviceKey} />
       <OverviewSection desc1={section.overviewDesc1 as string} desc2={section.overviewDesc2 as string} stats={stats} labels={labels} />
       <SectionDivider />
-      <ProcessSection process={process} labels={labels} />
+      {methodologySection ?? <ProcessSection process={process} labels={labels} />}
       <SectionDivider />
       <WhoSection whoItsFor={whoItsFor} labels={labels} />
       <SectionDivider />
@@ -167,17 +169,19 @@ function OverviewSection({ desc1, desc2, stats, labels }: { desc1: string; desc2
             <p className="text-body text-text-secondary leading-relaxed">{desc1}</p>
             <p className="mt-6 text-body text-text-tertiary leading-relaxed">{desc2}</p>
           </ScrollReveal>
-          <ScrollReveal direction="right" delay={0.2}>
-            <h3 className="text-label mb-6 block text-brand-400/80">{labels.stats}</h3>
-            <div className="grid grid-cols-3 gap-6">
-              {stats.map((stat, i) => (
-                <motion.div key={i} custom={i} variants={statVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-                  <p className="text-metric text-gradient-brand">{stat.value}</p>
-                  <p className="mt-1 text-caption text-text-tertiary">{stat.label}</p>
-                </motion.div>
-              ))}
-            </div>
-          </ScrollReveal>
+          {stats.length > 0 && (
+            <ScrollReveal direction="right" delay={0.2}>
+              <h3 className="text-label mb-6 block text-brand-400/80">{labels.stats}</h3>
+              <div className="grid grid-cols-3 gap-6">
+                {stats.map((stat, i) => (
+                  <motion.div key={i} custom={i} variants={statVariants} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+                    <p className="text-metric text-gradient-brand">{stat.value}</p>
+                    <p className="mt-1 text-caption text-text-tertiary">{stat.label}</p>
+                  </motion.div>
+                ))}
+              </div>
+            </ScrollReveal>
+          )}
         </div>
       </div>
     </section>
@@ -216,8 +220,7 @@ function WhoSection({ whoItsFor, labels }: { whoItsFor: WhoItem[]; labels: Recor
     <section className="py-28 md:py-36">
       <div className="container-base">
         <ScrollReveal direction="up">
-          <span className="text-label mb-4 block text-brand-400/80">{labels.who}</span>
-          <h2 className="text-heading-1 mb-16 tracking-tight text-text-primary">{labels.who}</h2>
+          <span className="text-label mb-16 block text-brand-400/80">{labels.who}</span>
         </ScrollReveal>
         <motion.div className="grid gap-6 md:grid-cols-3" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
           {whoItsFor.map((item, i) => (
@@ -244,8 +247,7 @@ function DeliverablesSection({ deliverables, labels }: { deliverables: Deliverab
     <section className="py-28 md:py-36">
       <div className="container-base">
         <ScrollReveal direction="up">
-          <span className="text-label mb-4 block text-brand-400/80">{labels.deliverables}</span>
-          <h2 className="text-heading-1 mb-16 tracking-tight text-text-primary">{labels.deliverables}</h2>
+          <span className="text-label mb-16 block text-brand-400/80">{labels.deliverables}</span>
         </ScrollReveal>
         <motion.div className="grid gap-6 md:grid-cols-2" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
           {deliverables.map((item, i) => (
@@ -291,8 +293,7 @@ function RelatedSection({ relatedServices, labels, locale }: { relatedServices: 
     <section className="py-28 md:py-36">
       <div className="container-base">
         <ScrollReveal direction="up">
-          <span className="text-label mb-4 block text-brand-400/80">{labels.related}</span>
-          <h2 className="text-heading-1 mb-16 tracking-tight text-text-primary">{labels.related}</h2>
+          <span className="text-label mb-16 block text-brand-400/80">{labels.related}</span>
         </ScrollReveal>
         <motion.div className="grid gap-6 md:grid-cols-3" variants={staggerContainer} initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.1 }}>
           {relatedServices.map((key) => (

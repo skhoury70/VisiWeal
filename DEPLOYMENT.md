@@ -57,6 +57,6 @@ If new environment variables were added in `.env.local` during the work, they mu
 | `GOOGLE_CALENDAR_ID` | `lib/google-calendar.ts` |
 | `ZOHO_SMTP_HOST` | `lib/email.ts` |
 | `ZOHO_SMTP_PORT` | `lib/email.ts` |
-| `ZOHO_SMTP_USER` | `lib/email.ts` |
-| `ZOHO_SMTP_PASS` | `lib/email.ts` |
-| `NOTIFICATION_EMAIL` | `lib/email.ts` |
+| `ZOHO_EMAIL` | `lib/email.ts` (SMTP auth user + default from) |
+| `ZOHO_PASSWORD` | `lib/email.ts` (SMTP auth pass) |
+| `CRON_SECRET` | `app/api/newsletter/cron/route.ts` |

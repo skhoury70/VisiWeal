@@ -1,7 +1,7 @@
-import { useTranslations } from "next-intl";
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
 import CfoRoiCalculator from "@/components/charts/cfo-roi-calculator";
+import CfoDiagnostic from "@/components/diagnostic/cfo-diagnostic";
 import ScrollReveal from "@/components/effects/scroll-reveal";
 import GlassCard from "@/components/effects/glass-card";
 import {
@@ -100,59 +100,21 @@ export default async function FractionalCFOPage({ params }: Props) {
           </section>
         }
         comparisonSection={
-          <CFOComparisonSection />
+          <section className="py-28 md:py-36">
+            <div className="container-base">
+              <ScrollReveal direction="up">
+                <span className="text-label mb-4 block text-brand-400/80">Diagnostic Tool</span>
+                <h2 className="text-heading-1 mb-16 tracking-tight text-text-primary">Which model fits your business?</h2>
+              </ScrollReveal>
+              <GlassCard className="overflow-hidden p-8">
+                <CfoDiagnostic />
+              </GlassCard>
+            </div>
+          </section>
         }
       />
     </>
   );
 }
 
-function CFOComparisonSection() {
-  useTranslations("servicesDetails");
 
-  const rows = [
-    { label: "Annual Cost (MENA)", fractional: "AED 180K - 350K", fulltime: "AED 600K - 1.2M", outsourced: "AED 100K - 200K" },
-    { label: "Engagement Model", fractional: "2-5 days/week", fulltime: "Full-time, 5 days/week", outsourced: "Per-project basis" },
-    { label: "Strategic Partnership", fractional: "Yes - senior advisor", fulltime: "In-house executive", outsourced: "Transactional" },
-    { label: "Board Readiness", fractional: "Immediate", fulltime: "Requires ramp-up", outsourced: "Limited" },
-    { label: "Industry Expertise", fractional: "Multi-sector", fulltime: "Single-company focus", outsourced: "Generalist" },
-    { label: "Team Integration", fractional: "Full integration", fulltime: "Full integration", outsourced: "Minimal integration" },
-    { label: "Commitment", fractional: "Flexible / scalable", fulltime: "Long-term / fixed", outsourced: "Short-term / variable" },
-    { label: "Time to Impact", fractional: "2-4 weeks", fulltime: "8-12 weeks", outsourced: "Varies" },
-  ];
-
-  return (
-    <section className="py-28 md:py-36">
-      <div className="container-base">
-        <ScrollReveal direction="up">
-          <h2 className="text-heading-1 mb-4 tracking-tight text-text-primary">Fractional CFO vs Alternatives</h2>
-          <p className="mb-16 text-body text-text-tertiary">How we compare against full-time CFOs and outsourced finance providers.</p>
-        </ScrollReveal>
-        <ScrollReveal direction="up" delay={0.1}>
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-sm">
-              <thead>
-                <tr className="border-b border-border">
-                  <th className="py-4 pr-4 text-text-primary font-medium"></th>
-                  <th className="py-4 px-4 text-brand-400 font-semibold">Fractional CFO</th>
-                  <th className="py-4 px-4 text-text-secondary font-medium">Full-Time CFO</th>
-                  <th className="py-4 px-4 text-text-secondary font-medium">Outsourced Finance</th>
-                </tr>
-              </thead>
-              <tbody>
-                {rows.map((row, i) => (
-                  <tr key={i} className="border-b border-border-subtle">
-                    <td className="py-4 pr-4 text-text-primary font-medium">{row.label}</td>
-                    <td className="py-4 px-4 text-brand-400/90">{row.fractional}</td>
-                    <td className="py-4 px-4 text-text-tertiary">{row.fulltime}</td>
-                    <td className="py-4 px-4 text-text-tertiary">{row.outsourced}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </ScrollReveal>
-      </div>
-    </section>
-  );
-}

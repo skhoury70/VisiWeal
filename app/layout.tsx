@@ -77,6 +77,11 @@ export default async function RootLayout({ children }: Props) {
       <head>
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="apple-touch-icon" href="/favicon.ico" />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `new MutationObserver(()=>{document.querySelectorAll("[fdprocessedid]").forEach(e=>e.removeAttribute("fdprocessedid"))}).observe(document.documentElement,{attributes:true,subtree:true,attributeFilter:["fdprocessedid"]})`,
+          }}
+        />
       </head>
       <body className="bg-background text-foreground antialiased" style={{ backgroundColor: "#0C1820" }}>
         {children}

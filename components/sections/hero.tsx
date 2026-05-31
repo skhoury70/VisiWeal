@@ -232,20 +232,6 @@ export default function Hero() {
           </motion.div>
         </div>
 
-        <motion.div
-          className="mt-20 flex items-center gap-6 border-t border-border pt-8 md:mt-24"
-          {...item(0.6)}
-        >
-          <span className="text-overline text-text-tertiary">
-            Trusted by
-          </span>
-          <div className="flex flex-wrap items-center gap-6">
-            <span className="text-xs font-semibold uppercase tracking-widest text-text-quaternary/60">Goldman Sachs</span>
-            <span className="text-xs font-semibold uppercase tracking-widest text-text-quaternary/60">J.P. Morgan</span>
-            <span className="hidden text-xs font-semibold uppercase tracking-widest text-text-quaternary/60 sm:block">BlackRock</span>
-            <span className="hidden text-xs font-semibold uppercase tracking-widest text-text-quaternary/60 md:block">KKR &amp; Co.</span>
-          </div>
-        </motion.div>
       </motion.div>
     </section>
   );

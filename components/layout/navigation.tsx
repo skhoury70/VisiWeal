@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 const navItems = [
   { key: "home", href: "/" },
   { key: "services", href: "/services" },
-  { key: "trackRecord", href: "/track-record" },
+  // { key: "trackRecord", href: "/track-record" }, // hidden — enable when track record page is ready
   // { key: "team", href: "/team" }, // hidden — enable when team page is ready
   { key: "founder", href: "/founder" },
   { key: "insights", href: "/insights" },
@@ -76,33 +76,26 @@ export default function Navigation() {
                     )}
                   </Link>
                   {megaOpen && (
-                    <div className="absolute left-0 mt-0 w-[32rem] rounded-b-2xl border border-gray-200 bg-white shadow-xl">
-                      <div className="grid grid-cols-2 gap-8 p-6">
-                        <div className="space-y-6">
-                          <p className="text-xs font-semibold uppercase tracking-widest text-teal-600">
-                            {t("services")}
-                          </p>
-                          <div className="grid grid-cols-1 gap-2">
-                            {[
-                              { key: "maAdvisory", href: "/services/ma-advisory" },
-                              { key: "financialAdvisory", href: "/services/financial-advisory" },
-                              { key: "digitalTransformation", href: "/services/digital-transformation" },
-                              { key: "fractionalCFO", href: "/services/fractional-cfo" },
-                              { key: "corporateRestructuring", href: "/services/corporate-restructuring" },
-                              { key: "feasibilityStudies", href: "/services/feasibility-studies" },
-                            ].map((s) => (
-                              <Link
-                                key={s.key}
-                                href={`/${locale}${s.href}`}
-                                className="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-                              >
-                                <span className="h-1.5 w-1.5 rounded-full bg-teal-500 opacity-0 transition-opacity group-hover:opacity-100" />
-                                {t(s.key)}
-                              </Link>
-                            ))}
-                          </div>
+                    <div className="absolute left-0 mt-0 w-64 rounded-b-2xl border border-gray-200 bg-white shadow-xl">
+                      <div className="p-4">
+                        <div className="space-y-1">
+                          {[
+                            { key: "maAdvisory", href: "/services/ma-advisory" },
+                            { key: "financialAdvisory", href: "/services/financial-advisory" },
+                            { key: "digitalTransformation", href: "/services/digital-transformation" },
+                            { key: "fractionalCFO", href: "/services/fractional-cfo" },
+                            { key: "corporateRestructuring", href: "/services/corporate-restructuring" },
+                            { key: "feasibilityStudies", href: "/services/feasibility-studies" },
+                          ].map((s) => (
+                            <Link
+                              key={s.key}
+                              href={`/${locale}${s.href}`}
+                              className="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+                            >
+                              {t(s.key)}
+                            </Link>
+                          ))}
                         </div>
-
                       </div>
                     </div>
                   )}

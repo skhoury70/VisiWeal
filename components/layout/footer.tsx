@@ -98,10 +98,10 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">{t("company")}</p>
             <ul className="space-y-3">
-              {["about", "trackRecord", "founder", "insights", "contact"].map((s) => (
+              {["about", "founder", "insights", "contact"].map((s) => (
                 <li key={s}>
                   <Link
-                    href={`/${locale}/${s === "about" ? "about" : s === "trackRecord" ? "track-record" : s}`}
+                    href={`/${locale}/${s}`}
                     className="text-sm text-gray-400 transition-colors hover:text-white"
                   >
                     {t(s)}

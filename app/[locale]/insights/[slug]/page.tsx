@@ -107,6 +107,30 @@ export default async function ArticlePage({ params }: Props) {
     return processed.split("\n\n").map((paragraph, i) => {
       const trimmed = paragraph.trim();
       if (!trimmed) return null;
+
+      const lines = trimmed.split("\n");
+      const isBlockquote = lines.every((l) => l.trimStart().startsWith(">"));
+      if (isBlockquote) {
+        return (
+          <blockquote key={i} className="my-10 border-l-2 border-teal-500/40 pl-6">
+            {lines.map((line, j) => {
+              const text = line.trim().replace(/^>\s*/, "").trim();
+              const isAttribution = text.startsWith("—") || text.startsWith("–");
+              return (
+                <p
+                  key={j}
+                  className={`${isAttribution ? "mt-2 text-sm text-gray-500" : "italic leading-relaxed text-gray-300"}`}
+                >
+                  {isAttribution ? null : <span className="text-2xl leading-none text-teal-400/60 select-none">&ldquo;</span>}
+                  {renderLinks(text)}
+                  {isAttribution ? null : <span className="text-2xl leading-none text-teal-400/60 select-none">&rdquo;</span>}
+                </p>
+              );
+            })}
+          </blockquote>
+        );
+      }
+
       const isBullet = trimmed.startsWith("- ") || trimmed.startsWith("• ");
       const isLink = trimmed.startsWith("→") || trimmed.startsWith("—");
       if (isBullet) {
@@ -168,22 +192,23 @@ export default async function ArticlePage({ params }: Props) {
                 <span>{article.readTime}</span>
               </div>
             </ScrollReveal>
-
-            <ScrollReveal>
-              <div className="relative mb-12 aspect-[2/1] overflow-hidden rounded-xl">
-                <Image
-                  src={article.image}
-                  alt=""
-                  fill
-                  className="object-cover"
-                  sizes="(max-width:768px) 100vw, 768px"
-                  priority
-                  quality={90}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0C1820] via-transparent to-transparent" />
-              </div>
-            </ScrollReveal>
           </div>
+
+          <ScrollReveal>
+            <div className="relative mb-12 aspect-[2/1] overflow-hidden rounded-xl">
+              <Image
+                src={article.image}
+                alt=""
+                fill
+                className="object-cover"
+                sizes="100vw"
+                priority
+                quality={90}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0C1820] via-transparent to-transparent" />
+            </div>
+          </ScrollReveal>
+
         </Container>
       </section>
 
