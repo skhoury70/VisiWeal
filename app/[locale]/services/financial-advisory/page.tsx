@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import CapitalAdvisoryProcess from "@/components/sections/capital-advisory-process";
 import {
   ServiceSchema,
   FAQPageSchema,
@@ -83,6 +84,7 @@ export default async function FinancialAdvisoryPage({ params }: Props) {
         serviceKey="financial"
         locale={locale}
         hideStats
+        methodologySection={<CapitalAdvisoryProcess />}
       />
     </>
   );
