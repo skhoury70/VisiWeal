@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import DigitalTransformationProcess from "@/components/sections/digital-transformation-process";
 import {
   ServiceSchema,
   FAQPageSchema,
@@ -83,6 +84,7 @@ export default async function DigitalTransformationPage({ params }: Props) {
         serviceKey="digital"
         locale={locale}
         hideStats
+        methodologySection={<DigitalTransformationProcess />}
       />
     </>
   );
