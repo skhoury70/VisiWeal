@@ -98,7 +98,7 @@ export default function Footer() {
           <div className="space-y-4">
             <p className="text-xs font-semibold uppercase tracking-widest text-teal-400">{t("company")}</p>
             <ul className="space-y-3">
-              {["about", "founder", "insights", "contact"].map((s) => (
+              {["founder", "insights", "contact"].map((s) => (
                 <li key={s}>
                   <Link
                     href={`/${locale}/${s}`}
