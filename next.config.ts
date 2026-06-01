@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
     minimumCacheTTL: 60 * 60 * 24 * 30,
     qualities: [50, 75, 80, 85],
   },
-  allowedDevOrigins: ["192.168.68.109"],
+  allowedDevOrigins: ["192.168.68.108", "192.168.68.109"],
   async headers() {
     return [
       {

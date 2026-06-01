@@ -2,9 +2,14 @@
 
 import { useEffect, useRef, useState } from "react";
 
+function getConfidenceColor(pct: number): string {
+  if (pct <= 40) return "#EF4444";
+  if (pct <= 70) return "#F59E0B";
+  return "#22C55E";
+}
+
 interface Props {
   confidence: number;
-  color: string;
   label: string;
 }
 
@@ -45,7 +50,6 @@ function polarToCartesian(
 
 export default function ConfidenceGauge({
   confidence,
-  color,
   label,
 }: Props) {
   const [animatedPct, setAnimatedPct] = useState(0);
@@ -78,16 +82,18 @@ export default function ConfidenceGauge({
 
   const fillAngle = startAngle + ((endAngle - startAngle) * animatedPct) / 100;
 
+  const confidenceColor = getConfidenceColor(confidence);
+
   return (
     <div className="flex flex-col items-center gap-5">
       <p className="text-center text-[11px] font-semibold tracking-[2px] uppercase text-white/45">
         Match Confidence
       </p>
-      <div className="relative w-[200px] overflow-visible" style={{ height: 110 }}>
+      <div className="relative w-[200px]" style={{ height: 170 }}>
         <svg
           width="200"
-          height="110"
-          viewBox="0 0 200 120"
+          height="130"
+          viewBox="0 0 200 140"
           className="overflow-visible"
         >
           <path
@@ -100,16 +106,16 @@ export default function ConfidenceGauge({
           <path
             d={describeArc(cx, cy, r, startAngle, fillAngle)}
             fill="none"
-            stroke={color}
+            stroke={confidenceColor}
             strokeWidth={16}
             strokeLinecap="round"
             className="transition-[stroke-dasharray]"
           />
         </svg>
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 text-center">
+        <div className="absolute left-1/2 top-[85px] -translate-x-1/2 text-center">
           <div
             className="text-3xl font-bold leading-none"
-            style={{ color }}
+            style={{ color: confidenceColor }}
           >
             {animatedPct}%
           </div>
@@ -117,9 +123,9 @@ export default function ConfidenceGauge({
             Confidence
           </div>
         </div>
-      </div>
-      <div className="max-w-[200px] text-center">
-        <div className="mb-1 text-sm font-bold text-white/90">{label}</div>
+        <div className="absolute left-0 right-0 top-[128px] text-center">
+          <div className="text-sm font-bold text-white/90 leading-tight px-1">{label}</div>
+        </div>
       </div>
     </div>
   );

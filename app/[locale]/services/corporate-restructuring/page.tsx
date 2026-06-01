@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/services/corporate-restructuring" : `/ar/services/corporate-restructuring`;
   return {
-    title: t("restructuring.title"),
+    title: "Corporate Restructuring and Turnaround Advisory | VisiWeal",
     description: t("restructuring.short"),
     alternates: {
       canonical: `${baseUrl}${path}`,
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `${t("restructuring.title")} | Visiweal`,
+      title: `Turnaround and Corporate Recovery | VisiWeal`,
       description: t("restructuring.short"),
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
@@ -56,26 +56,22 @@ export default async function CorporateRestructuringPage({ params }: Props) {
             answer: "Companies typically need restructuring when facing operational or financial challenges such as declining profitability, cash flow pressure, covenant breaches, or the need to optimize capital structure and operational efficiency.",
           },
           {
-            question: "How does Visiweal approach corporate restructuring?",
-            answer: "Visiweal combines rigorous financial analysis with deep operational expertise, having preserved over AED 800M in value across 25+ restructuring cases with a 90% success rate across the MENA region.",
+            question: "How does VisiWeal approach corporate restructuring?",
+            answer: "VisiWeal combines rigorous financial analysis with deep operational expertise to develop a restructuring plan that holds up under scrutiny across the MENA region.",
           },
           {
-            question: "What types of restructuring does Visiweal handle?",
-            answer: "Visiweal handles operational restructuring (cost optimization, process redesign), financial restructuring (debt renegotiation, capital structure optimization), organizational restructuring, and strategic turnaround management.",
+            question: "What types of restructuring does VisiWeal handle?",
+            answer: "VisiWeal handles operational restructuring (cost optimization, process redesign), financial restructuring (debt renegotiation, capital structure optimization), organizational restructuring, and turnaround management.",
           },
           {
             question: "How long does a corporate restructuring engagement take?",
-            answer: "Restructuring timelines vary by complexity and urgency, typically ranging from 3-6 months for operational restructuring to 6-12 months for comprehensive financial restructuring and turnaround programs.",
-          },
-          {
-            question: "What is the success rate of corporate restructuring?",
-            answer: "Visiweal has a 90% success rate across 25+ restructuring cases in the MENA region, having preserved over AED 800M in client value through rigorous financial analysis, stakeholder management, and operational execution.",
+            answer: "Restructuring timelines vary by complexity and urgency, typically ranging from 3-6 months for operational restructuring to 6-12 months for financial restructuring and turnaround programs.",
           },
         ]}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Visiweal", url: "https://visiweal.com" },
+          { name: "VisiWeal", url: "https://visiweal.com" },
           { name: "Services", url: `https://visiweal.com/${locale === "en" ? "" : "ar/"}services` },
           { name: "Corporate Restructuring", url: `https://visiweal.com/${locale === "en" ? "" : "ar/"}services/corporate-restructuring` },
         ]}

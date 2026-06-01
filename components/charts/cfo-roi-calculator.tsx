@@ -38,20 +38,22 @@ interface CurrencyConfig {
   isVolatile?: boolean;
   decimalPlaces: number;
   locale: string;
+  jurisdiction: string;
+  corporateTaxRate: number;
 }
 
 const CURRENCIES: Record<string, CurrencyConfig> = {
-  USD: { code: "USD", name: "US Dollar", symbol: "$", flag: "🇺🇸", rateToUSD: 1.0, isPegged: true, decimalPlaces: 0, locale: "en-US" },
-  AED: { code: "AED", name: "UAE Dirham", symbol: "AED", flag: "🇦🇪", rateToUSD: 3.6730, isPegged: true, decimalPlaces: 0, locale: "en-AE" },
-  SAR: { code: "SAR", name: "Saudi Riyal", symbol: "SAR", flag: "🇸🇦", rateToUSD: 3.7503, isPegged: true, decimalPlaces: 0, locale: "ar-SA" },
-  QAR: { code: "QAR", name: "Qatari Riyal", symbol: "QAR", flag: "🇶🇦", rateToUSD: 3.6450, isPegged: true, decimalPlaces: 0, locale: "ar-QA" },
-  KWD: { code: "KWD", name: "Kuwaiti Dinar", symbol: "KWD", flag: "🇰🇼", rateToUSD: 0.3055, isPegged: true, decimalPlaces: 3, locale: "ar-KW" },
-  BHD: { code: "BHD", name: "Bahraini Dinar", symbol: "BHD", flag: "🇧🇭", rateToUSD: 0.3772, isPegged: true, decimalPlaces: 3, locale: "ar-BH" },
-  OMR: { code: "OMR", name: "Omani Rial", symbol: "OMR", flag: "🇴🇲", rateToUSD: 0.3850, isPegged: true, decimalPlaces: 3, locale: "ar-OM" },
-  JOD: { code: "JOD", name: "Jordanian Dinar", symbol: "JOD", flag: "🇯🇴", rateToUSD: 0.7090, isPegged: true, decimalPlaces: 3, locale: "ar-JO" },
-  EGP: { code: "EGP", name: "Egyptian Pound", symbol: "EGP", flag: "🇪🇬", rateToUSD: 50.50, isPegged: false, decimalPlaces: 0, locale: "ar-EG" },
-  IQD: { code: "IQD", name: "Iraqi Dinar", symbol: "IQD", flag: "🇮🇶", rateToUSD: 1310, isPegged: false, decimalPlaces: 0, locale: "ar-IQ" },
-  SYP: { code: "SYP", name: "Syrian Pound", symbol: "SYP", flag: "🇸🇾", rateToUSD: 13000, isPegged: false, isVolatile: true, decimalPlaces: 0, locale: "ar-SY" },
+  AED: { code: "AED", name: "UAE Dirham", symbol: "AED", flag: "🇦🇪", rateToUSD: 3.6730, isPegged: true, decimalPlaces: 0, locale: "en-AE", jurisdiction: "UAE", corporateTaxRate: 0.09 },
+  SAR: { code: "SAR", name: "Saudi Riyal", symbol: "SAR", flag: "🇸🇦", rateToUSD: 3.7503, isPegged: true, decimalPlaces: 0, locale: "ar-SA", jurisdiction: "Saudi Arabia", corporateTaxRate: 0.20 },
+  QAR: { code: "QAR", name: "Qatari Riyal", symbol: "QAR", flag: "🇶🇦", rateToUSD: 3.6450, isPegged: true, decimalPlaces: 0, locale: "ar-QA", jurisdiction: "Qatar", corporateTaxRate: 0.10 },
+  KWD: { code: "KWD", name: "Kuwaiti Dinar", symbol: "KWD", flag: "🇰🇼", rateToUSD: 0.3055, isPegged: true, decimalPlaces: 3, locale: "ar-KW", jurisdiction: "Kuwait", corporateTaxRate: 0.15 },
+  BHD: { code: "BHD", name: "Bahraini Dinar", symbol: "BHD", flag: "🇧🇭", rateToUSD: 0.3772, isPegged: true, decimalPlaces: 3, locale: "ar-BH", jurisdiction: "Bahrain", corporateTaxRate: 0.00 },
+  OMR: { code: "OMR", name: "Omani Rial", symbol: "OMR", flag: "🇴🇲", rateToUSD: 0.3850, isPegged: true, decimalPlaces: 3, locale: "ar-OM", jurisdiction: "Oman", corporateTaxRate: 0.15 },
+  JOD: { code: "JOD", name: "Jordanian Dinar", symbol: "JOD", flag: "🇯🇴", rateToUSD: 0.7090, isPegged: true, decimalPlaces: 3, locale: "ar-JO", jurisdiction: "Jordan", corporateTaxRate: 0.20 },
+  EGP: { code: "EGP", name: "Egyptian Pound", symbol: "EGP", flag: "🇪🇬", rateToUSD: 50.50, isPegged: false, decimalPlaces: 0, locale: "ar-EG", jurisdiction: "Egypt", corporateTaxRate: 0.225 },
+  IQD: { code: "IQD", name: "Iraqi Dinar", symbol: "IQD", flag: "🇮🇶", rateToUSD: 1310, isPegged: false, decimalPlaces: 0, locale: "ar-IQ", jurisdiction: "Iraq", corporateTaxRate: 0.15 },
+  USD: { code: "USD", name: "US Dollar", symbol: "$", flag: "🇺🇸", rateToUSD: 1.0, isPegged: true, decimalPlaces: 0, locale: "en-US", jurisdiction: "Lebanon", corporateTaxRate: 0.17 },
+  SYP: { code: "SYP", name: "Syrian Pound", symbol: "SYP", flag: "🇸🇾", rateToUSD: 13000, isPegged: false, isVolatile: true, decimalPlaces: 0, locale: "ar-SY", jurisdiction: "Syria", corporateTaxRate: 0.28 },
 };
 
 // ─────────────────────────────────────────────────────────────
@@ -149,7 +151,7 @@ export default function CfoRoiCalculator() {
   const [headcount, setHeadcount] = useState(8);
   const [industry, setIndustry] = useState("Technology");
   const [currency, setCurrency] = useState("AED");
-  const [uaeCorporateTax, setUaeCorporateTax] = useState(false);
+  const [corporateTaxEnabled, setCorporateTaxEnabled] = useState(false);
   const [fundraisingMode, setFundraisingMode] = useState(false);
   const [multiEntity, setMultiEntity] = useState(false);
 
@@ -161,8 +163,8 @@ export default function CfoRoiCalculator() {
     const headcountFactor = 1 + headcount * 0.02;
     const baseSavings = revenueUSD * savingsRate * headcountFactor * industryCfg.factor;
 
-    const ctSavingsBonus = uaeCorporateTax
-      ? revenueUSD * CONSTANTS.CT_SAVINGS_RATE * industryCfg.taxSensitivity
+    const ctSavingsBonus = corporateTaxEnabled
+      ? revenueUSD * CONSTANTS.CT_SAVINGS_RATE * (currencyCfg.corporateTaxRate / 0.09) * industryCfg.taxSensitivity
       : 0;
 
     const multiEntityBonus = multiEntity ? baseSavings * 0.25 : 0;
@@ -204,9 +206,9 @@ export default function CfoRoiCalculator() {
       fundraisingUpliftUSD,
       totalValueUSD,
     };
-  }, [revenueUSD, headcount, industry, uaeCorporateTax, fundraisingMode, multiEntity, industryCfg]);
+  }, [revenueUSD, headcount, industry, corporateTaxEnabled, fundraisingMode, multiEntity, currencyCfg, industryCfg]);
 
-  const showBreakdown = uaeCorporateTax || multiEntity || fundraisingMode;
+  const showBreakdown = corporateTaxEnabled || multiEntity || fundraisingMode;
   const revenueLocalCompact = formatCurrency(revenueUSD, currencyCfg, true);
   const minRevenueCompact = formatCurrency(REVENUE_MIN_USD, currencyCfg, true);
   const maxRevenueCompact = formatCurrency(REVENUE_MAX_USD, currencyCfg, true);
@@ -245,7 +247,7 @@ export default function CfoRoiCalculator() {
             (~13,000 SYP/USD).
           </p>
         )}
-        <p className="text-[11px] leading-relaxed text-[#3A5060] border-t border-white/[0.06] pt-2">
+        <p className="text-[11px] leading-relaxed text-[#7A98A8] border-t border-white/[0.06] pt-2">
           <strong className="text-[#7A98A8]">Disclaimer:</strong> Estimates are indicative only.
           Actual results vary based on business complexity, engagement scope, and market conditions.
           Exchange rates sourced from mid-market benchmarks (May 2026). Pegged currencies (AED, SAR,
@@ -338,20 +340,20 @@ export default function CfoRoiCalculator() {
         initial="hidden"
         animate="visible"
       >
-        <label className="flex cursor-pointer items-center justify-between gap-3">
+        <label className="flex cursor-pointer items-center justify-start gap-4">
           <div>
-            <p className="text-sm font-medium text-[#D8E4E8]">UAE Corporate Tax</p>
-            <p className="text-[10px] text-[#3A5060]">9% CT tax optimization</p>
+            <p className="text-sm font-medium text-[#D8E4E8]">Corporate Tax — {currencyCfg.jurisdiction}</p>
+            <p className="text-[10px] text-[#3A5060]">{(currencyCfg.corporateTaxRate * 100).toFixed(0)}% CT tax optimization</p>
           </div>
           <input
             type="checkbox"
-            checked={uaeCorporateTax}
-            onChange={(e) => setUaeCorporateTax(e.target.checked)}
+            checked={corporateTaxEnabled}
+            onChange={(e) => setCorporateTaxEnabled(e.target.checked)}
             className="toggle-checkbox"
           />
         </label>
 
-        <label className="flex cursor-pointer items-center justify-between gap-3">
+        <label className="flex cursor-pointer items-center justify-start gap-4">
           <div>
             <p className="text-sm font-medium text-[#D8E4E8]">Multi-Entity / Group</p>
             <p className="text-[10px] text-[#3A5060]">Free zone + mainland</p>
@@ -364,7 +366,7 @@ export default function CfoRoiCalculator() {
           />
         </label>
 
-        <label className="flex cursor-pointer items-center justify-between gap-3">
+        <label className="flex cursor-pointer items-center justify-start gap-4">
           <div>
             <p className="text-sm font-medium text-[#D8E4E8]">Fundraising / Exit</p>
             <p className="text-[10px] text-[#3A5060]">Valuation uplift premium</p>
@@ -396,9 +398,9 @@ export default function CfoRoiCalculator() {
                 {formatCurrency(calc.baseSavings, currencyCfg, true)}/yr
               </span>
             </div>
-            {uaeCorporateTax && (
+            {corporateTaxEnabled && (
               <div className="flex justify-between text-[#4DD8C0]">
-                <span>+ UAE Corporate Tax optimization</span>
+                <span>+ {currencyCfg.jurisdiction} Corporate Tax optimization</span>
                 <span className="font-medium">
                   {formatCurrency(calc.ctSavingsBonus, currencyCfg, true)}/yr
                 </span>

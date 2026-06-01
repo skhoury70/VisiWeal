@@ -27,14 +27,17 @@ export default function FeaturedServices() {
 
       <div className="container-base relative z-10">
         <ScrollReveal>
-          <div className="mb-16 md:mb-20">
+          <div className="mb-16 md:mb-20 max-w-2xl">
             <span className="text-label mb-4 block text-brand-400/80">
               {t("title")}
             </span>
             <h2 className="text-heading-1 tracking-tight text-text-primary">
               {t("sub")}
             </h2>
-            <div className="mt-4 h-px w-12 bg-border-brand" />
+            <div className="mt-6 text-body text-text-tertiary leading-relaxed">
+              {t("subheader")}
+            </div>
+            <div className="mt-6 h-px w-12 bg-border-brand" />
           </div>
         </ScrollReveal>
 

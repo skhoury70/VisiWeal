@@ -52,22 +52,22 @@ export default function CTA() {
               proximity={120}
             />
             <span className="text-label mb-4 block text-brand-400/80">
-              Get Started
+              Start the Conversation
             </span>
             <h2 className="text-heading-1 mb-6 tracking-tight text-text-primary">
-              Ready to Transform Your{" "}
-              <span className="text-gradient-brand">Financial Future</span>?
+              Ready to Build Your{" "}
+              <span className="text-gradient-brand">Enterprise Value</span>?
             </h2>
             <p className="mx-auto mb-10 max-w-md text-body text-text-tertiary">
               Schedule a confidential consultation with our senior team to
-              explore how Visiweal can drive your next chapter of growth.
+              explore how VisiWeal can support your next critical business decision.
             </p>
             <div className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <Link
                 href={`/${locale}/book-consultation`}
                 className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-brand-400 to-brand-600 px-8 py-3.5 text-sm font-medium text-white shadow-glow-teal transition-all hover:shadow-lg md:text-base"
               >
-                Book Consultation
+                Book a Strategic Consultation
               </Link>
               <Link
                 href={`/${locale}/services`}

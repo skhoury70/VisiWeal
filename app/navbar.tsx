@@ -15,7 +15,7 @@ export default function Navbar() {
         </nav>
 
         <button className="rounded-full bg-teal-500 px-5 py-2 text-sm font-medium text-black transition hover:bg-teal-400">
-          Book Consultation
+          Book a Strategic Consultation
         </button>
       </div>
     </header>

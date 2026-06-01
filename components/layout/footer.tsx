@@ -49,7 +49,7 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
-            <span className="text-xl font-display font-semibold text-white">Visiweal</span>
+            <span className="text-xl font-display font-semibold text-white">VisiWeal</span>
             <p className="text-sm leading-relaxed text-gray-400">{t("tagline")}</p>
             <div className="flex items-center gap-3 pt-2">
               {socialLinks.map((s) => (
@@ -142,7 +142,7 @@ export default function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/5 pt-8 text-xs text-gray-500 sm:flex-row">
-          <p>&copy; {new Date().getFullYear()} Visiweal. {t("allRights")}</p>
+          <p>&copy; {new Date().getFullYear()} VisiWeal. {t("allRights")}</p>
           <div className="flex gap-6">
             <Link href={`/${locale}/privacy-policy`} className="transition-colors hover:text-white">{t("privacy")}</Link>
             <Link href={`/${locale}/terms-of-service`} className="transition-colors hover:text-white">{t("terms")}</Link>

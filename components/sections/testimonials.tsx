@@ -23,11 +23,14 @@ export default function Testimonials() {
 
       <div className="container-base relative z-10">
         <ScrollReveal>
-          <div className="mb-16 md:mb-20">
+          <div className="mb-16 md:mb-20 max-w-2xl">
             <span className="text-label mb-4 block text-brand-400/80">
-              {t("title")}
+              WHAT OUR CLIENTS SAY
             </span>
-            <div className="mt-4 h-px w-12 bg-border-brand" />
+            <h2 className="text-heading-1 tracking-tight text-text-primary">
+              The Work Speaks. So Do the People Who Commissioned It.
+            </h2>
+            <div className="mt-6 h-px w-12 bg-border-brand" />
           </div>
         </ScrollReveal>
 

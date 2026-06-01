@@ -57,7 +57,7 @@ export const RESULT_CONTENT: Record<ModelKey, ResultContent> = {
       {
         pillarKey: "capital",
         narrative:
-          "You are managing moderate-to-complex capital events such as a growth-stage fundraise, dynamic runway management, or structured debt facilities. A Fractional CFO brings investor-grade financial modeling, cap table strategy, and lender covenant navigation — without the cost of a full-time executive.",
+          "You are managing moderate-to-complex capital events such as a growth-stage fundraise, dynamic runway management, or structured debt facilities. A Fractional CFO brings investor-grade financial modeling, cap table strategy, and lender covenant guidance — without the cost of a full-time executive.",
       },
       {
         pillarKey: "jurisdictional",

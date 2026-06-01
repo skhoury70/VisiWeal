@@ -26,8 +26,8 @@ export default function ClientsMarquee() {
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.8, ease }}
         >
-          <span className="text-overline mb-6 block text-text-quaternary">
-            Trusted by Leading Institutions
+          <span className="text-label mb-6 block text-brand-400/80">
+            TRUSTED BY LEADING INSTITUTIONS
           </span>
         </motion.div>
 

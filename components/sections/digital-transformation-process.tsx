@@ -60,7 +60,7 @@ export default function DigitalTransformationProcess() {
             Five Stages That Turn Digital Ambition Into Operating Reality
           </h2>
           <p className="mb-16 max-w-3xl text-body text-text-tertiary leading-relaxed">
-            Five stages. No detours. Every engagement follows the same discipline, starting with an honest read of where you actually are, not where your last strategy deck said you would be.
+            Five stages. No detours. Every engagement follows the same discipline, starting with an honest read of where you actually are, not where your last plan said you would be.
           </p>
         </ScrollReveal>
         <motion.div

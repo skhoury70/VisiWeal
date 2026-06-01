@@ -17,8 +17,8 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/services/digital-transformation" : `/ar/services/digital-transformation`;
   return {
-    title: t("digital.title"),
-    description: t("digital.short"),
+    title: "Digital Transformation and AI Consulting for Enterprise | VisiWeal",
+    description: "Digital strategy, AI implementation, and operating model modernization for enterprise clients across MENA. Book a Strategic Consultation with VisiWeal.",
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -27,8 +27,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `${t("digital.title")} | Visiweal`,
-      description: t("digital.short"),
+      title: "Digital Transformation and AI Consulting for Enterprise | VisiWeal",
+      description: "Digital strategy, AI implementation, and operating model modernization for enterprise clients across MENA. Book a Strategic Consultation with VisiWeal.",
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
@@ -49,7 +49,7 @@ export default async function DigitalTransformationPage({ params }: Props) {
         questions={[
           {
             question: "What is digital transformation consulting?",
-            answer: "Digital transformation consulting helps traditional enterprises navigate digital disruption, modernize operations, implement AI and automation strategies, and build new technology-enabled business models for durable competitive advantage.",
+            answer: "Digital transformation consulting helps traditional enterprises address digital disruption, modernize operations, implement AI and automation strategies, and build new technology-enabled business models for durable competitive advantage.",
           },
           {
             question: "What does a digital transformation consultant do?",
@@ -57,7 +57,7 @@ export default async function DigitalTransformationPage({ params }: Props) {
           },
           {
             question: "How does Visiweal approach digital transformation?",
-            answer: "Visiweal combines deep technology expertise with practical business acumen, ensuring digital initiatives are grounded in commercial reality. Our 50+ transformations have generated over AED 600M in value across 15+ sectors.",
+            answer: "VisiWeal combines deep technology expertise with practical business acumen, ensuring digital initiatives are grounded in commercial reality across sectors including financial services, healthcare, energy, and the public sector.",
           },
           {
             question: "Which industries benefit most from digital transformation?",
@@ -65,7 +65,7 @@ export default async function DigitalTransformationPage({ params }: Props) {
           },
           {
             question: "How long does a digital transformation engagement typically take?",
-            answer: "Digital transformation engagements vary by scope and complexity, ranging from 3-month strategy assessments to multi-year implementation programs. Visiweal structures engagements to deliver quick wins within the first 8-12 weeks.",
+            answer: "Digital transformation engagements vary by scope and complexity, ranging from 3-month strategy assessments to multi-year implementation programs. VisiWeal structures engagements to deliver quick wins within the first 8-12 weeks.",
           },
           {
             question: "What role does AI play in digital transformation?",

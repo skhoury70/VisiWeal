@@ -21,8 +21,8 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/services/fractional-cfo" : `/ar/services/fractional-cfo`;
   return {
-    title: t("cfo.title"),
-    description: t("cfo.short"),
+    title: "Fractional CFO and Financial Leadership for Enterprise | VisiWeal",
+    description: "Part-time CFO and financial management for growth enterprises in MENA. Access institutional-grade leadership without a full-time executive. Book a Strategic Consultation with VisiWeal.",
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -31,8 +31,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `${t("cfo.title")} | Visiweal`,
-      description: t("cfo.short"),
+      title: "Fractional CFO and Financial Leadership for Enterprise | VisiWeal",
+      description: "Part-time CFO and financial management for growth enterprises in MENA. Access institutional-grade leadership without a full-time executive. Book a Strategic Consultation with VisiWeal.",
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
@@ -53,7 +53,7 @@ export default async function FractionalCFOPage({ params }: Props) {
         questions={[
           {
             question: "What is a fractional CFO?",
-            answer: "A fractional CFO provides strategic financial leadership on a part-time or flexible basis, giving high-growth enterprises access to institutional-grade financial expertise without the cost of a full-time executive.",
+            answer: "A fractional CFO provides senior financial leadership on a part-time or flexible basis, giving high-growth enterprises access to institutional-grade financial expertise without the cost of a full-time executive.",
           },
           {
             question: "How does fractional CFO pricing work in the MENA region?",
@@ -61,7 +61,7 @@ export default async function FractionalCFOPage({ params }: Props) {
           },
           {
             question: "What does a fractional CFO do?",
-            answer: "A fractional CFO oversees strategic financial planning, FP&A, board and investor relations, cash flow management, capital allocation, financial operations, and fundraising support. They serve as a senior strategic partner, not just a financial controller.",
+            answer: "A fractional CFO oversees financial planning, FP&A, board and investor relations, cash flow management, capital allocation, financial operations, and fundraising support. They serve as a senior financial partner, not just a financial controller.",
           },
           {
             question: "Who needs fractional CFO services?",
@@ -69,11 +69,11 @@ export default async function FractionalCFOPage({ params }: Props) {
           },
           {
             question: "How quickly can a fractional CFO start delivering value?",
-            answer: "A fractional CFO can typically onboard and start delivering strategic value within 2-4 weeks, compared to 3-6 months for a full-time CFO hire. This accelerated timeline makes fractional CFOs ideal for time-sensitive financial initiatives.",
+            answer: "A fractional CFO can typically onboard and start delivering financial value within 2-4 weeks, compared to 3-6 months for a full-time CFO hire. This accelerated timeline makes fractional CFOs ideal for time-sensitive financial initiatives.",
           },
           {
             question: "What is the difference between a fractional CFO and an outsourced CFO?",
-            answer: "A fractional CFO acts as a senior strategic partner embedded in your leadership team, while outsourced CFO services are typically transaction-focused. Fractional CFOs provide strategic guidance, board support, and hands-on financial leadership rather than just accounting oversight.",
+            answer: "A fractional CFO acts as a senior financial partner embedded in your leadership team, while outsourced CFO services are typically transaction-focused. Fractional CFOs provide financial guidance, board support, and hands-on financial leadership rather than just accounting oversight.",
           },
         ]}
       />

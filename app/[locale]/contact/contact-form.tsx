@@ -52,6 +52,7 @@ const socialLinks = [
 type FormData = {
   name: string;
   company: string;
+  role: string;
   email: string;
   phone: string;
   service: string;
@@ -62,7 +63,7 @@ type FormData = {
 export default function ContactForm() {
   const t = useTranslations("contact");
   const [data, setData] = useState<FormData>({
-    name: "", company: "", email: "", phone: "",
+    name: "", company: "", role: "", email: "", phone: "",
     service: "", message: "", contactMethod: "Email",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -131,7 +132,7 @@ export default function ContactForm() {
           <ScrollReveal direction="up">
             <div className="mx-auto max-w-3xl text-center">
               <Badge className="mb-6 inline-flex rounded-full border border-teal-500/20 bg-teal-500/10 px-4 py-1.5 text-xs font-medium tracking-wider text-teal-400 uppercase">
-                {t("title")}
+                {t("heroBadge")}
               </Badge>
               <h1 className="mb-6 text-5xl font-display font-light leading-tight tracking-tight text-white md:text-7xl">
                 {t("title")}
@@ -191,6 +192,9 @@ export default function ContactForm() {
                     ))}
                   </div>
 
+                  <p className="text-sm italic text-text-tertiary">
+                    {t("geography")}
+                  </p>
 
                 </div>
               </ScrollReveal>
@@ -288,6 +292,19 @@ export default function ContactForm() {
                               value={data.phone}
                               onChange={(e) => update("phone", e.target.value)}
                               placeholder={t("form.phone")}
+                            />
+                          </div>
+                          <div className="md:col-span-2">
+                            <label className="mb-1.5 block text-sm text-gray-400" htmlFor="contact-role">
+                              {t("form.role")}
+                            </label>
+                            <input
+                              suppressHydrationWarning
+                              id="contact-role"
+                              className={inputStyle}
+                              value={data.role}
+                              onChange={(e) => update("role", e.target.value)}
+                              placeholder={t("form.role")}
                             />
                           </div>
                         </div>

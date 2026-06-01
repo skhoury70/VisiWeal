@@ -2,14 +2,22 @@
 
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import { useTranslations } from "next-intl";
 import ScrollReveal from "@/components/effects/scroll-reveal";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+const items = [
+  "Technology",
+  "Real Estate",
+  "Energy",
+  "Healthcare",
+  "Manufacturing",
+  "Financial Services",
+  "Retail",
+  "Infrastructure",
+];
+
 export default function Industries() {
-  const t = useTranslations("industries");
-  const items = t.raw("items") as string[];
   const pillsRef = useRef<HTMLDivElement>(null);
   const isPillsInView = useInView(pillsRef, { once: true, margin: "-60px" });
 
@@ -17,14 +25,17 @@ export default function Industries() {
     <section className="py-28 md:py-36 relative overflow-hidden bg-surface border-t border-border">
       <div className="container-base relative z-10">
         <ScrollReveal>
-          <div className="mb-16 md:mb-20">
+          <div className="mb-16 md:mb-20 max-w-2xl">
             <span className="text-label mb-4 block text-brand-400/80">
-              {t("title")}
+              INDUSTRIES WE SERVE
             </span>
             <h2 className="text-heading-1 tracking-tight text-text-primary">
-              {t("sub")}
+              We Do Not Cover Every Sector. We Go Deep in the Ones That Matter.
             </h2>
-            <div className="mt-4 h-px w-12 bg-border-brand" />
+            <div className="mt-6 text-body text-text-tertiary leading-relaxed">
+              Sector knowledge is not a credential. It is the difference between advice that sounds right in a meeting and advice that holds up when the deal is being stress-tested, the regulator is asking questions, or the market moves against the assumption. Our work is concentrated in the industries where that distinction is most consequential across the MENA region.
+            </div>
+            <div className="mt-6 h-px w-12 bg-border-brand" />
           </div>
         </ScrollReveal>
 

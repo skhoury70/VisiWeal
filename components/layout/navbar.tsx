@@ -5,7 +5,7 @@ export default function Navbar() {
     <nav className="fixed top-0 z-50 w-full border-b border-border bg-surface/80 backdrop-blur-lg">
       <Container className="flex items-center justify-between py-4">
         <span className="text-xl font-semibold tracking-tight text-text-primary">
-          Visiweal
+          VisiWeal
         </span>
 
         <div className="hidden items-center gap-8 text-sm text-text-secondary md:flex">

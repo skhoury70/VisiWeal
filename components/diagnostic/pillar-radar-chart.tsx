@@ -10,9 +10,9 @@ const MODEL_KEYS: ModelKey[] = ["outsourced", "fractional", "fulltime"];
 const ANGLES = [0, 60, 120, 180, 240, 300];
 
 const modelColors: Record<ModelKey, string> = {
-  outsourced: "#7F8C8D",
   fractional: "#2E6DA4",
-  fulltime: "#1A3C5E",
+  fulltime: "#E67E22",
+  outsourced: "#8E44AD",
 };
 
 const modelLabels: Record<ModelKey, string> = {
@@ -58,8 +58,8 @@ function buildPolygon(
 
 const legendItems: { key: ModelKey; label: string; color: string }[] = [
   { key: "fractional", label: "Fractional CFO", color: "#2E6DA4" },
-  { key: "fulltime", label: "Full-Time CFO", color: "#1A3C5E" },
-  { key: "outsourced", label: "Outsourced", color: "#7F8C8D" },
+  { key: "fulltime", label: "Full-Time CFO", color: "#E67E22" },
+  { key: "outsourced", label: "Outsourced", color: "#8E44AD" },
 ];
 
 export default function PillarRadarChart({

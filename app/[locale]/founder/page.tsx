@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/founder" : "/ar/founder";
   return {
-    title: t("title"),
-    description: t("sub"),
+    title: "Independent M&A and Financial Advisor for MENA | VisiWeal",
+    description: "Sleiman El-Khoury, founder of VisiWeal, brings over 35 years of M&A, restructuring, and financial advisory experience to family businesses and enterprises across the MENA region. Book a strategic consultation.",
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -29,8 +29,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `${t("title")} | Visiweal`,
-      description: t("sub"),
+      title: "Independent M&A and Financial Advisor for MENA | VisiWeal",
+      description: "Sleiman El-Khoury, founder of VisiWeal, brings over 35 years of M&A, restructuring, and financial advisory experience to family businesses and enterprises across the MENA region.",
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
@@ -91,12 +91,12 @@ export default async function FounderPage({ params }: Props) {
         givenName="Sleiman"
         familyName="El-Khoury"
         jobTitle="Founder & Managing Director"
-        description="Founder and Managing Director of Visiweal, leading M&A and financial advisory across the MENA region with over $200M+ in completed transactions."
+        description="Founder and Managing Director of VisiWeal, leading M&A and financial advisory across the MENA region."
         sameAs={["https://www.linkedin.com/company/visiweal/"]}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Visiweal", url: "https://visiweal.com" },
+          { name: "VisiWeal", url: "https://visiweal.com" },
           { name: "Founder", url: `https://visiweal.com/${locale === "en" ? "founder" : "ar/founder"}` },
         ]}
       />
@@ -159,10 +159,10 @@ export default async function FounderPage({ params }: Props) {
           <div className="grid grid-cols-2 gap-4 md:grid-cols-5 md:gap-6">
             {[
               { value: "35+", label: "Years of Advisory Experience" },
-              { value: "$350M+", label: "Largest Single Transaction" },
-              { value: "40+", label: "Entities Under Governance" },
-              { value: "$200M+", label: "M&A Transaction Value" },
-              { value: "15+", label: "GCC & EMEA Markets" },
+              { value: "$500M+", label: "Largest Single Transaction" },
+              { value: "15+", label: "Years Board-Level Leadership" },
+              { value: "$3B+", label: "Advised Transaction Value" },
+              { value: "20+", label: "Countries Across MENA" },
             ].map((s, i) => (
               <ScrollReveal key={s.label} delay={i * 0.06}>
                 <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 text-center md:p-5">
@@ -296,7 +296,7 @@ export default async function FounderPage({ params }: Props) {
                     </span>
                     <div className="min-w-0 flex-1">
                       <div className="flex flex-wrap items-baseline gap-x-4 gap-y-1">
-                        <p className="text-xs font-semibold tracking-wider text-teal-400 uppercase">
+                        <p className="text-label text-brand-400/80">
                           {e.tag}
                         </p>
                         <span className="inline-flex items-center rounded-full border border-teal-500/20 bg-teal-500/10 px-2.5 py-0.5 text-xs font-medium text-teal-300">
@@ -380,7 +380,7 @@ export default async function FounderPage({ params }: Props) {
                   href={`/${locale}/book-consultation`}
                   className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-teal-600 to-teal-400 px-8 py-3.5 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:shadow-teal-500/40"
                 >
-                  Book Consultation
+                  Book a Strategic Consultation
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <Link

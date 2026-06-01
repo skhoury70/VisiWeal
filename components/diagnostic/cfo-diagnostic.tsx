@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
+import { createPortal } from "react-dom";
 import {
   diagnosticData,
   questions,
@@ -61,6 +62,16 @@ export default function CfoDiagnostic() {
     setResult(null);
     setEmailSent(false);
   }, []);
+
+  useEffect(() => {
+    if (screen === "results") {
+      import("html2canvas");
+      import("jspdf");
+    }
+  }, [screen]);
+
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => { setMounted(true); }, []);
 
   const sendPdfEmail = useCallback(async (email: string, blob: Blob) => {
     try {
@@ -227,7 +238,81 @@ export default function CfoDiagnostic() {
 
   if (!result) return null;
 
+  const modalContent = !generatingPdf ? (
+    <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-zinc-950/95 p-8 shadow-2xl">
+      <button
+        onClick={() => setModalOpen(false)}
+        className="absolute right-4 top-4 text-white/40 hover:text-white/80 transition-colors"
+        aria-label="Close"
+      >
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" strokeWidth="2">
+          <path d="M5 5l10 10M15 5l-10 10" />
+        </svg>
+      </button>
+
+      <div className="mb-6 text-center">
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-400/10">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="text-brand-400">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </div>
+        <h3 className="text-xl font-semibold text-white">Download Your Diagnostic Report</h3>
+        <p className="mt-2 text-sm text-white/60">
+          Enter your email to receive a detailed PDF of your financial
+          resource assessment, including your radar chart and strategic recommendations.
+        </p>
+      </div>
+
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          const fd = new FormData(e.currentTarget);
+          const email = fd.get("email") as string;
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
+          pendingEmailRef.current = email;
+          setGeneratingPdf(true);
+        }}
+        className="space-y-4"
+      >
+        <div>
+          <input
+            name="email"
+            type="email"
+            placeholder="you@company.com"
+            className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-brand-400 focus:outline-none"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="w-full rounded-lg bg-brand-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-500"
+        >
+          Send My Report
+        </button>
+        <p className="text-center text-xs text-white/30">
+          We respect your privacy. Unsubscribe at any time.
+        </p>
+      </form>
+    </div>
+  ) : (
+    <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-zinc-950/95 p-8 shadow-2xl">
+      <div className="flex flex-col items-center py-6">
+        <div className="relative mb-5 h-14 w-14">
+          <div className="absolute inset-0 rounded-full border-2 border-brand-400/20" />
+          <div className="absolute inset-0 rounded-full border-2 border-transparent border-t-brand-400 animate-spin" />
+        </div>
+        <h3 className="text-lg font-semibold text-white">Generating Your Report</h3>
+        <p className="mt-2 text-center text-sm text-white/50">
+          Capturing your diagnostic results and preparing your PDF...
+        </p>
+      </div>
+    </div>
+  );
+
   return (
+    <>
     <section className="w-full">
       <div ref={reportRef} className="mx-auto max-w-4xl space-y-8">
         <VerdictBadge
@@ -259,7 +344,7 @@ export default function CfoDiagnostic() {
 
         <div className="mb-8 rounded-2xl border border-white/10 bg-white/[0.03] px-10 py-9">
           <h3 className="mb-8 text-[13px] font-semibold tracking-[2.5px] uppercase text-white/40">
-            Pillar Intelligence — 6-Dimension Diagnostic Breakdown
+            Pillar Intelligence &mdash; 6-Dimension Diagnostic Breakdown
           </h3>
 
           <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_280px]">
@@ -271,7 +356,6 @@ export default function CfoDiagnostic() {
             </div>
             <ConfidenceGauge
               confidence={result.matchConfidence}
-              color={diagnosticData.models[result.recommendedModel].hex}
               label={result.recommendedModelLabel}
             />
           </div>
@@ -300,87 +384,13 @@ export default function CfoDiagnostic() {
           emailSent={emailSent}
         />
       </div>
+    </section>
 
-      {modalOpen && (
+      {mounted && modalOpen && createPortal(
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm px-4">
-          <div className="relative w-full max-w-md rounded-2xl border border-white/10 bg-zinc-950/95 p-8 shadow-2xl">
-            <button
-              onClick={() => setModalOpen(false)}
-              className="absolute right-4 top-4 text-white/40 hover:text-white/80 transition-colors"
-              aria-label="Close"
-            >
-              <svg
-                width="20"
-                height="20"
-                viewBox="0 0 20 20"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M5 5l10 10M15 5l-10 10" />
-              </svg>
-            </button>
-
-            <div className="mb-6 text-center">
-              <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-brand-400/10">
-                <svg
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  className="text-brand-400"
-                >
-                  <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4" />
-                  <polyline points="7 10 12 15 17 10" />
-                  <line x1="12" y1="15" x2="12" y2="3" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-semibold text-white">
-                Download Your Diagnostic Report
-              </h3>
-              <p className="mt-2 text-sm text-white/60">
-                Enter your email to receive a detailed PDF of your financial
-                resource assessment, including your radar chart and
-                strategic recommendations.
-              </p>
-            </div>
-
-            <form
-              onSubmit={async (e) => {
-                e.preventDefault();
-                const fd = new FormData(e.currentTarget);
-                const email = fd.get("email") as string;
-                if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return;
-                pendingEmailRef.current = email;
-                setGeneratingPdf(true);
-              }}
-              className="space-y-4"
-            >
-              <div>
-                <input
-                  name="email"
-                  type="email"
-                  placeholder="you@company.com"
-                  className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-sm text-white placeholder:text-white/30 focus:border-brand-400 focus:outline-none"
-                  required
-                  disabled={generatingPdf}
-                />
-              </div>
-              <button
-                type="submit"
-                disabled={generatingPdf}
-                className="w-full rounded-lg bg-brand-600 px-4 py-3 text-sm font-semibold text-white transition hover:bg-brand-500 disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {generatingPdf ? "Generating report..." : "Send My Report"}
-              </button>
-              <p className="text-center text-xs text-white/30">
-                We respect your privacy. Unsubscribe at any time.
-              </p>
-            </form>
-          </div>
-        </div>
+          {modalContent}
+        </div>,
+        document.body
       )}
 
       {generatingPdf && result && (
@@ -390,6 +400,6 @@ export default function CfoDiagnostic() {
           onError={handlePdfError}
         />
       )}
-    </section>
+    </>
   );
 }

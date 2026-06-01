@@ -10,8 +10,8 @@ import { FlickeringGrid } from "@/components/ui/flickering-grid";
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-  { value: 350, suffix: "M+", label: "Total Transaction Value Advised", prefix: "$", decimals: 0 },
-  { value: 15, suffix: "+", label: "Family Businesses & SMEs Served", decimals: 0 },
+  { value: 3.5, suffix: "B+", label: "Total Transaction Value Advised", prefix: "$", decimals: 1 },
+  { value: 25, suffix: "+", label: "Family Businesses & Enterprises Served", decimals: 0 },
   { value: 5, suffix: "+", label: "M&A & Restructuring Projects", decimals: 0 },
   { value: 90, suffix: "%", label: "Client Satisfaction", decimals: 0 },
 ];

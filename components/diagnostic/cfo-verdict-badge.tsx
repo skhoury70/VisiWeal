@@ -9,7 +9,7 @@ const MODEL_SUBTITLES: Record<ModelKey, string> = {
   fulltime:
     "Your organizational complexity demands dedicated, permanent C-suite executive governance.",
   outsourced:
-    "Your immediate priority is a robust compliance baseline and efficient transactional accounting.",
+    "Your immediate priority is a solid compliance baseline and efficient transactional accounting.",
 };
 
 const COMPLEXITY_COLORS: Record<string, string> = {

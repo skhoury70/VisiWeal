@@ -1,6 +1,6 @@
 import { useTranslations } from "next-intl";
-import { getTranslations } from "next-intl/server";
 import Link from "next/link";
+import Image from "next/image";
 import BarChartBars from "@/components/effects/bar-chart-bars";
 import GlassCard from "@/components/effects/glass-card";
 import ScrollReveal from "@/components/effects/scroll-reveal";
@@ -14,12 +14,11 @@ type Props = {
 
 export async function generateMetadata({ params }: Props) {
   const { locale } = await params;
-  const t = await getTranslations({ locale, namespace: "meta" });
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/services" : "/ar/services";
   return {
-    title: `${t("title")} - Services`,
-    description: "Comprehensive M&A Advisory, Financial Advisory, Fractional CFO, Digital Transformation, Corporate Restructuring, and Feasibility Study services for enterprise clients across the Middle East and MENA region.",
+    title: "Strategic Financial Services for MENA Enterprises | VisiWeal",
+    description: "Strategic financial advisory for business owners and boards across the Middle East. M&A, CFO, and restructuring expertise for enterprise decisions.",
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -28,8 +27,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: "Services | Visiweal",
-      description: "Comprehensive financial advisory and strategic consulting services for the MENA region's most discerning enterprises.",
+      title: "Strategic Financial Services for MENA Enterprises | VisiWeal",
+      description: "Strategic financial advisory for business owners and boards across the Middle East. Enterprise-grade M&A, CFO, and restructuring expertise.",
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
@@ -41,7 +40,7 @@ export default async function ServicesPage({ params }: Props) {
     <>
       <BreadcrumbSchema
         items={[
-          { name: "Visiweal", url: "https://visiweal.com" },
+          { name: "VisiWeal", url: "https://visiweal.com" },
           { name: "Services", url: `https://visiweal.com/${locale === "en" ? "services" : "ar/services"}` },
         ]}
       />
@@ -81,12 +80,22 @@ function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-surface pt-32 md:pt-40">
       <div className="absolute inset-0" aria-hidden="true">
+        <Image
+          src="/images/service-page.avif"
+          alt=""
+          fill
+          priority
+          className="object-cover object-center"
+          sizes="100vw"
+          quality={85}
+        />
+        <div className="absolute inset-0 bg-[#0C1820]/70" />
         <div className="absolute -left-[20%] -top-[30%] h-[80vh] w-[60vw] animate-gradient-shift glow-orb bg-gradient-to-br from-glow-teal/10 via-glow-teal/5 to-transparent" />
-        <div className="absolute -bottom-[20%] -right-[15%] h-[60vh] w-[50vw] animate-gradient-secondary glow-orb-md bg-gradient-to-tl from-glow-teal-strong/8 via-glow-teal/4 to-transparent" />
+        <div className="absolute -bottom-[20%] -right-[15%] h-[80vh] w-[50vw] animate-gradient-secondary glow-orb-md bg-gradient-to-tl from-glow-teal-strong/8 via-glow-teal/4 to-transparent" />
       </div>
       <div className="container-base relative z-10 pb-28 md:pb-36">
         <ScrollReveal direction="up">
-          <span className="text-label mb-4 block text-brand-400/80">{t("overview.heroTitle")}</span>
+          <span className="text-label mb-4 block text-brand-400/80">{t("overview.heroBadge")}</span>
           <h1 className="text-display mb-6 leading-[1.08] tracking-tight text-text-primary">
             <span className="font-semibold">{t("overview.heroTitle")}</span>
           </h1>
@@ -138,7 +147,7 @@ function ServicesGridSection({
                     <p className="text-body-small text-text-tertiary leading-relaxed">{card.desc3}</p>
                   </div>
                   <div className="mt-6">
-                    <p className="text-caption mb-2 font-medium uppercase tracking-wider text-brand-400/70">Key Deliverables</p>
+                    <p className="text-label mb-2 block text-brand-400/80">Key Deliverables</p>
                     <ul className="space-y-1.5">
                       {card.deliverables.map((d, j) => (
                         <li key={j} className="flex items-start gap-2 text-body-small text-text-tertiary">
@@ -151,7 +160,7 @@ function ServicesGridSection({
                     </ul>
                   </div>
                   <div className="mt-6">
-                    <span className="inline-block rounded-full border border-brand-400/20 bg-brand-400/5 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-brand-400/80">
+                    <span className="inline-block rounded-full border border-brand-400/20 bg-brand-400/5 px-3 py-1 text-sm text-brand-400/80">
                       {card.whoItsFor}
                     </span>
                   </div>

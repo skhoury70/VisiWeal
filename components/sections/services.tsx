@@ -5,6 +5,8 @@ import { motion, useReducedMotion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
+import Link from "next/link";
+import { useLocale } from "next-intl";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,36 +15,42 @@ const ease = [0.16, 1, 0.3, 1] as const;
 const services = [
   {
     id: "01",
+    slug: "ma-advisory",
     title: "M&A Advisory",
     description:
       "End-to-end acquisition and divestiture support — from target identification and valuation through due diligence and post-merger integration.",
   },
   {
     id: "02",
+    slug: "digital-transformation",
     title: "Digital Transformation",
     description:
       "Enterprise-wide technology modernization, AI strategy, and operational digitization designed to create durable competitive advantage.",
   },
   {
     id: "03",
+    slug: "fractional-cfo",
     title: "Fractional CFO",
     description:
       "Strategic financial leadership on demand — FP&A, capital allocation, board reporting, and investor relations for high-growth enterprises.",
   },
   {
     id: "04",
+    slug: "financial-advisory",
     title: "Financial Advisory",
     description:
       "Capital raising, debt advisory, financial restructuring, and strategic transaction support across private and public markets.",
   },
   {
     id: "05",
+    slug: "corporate-restructuring",
     title: "Corporate Restructuring",
     description:
       "Balance sheet optimization, operational turnaround, stakeholder negotiation, and Chapter 11 advisory for complex situations.",
   },
   {
     id: "06",
+    slug: "feasibility-studies",
     title: "Feasibility Studies",
     description:
       "Independent technical and financial assessments — market analysis, cost modeling, risk scoring, and investment-grade viability reports.",
@@ -66,6 +74,7 @@ const cardVariants = {
 
 export default function Services() {
   const rm = useReducedMotion();
+  const locale = useLocale();
   const sectionRef = useRef<HTMLElement>(null);
   const gridRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
@@ -143,39 +152,40 @@ export default function Services() {
           viewport={{ once: true, margin: "-80px" }}
         >
           {services.map((s) => (
-            <motion.div
-              key={s.id}
-              className="group relative bg-surface transition-colors duration-500 hover:bg-surface-raised"
-              variants={rm ? undefined : cardVariants}
-            >
-              <div className="relative p-8 md:p-10">
-                {!rm && (
-                  <GlowingEffect
-                    disabled={false}
-                    blur={8}
-                    spread={40}
-                    borderWidth={1}
-                    movementDuration={1.5}
-                  />
-                )}
-                <span className="mb-6 block text-[2.5rem] font-light leading-none tracking-tight text-brand-300/25 transition-colors duration-500 group-hover:text-brand-500/20 md:text-[3rem]">
-                  {s.id}
-                </span>
+            <Link key={s.id} href={`/${locale}/services/${s.slug}`} className="block">
+              <motion.div
+                className="group relative bg-surface transition-colors duration-500 hover:bg-surface-raised"
+                variants={rm ? undefined : cardVariants}
+              >
+                <div className="relative p-8 md:p-10">
+                  {!rm && (
+                    <GlowingEffect
+                      disabled={false}
+                      blur={8}
+                      spread={40}
+                      borderWidth={1}
+                      movementDuration={1.5}
+                    />
+                  )}
+                  <span className="mb-6 block text-[2.5rem] font-light leading-none tracking-tight text-brand-300/25 transition-colors duration-500 group-hover:text-brand-500/20 md:text-[3rem]">
+                    {s.id}
+                  </span>
 
-                <h3 className="text-heading-3 mb-3 tracking-tight text-text-primary">
-                  {s.title}
-                </h3>
+                  <h3 className="text-heading-3 mb-3 tracking-tight text-text-primary">
+                    {s.title}
+                  </h3>
 
-                <p className="text-body-small leading-relaxed text-text-tertiary transition-colors duration-500 group-hover:text-text-secondary">
-                  {s.description}
-                </p>
+                  <p className="text-body-small leading-relaxed text-text-tertiary transition-colors duration-500 group-hover:text-text-secondary">
+                    {s.description}
+                  </p>
 
-                <div className="mt-6 flex items-center gap-2">
-                  <span className="h-px w-6 bg-border-default transition-all duration-500 group-hover:w-10 group-hover:bg-border-brand" />
-                  <span className="h-px w-2 bg-border-subtle transition-all duration-500 group-hover:w-4 group-hover:bg-border-brand" />
+                  <div className="mt-6 flex items-center gap-2">
+                    <span className="h-px w-6 bg-border-default transition-all duration-500 group-hover:w-10 group-hover:bg-border-brand" />
+                    <span className="h-px w-2 bg-border-subtle transition-all duration-500 group-hover:w-4 group-hover:bg-border-brand" />
+                  </div>
                 </div>
-              </div>
-            </motion.div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>

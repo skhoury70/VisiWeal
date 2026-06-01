@@ -12,8 +12,19 @@ const MODEL_HIERARCHY: Record<ModelKey, number> = {
 };
 
 function generateAssessmentId(): string {
+  if (
+    typeof crypto !== "undefined" &&
+    typeof crypto.randomUUID === "function"
+  ) {
+    return `CFO-${crypto.randomUUID()}`;
+  }
   const timestamp = Date.now().toString(36).toUpperCase();
-  const random = Math.random().toString(36).substring(2, 7).toUpperCase();
+  const random = Array.from({ length: 3 }, () =>
+    Math.random().toString(36).substring(2, 7)
+  )
+    .join("")
+    .substring(0, 12)
+    .toUpperCase();
   return `CFO-${timestamp}-${random}`;
 }
 
@@ -25,13 +36,10 @@ function getFormattedDate(): string {
   return `${dd}/${mm}/${yyyy}`;
 }
 
-function getPillarRiskLevel(
-  dominantModel: string,
-  spread: number
-): string {
-  if (dominantModel === "fulltime") return "CRITICAL";
+function getPillarRiskLevel(dominantModel: string, spread: number): string {
+  if (dominantModel === "fulltime" && spread >= 4) return "CRITICAL";
+  if (dominantModel === "fulltime") return "HIGH";
   if (dominantModel === "fractional" && spread >= 4) return "HIGH";
-  if (dominantModel === "fractional" && spread >= 2) return "MODERATE";
   if (dominantModel === "fractional") return "MODERATE";
   return "BASELINE";
 }
@@ -44,6 +52,50 @@ function getRiskLevelColor(riskLevel: string): string {
     BASELINE: "#27AE60",
   };
   return map[riskLevel] || "#95A5A6";
+}
+
+function findDominantModel(scores: Record<ModelKey, number>): ModelKey {
+  return (Object.entries(scores) as [ModelKey, number][]).reduce(
+    (best, current) => {
+      if (current[1] > best[1]) return current;
+      if (
+        current[1] === best[1] &&
+        MODEL_HIERARCHY[current[0]] > MODEL_HIERARCHY[best[0]]
+      )
+        return current;
+      return best;
+    }
+  )[0];
+}
+
+function distributePercentages(
+  scores: Record<ModelKey, number>
+): Record<ModelKey, number> {
+  const models: ModelKey[] = ["outsourced", "fractional", "fulltime"];
+
+  const safeScores = models.map((m) => Math.max(scores[m] ?? 0, 0));
+  const total = safeScores.reduce((s, v) => s + v, 0);
+
+  if (total <= 0) return { outsourced: 0, fractional: 0, fulltime: 0 };
+
+  const exact = safeScores.map((v) => (v / total) * 100);
+  const floored = exact.map((v) => Math.floor(v));
+  const remainders = exact.map((v, i) => ({
+    index: i,
+    remainder: v - floored[i],
+  }));
+
+  const leftover = 100 - floored.reduce((s, v) => s + v, 0);
+  remainders.sort((a, b) => b.remainder - a.remainder);
+  for (let i = 0; i < leftover; i++) {
+    floored[remainders[i].index]++;
+  }
+
+  return {
+    outsourced: floored[models.indexOf("outsourced")],
+    fractional: floored[models.indexOf("fractional")],
+    fulltime: floored[models.indexOf("fulltime")],
+  };
 }
 
 export interface TriggeredRedFlag {
@@ -102,6 +154,8 @@ export interface AssessmentMetadata {
   redFlagCount: number;
   multiplierCount: number;
   complexityProfile: string;
+  unansweredPillars: string[];
+  confidenceNote: string;
 }
 
 export interface DiagnosticResult {
@@ -109,7 +163,7 @@ export interface DiagnosticResult {
   recommendedModelLabel: string;
   matchConfidence: number;
   signalStrength: string;
-  consistencyRatio: number;
+  consistencyScore: number;
   percentages: Record<ModelKey, number>;
   rawScores: Record<ModelKey, number>;
   pillarScores: Record<string, Record<ModelKey, number>>;
@@ -126,6 +180,12 @@ export function processResponses(
   userResponses: UserResponse[],
   data = diagnosticData
 ): DiagnosticResult {
+  const dedupedMap = new Map<number, UserResponse>();
+  for (const response of userResponses) {
+    dedupedMap.set(response.questionId, response);
+  }
+  const responses = Array.from(dedupedMap.values());
+
   const profileScores: Record<ModelKey, number> = {
     outsourced: 0,
     fractional: 0,
@@ -134,14 +194,20 @@ export function processResponses(
   const pillarScores: Record<string, Record<ModelKey, number>> = {};
   const pillarQuestionLog: Record<
     string,
-    { questionId: number; questionText: string; selectedOption: string; selectedLabel: string; weights: Record<ModelKey, number> }[]
+    {
+      questionId: number;
+      questionText: string;
+      selectedOption: string;
+      selectedLabel: string;
+      weights: Record<ModelKey, number>;
+    }[]
   > = {};
 
   const redFlagsTriggered: TriggeredRedFlag[] = [];
   const multiplierLog: AppliedMultiplier[] = [];
   let forceMinimum: ModelKey | null = null;
 
-  for (const response of userResponses) {
+  for (const response of responses) {
     const question = data.questions.find((q) => q.id === response.questionId);
     if (!question) continue;
 
@@ -192,19 +258,29 @@ export function processResponses(
     }
   }
 
+  const originalProfileScores: Record<ModelKey, number> = { ...profileScores };
+  const originalPillarScores: Record<string, Record<ModelKey, number>> = {};
+  for (const [key, val] of Object.entries(pillarScores)) {
+    originalPillarScores[key] = { ...val };
+  }
+
   for (const trigger of data.complexityMultipliers) {
     const allConditionsMet = trigger.conditions.every((cond) =>
-      userResponses.some(
+      responses.some(
         (r) => r.questionId === cond.questionId && r.optionId === cond.optionId
       )
     );
 
     if (allConditionsMet) {
-      const beforeScore = profileScores[trigger.appliesTo];
-      profileScores[trigger.appliesTo] = Math.round(
-        profileScores[trigger.appliesTo] * trigger.multiplier
-      );
-      const afterScore = profileScores[trigger.appliesTo];
+      const beforeScore = originalProfileScores[trigger.appliesTo];
+      const afterScore = Math.round(beforeScore * trigger.multiplier);
+      profileScores[trigger.appliesTo] = afterScore;
+
+      for (const pillarKey of Object.keys(pillarScores)) {
+        pillarScores[pillarKey][trigger.appliesTo] = Math.round(
+          originalPillarScores[pillarKey][trigger.appliesTo] * trigger.multiplier
+        );
+      }
 
       multiplierLog.push({
         id: trigger.id,
@@ -218,9 +294,7 @@ export function processResponses(
     }
   }
 
-  let primaryProfile = (
-    Object.entries(profileScores) as [ModelKey, number][]
-  ).reduce((best, current) => (current[1] > best[1] ? current : best))[0];
+  let primaryProfile = findDominantModel(profileScores);
 
   let redFlagOverrideApplied = false;
   if (
@@ -231,76 +305,70 @@ export function processResponses(
     redFlagOverrideApplied = true;
   }
 
-  const grandTotal = Object.values(profileScores).reduce(
-    (sum, s) => sum + s,
-    0
-  );
-  const globalPercentages: Record<ModelKey, number> = {
-    outsourced:
-      grandTotal > 0
-        ? Math.round((profileScores.outsourced / grandTotal) * 100)
-        : 0,
-    fractional:
-      grandTotal > 0
-        ? Math.round((profileScores.fractional / grandTotal) * 100)
-        : 0,
-    fulltime:
-      grandTotal > 0
-        ? Math.round((profileScores.fulltime / grandTotal) * 100)
-        : 0,
-  };
+  const globalPercentages = distributePercentages(profileScores);
 
   const totalPillarsAnswered = Object.keys(pillarScores).length;
   const agreeingPillarCount = Object.values(pillarScores).filter((pillar) => {
-    const dominantInPillar = (
-      Object.entries(pillar) as [ModelKey, number][]
-    ).reduce((best, current) => (current[1] > best[1] ? current : best))[0];
-    return dominantInPillar === primaryProfile;
+    return findDominantModel(pillar) === primaryProfile;
   }).length;
 
-  const consistencyRatio =
+  const consistencyRatioRaw =
     totalPillarsAnswered > 0 ? agreeingPillarCount / totalPillarsAnswered : 0;
 
-  let reportedConfidence = globalPercentages[primaryProfile] || 0;
-  if (consistencyRatio < 0.4)
-    reportedConfidence = Math.round(reportedConfidence * 0.85);
-  else if (consistencyRatio > 0.8)
-    reportedConfidence = Math.min(
-      97,
-      Math.round(reportedConfidence * 1.1)
-    );
+  let reportedConfidence: number;
+  let confidenceNote: string;
+
+  if (redFlagOverrideApplied) {
+    reportedConfidence = Math.max(70, globalPercentages[primaryProfile]);
+    confidenceNote =
+      "Recommendation is risk-driven due to one or more critical red flags. " +
+      "Confidence reflects override strength, not raw score distribution.";
+  } else {
+    reportedConfidence = globalPercentages[primaryProfile] || 0;
+    if (consistencyRatioRaw < 0.4) {
+      reportedConfidence = Math.round(reportedConfidence * 0.85);
+      confidenceNote =
+        "Mixed signals detected across pillars. Confidence adjusted downward.";
+    } else if (consistencyRatioRaw > 0.8) {
+      reportedConfidence = Math.min(97, Math.round(reportedConfidence * 1.1));
+      confidenceNote =
+        "Strong cross-pillar alignment detected. Confidence adjusted upward.";
+    } else {
+      confidenceNote =
+        "Moderate cross-pillar alignment. Confidence reflects score distribution.";
+    }
+  }
 
   const signalStrength =
-    consistencyRatio > 0.7 ? "Strong" : consistencyRatio > 0.4 ? "Moderate" : "Mixed";
+    consistencyRatioRaw > 0.7
+      ? "Strong"
+      : consistencyRatioRaw > 0.4
+        ? "Moderate"
+        : "Mixed";
+
+  const allPillarLabels = data.pillars.map((p) => p.label);
+  const answeredPillarLabels = new Set(Object.keys(pillarScores));
+  const unansweredPillars = allPillarLabels.filter(
+    (label) => !answeredPillarLabels.has(label)
+  );
 
   const pillarRiskRatings: Record<string, PillarRiskRating> = {};
-  for (const [pillarLabel, scores] of Object.entries(pillarScores)) {
-    const sortedEntries = (
-      Object.entries(scores) as [ModelKey, number][]
-    ).sort((a, b) => b[1] - a[1]);
-    const dominantModel = sortedEntries[0][0];
-    const dominantScore = sortedEntries[0][1];
-    const secondScore = sortedEntries[1][1];
-    const spread = dominantScore - secondScore;
-    const pillarTotal = Object.values(scores).reduce((s, v) => s + v, 0);
 
-    const pillarPercentages: Record<ModelKey, number> = {
-      outsourced:
-        pillarTotal > 0
-          ? Math.round((scores.outsourced / pillarTotal) * 100)
-          : 0,
-      fractional:
-        pillarTotal > 0
-          ? Math.round((scores.fractional / pillarTotal) * 100)
-          : 0,
-      fulltime:
-        pillarTotal > 0
-          ? Math.round((scores.fulltime / pillarTotal) * 100)
-          : 0,
-    };
+  for (const [pillarLabel, scores] of Object.entries(pillarScores)) {
+    const dominantModel = findDominantModel(scores);
+
+    const sortedEntries = (Object.entries(scores) as [ModelKey, number][]).sort(
+      (a, b) => b[1] - a[1]
+    );
+    const spread = sortedEntries[0][1] - sortedEntries[1][1];
+
+    const pillarPercentages = distributePercentages(scores);
 
     const riskLevel = getPillarRiskLevel(dominantModel, spread);
-    const pillarMeta = data.pillars.find((p) => p.label === pillarLabel);
+
+    const pillarMeta = data.pillars.find(
+      (p) => p.key === pillarLabel || p.label === pillarLabel
+    );
 
     pillarRiskRatings[pillarLabel] = {
       pillarKey: pillarMeta?.key ?? pillarLabel,
@@ -308,8 +376,7 @@ export function processResponses(
       icon: pillarMeta?.icon ?? "📊",
       description: pillarMeta?.description ?? "",
       dominantModel,
-      dominantModelLabel:
-        data.models[dominantModel]?.label || dominantModel,
+      dominantModelLabel: data.models[dominantModel]?.label || dominantModel,
       riskLevel,
       riskColor: getRiskLevelColor(riskLevel),
       spread,
@@ -322,62 +389,32 @@ export function processResponses(
 
   const radarChartData: RadarChartData = {
     labels: data.pillars.map((p) => p.shortLabel),
-    datasets: [
-      {
-        modelKey: "fractional",
-        label: "Fractional CFO",
+    datasets: (["fractional", "fulltime", "outsourced"] as ModelKey[]).map(
+      (modelKey) => ({
+        modelKey,
+        label: data.models[modelKey]?.label || modelKey,
         data: pillarOrder.map((pillarLabel) => {
           const s = pillarScores[pillarLabel];
           if (!s) return 0;
-          const total = s.outsourced + s.fractional + s.fulltime;
-          return total > 0
-            ? Math.round((s.fractional / total) * 100)
-            : 0;
+          const total = Math.max(
+            s.outsourced + s.fractional + s.fulltime,
+            1
+          );
+          return Math.round((s[modelKey] / total) * 100);
         }),
-        borderColor: data.models.fractional.hex,
-        backgroundColor: data.models.fractional.rgba,
-        pointBackgroundColor: data.models.fractional.hex,
-      },
-      {
-        modelKey: "fulltime",
-        label: "Full-Time CFO",
-        data: pillarOrder.map((pillarLabel) => {
-          const s = pillarScores[pillarLabel];
-          if (!s) return 0;
-          const total = s.outsourced + s.fractional + s.fulltime;
-          return total > 0
-            ? Math.round((s.fulltime / total) * 100)
-            : 0;
-        }),
-        borderColor: data.models.fulltime.hex,
-        backgroundColor: data.models.fulltime.rgba,
-        pointBackgroundColor: data.models.fulltime.hex,
-      },
-      {
-        modelKey: "outsourced",
-        label: "Outsourced Finance",
-        data: pillarOrder.map((pillarLabel) => {
-          const s = pillarScores[pillarLabel];
-          if (!s) return 0;
-          const total = s.outsourced + s.fractional + s.fulltime;
-          return total > 0
-            ? Math.round((s.outsourced / total) * 100)
-            : 0;
-        }),
-        borderColor: data.models.outsourced.hex,
-        backgroundColor: data.models.outsourced.rgba,
-        pointBackgroundColor: data.models.outsourced.hex,
-      },
-    ],
+        borderColor: data.models[modelKey].hex,
+        backgroundColor: data.models[modelKey].rgba,
+        pointBackgroundColor: data.models[modelKey].hex,
+      })
+    ),
   };
 
   return {
     recommendedModel: primaryProfile,
-    recommendedModelLabel:
-      data.models[primaryProfile]?.label || primaryProfile,
+    recommendedModelLabel: data.models[primaryProfile]?.label || primaryProfile,
     matchConfidence: reportedConfidence,
     signalStrength,
-    consistencyRatio: Math.round(consistencyRatio * 100),
+    consistencyScore: Math.round(consistencyRatioRaw * 100),
     percentages: globalPercentages,
     rawScores: profileScores,
     pillarScores,
@@ -388,10 +425,10 @@ export function processResponses(
     complexityMultipliersApplied: multiplierLog,
     forceMinimumApplied: forceMinimum || null,
     assessmentMetadata: {
-      version: "2.0",
+      version: "2.1",
       assessmentId: generateAssessmentId(),
       assessmentDate: getFormattedDate(),
-      totalQuestionsAnswered: userResponses.length,
+      totalQuestionsAnswered: responses.length,
       totalPillarsEvaluated: totalPillarsAnswered,
       redFlagCount: redFlagsTriggered.length,
       multiplierCount: multiplierLog.length,
@@ -403,6 +440,8 @@ export function processResponses(
             : multiplierLog.length >= 1
               ? "Elevated"
               : "Standard",
+      unansweredPillars,
+      confidenceNote,
     },
   };
 }

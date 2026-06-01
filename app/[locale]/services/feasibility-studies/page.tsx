@@ -1,5 +1,6 @@
 import { getTranslations } from "next-intl/server";
 import ServicePageTemplate from "@/components/sections/service-page-template";
+import FeasibilityMethodology from "@/components/sections/feasibility-methodology";
 import {
   ServiceSchema,
   FAQPageSchema,
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/services/feasibility-studies" : `/ar/services/feasibility-studies`;
   return {
-    title: t("feasibility.title"),
+    title: "Feasibility Studies and Investment Appraisal for Enterprise | VisiWeal",
     description: t("feasibility.short"),
     alternates: {
       canonical: `${baseUrl}${path}`,
@@ -26,7 +27,7 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `${t("feasibility.title")} | Visiweal`,
+      title: `Investment Appraisal and Feasibility Analysis | VisiWeal`,
       description: t("feasibility.short"),
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
@@ -55,8 +56,8 @@ export default async function FeasibilityStudiesPage({ params }: Props) {
             answer: "A thorough feasibility study includes market analysis, technical assessment, financial projections, risk evaluation, regulatory compliance review, and a clear recommendation with supporting evidence for decision-makers.",
           },
           {
-            question: "Why choose Visiweal for feasibility studies?",
-            answer: "Visiweal produces feasibility studies that meet the highest standards for investment committee and lender requirements, providing clarity and confidence for informed investment decisions across the MENA region.",
+            question: "Why choose VisiWeal for feasibility studies?",
+            answer: "VisiWeal produces feasibility studies that meet the highest standards for investment committee and lender requirements, providing clarity and confidence for informed investment decisions across the MENA region.",
           },
           {
             question: "Which sectors require feasibility studies?",
@@ -67,14 +68,14 @@ export default async function FeasibilityStudiesPage({ params }: Props) {
             answer: "A comprehensive feasibility study typically takes 4-8 weeks depending on project complexity, data availability, and the scope of market analysis required for informed investment decision-making.",
           },
           {
-            question: "What standards do Visiweal's feasibility studies meet?",
-            answer: "Visiweal's feasibility studies meet the highest standards for investment committee review, lender requirements, and regulatory approvals across the MENA region, providing institutional-grade analysis and clear go/no-go recommendations.",
+            question: "What standards do VisiWeal's feasibility studies meet?",
+            answer: "VisiWeal's feasibility studies meet the highest standards for investment committee review, lender requirements, and regulatory approvals across the MENA region, providing institutional-grade analysis and clear go/no-go recommendations.",
           },
         ]}
       />
       <BreadcrumbSchema
         items={[
-          { name: "Visiweal", url: "https://visiweal.com" },
+          { name: "VisiWeal", url: "https://visiweal.com" },
           { name: "Services", url: `https://visiweal.com/${locale === "en" ? "" : "ar/"}services` },
           { name: "Feasibility Studies", url: `https://visiweal.com/${locale === "en" ? "" : "ar/"}services/feasibility-studies` },
         ]}
@@ -83,6 +84,7 @@ export default async function FeasibilityStudiesPage({ params }: Props) {
         serviceKey="feasibility"
         locale={locale}
         hideStats
+        methodologySection={<FeasibilityMethodology />}
       />
     </>
   );

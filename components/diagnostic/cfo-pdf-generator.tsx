@@ -32,13 +32,52 @@ export const SOCIAL = [
 export const CONTACT = {
   address: "Beirut, Lebanon",
   email: "info@visiweal.com",
-  phone: "+961 1 234 567",
+  phone: "+961 71 828281",
 };
 
 export const MODEL_COLORS: Record<ModelKey, string> = {
-  outsourced: "#7F8C8D",
   fractional: "#2E6DA4",
-  fulltime: "#1A3C5E",
+  fulltime: "#E67E22",
+  outsourced: "#8E44AD",
+};
+
+function LinkedInIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#3BA99E">
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+    </svg>
+  );
+}
+
+function XIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#3BA99E">
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+function YouTubeIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#3BA99E">
+      <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+    </svg>
+  );
+}
+
+function FacebookIcon() {
+  return (
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="#3BA99E">
+      <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+    </svg>
+  );
+}
+
+const SOCIAL_ICONS: Record<string, React.ReactNode> = {
+  LinkedIn: <LinkedInIcon />,
+  "Twitter / X": <XIcon />,
+  YouTube: <YouTubeIcon />,
+  Facebook: <FacebookIcon />,
 };
 
 const PAGE_W = 210;
@@ -119,7 +158,7 @@ function ReportPage({ pageIndex, children }: ReportPageProps) {
     >
       {children}
       <div style={footerStyle}>
-        <span>Visiweal — Financial Resource Diagnostic Report</span>
+        <span>VisiWeal — Financial Resource Diagnostic Report</span>
         <span>Page {pageIndex} of 12</span>
       </div>
     </div>
@@ -147,7 +186,7 @@ function PageHeader({ title, assessmentId }: { title: string; assessmentId: stri
           V
         </div>
         <div>
-          <div style={{ fontSize: 14, fontWeight: 700 }}>Visiweal</div>
+          <div style={{ fontSize: 14, fontWeight: 700 }}>VisiWeal</div>
           <div style={{ fontSize: 8, color: BRAND.textMuted }}>{assessmentId}</div>
         </div>
       </div>
@@ -177,7 +216,7 @@ function SectionTitle({ label }: { label: string }) {
   );
 }
 
-export function CoverPage({ result, logoDataUrl }: { result: DiagnosticResult; logoDataUrl?: string }) {
+export function CoverPage({ result }: { result: DiagnosticResult }) {
   return (
     <div
       style={{
@@ -194,31 +233,11 @@ export function CoverPage({ result, logoDataUrl }: { result: DiagnosticResult; l
         boxSizing: "border-box",
       }}
     >
-      {logoDataUrl && (
-        <img
-          src={logoDataUrl}
-          alt="Visiweal"
-          style={{ width: 80, height: 80, marginBottom: 24, borderRadius: 12 }}
-        />
-      )}
-      {!logoDataUrl && (
-        <div
-          style={{
-            width: 80,
-            height: 80,
-            borderRadius: 16,
-            backgroundColor: BRAND.accent,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontSize: 36,
-            fontWeight: 700,
-            marginBottom: 24,
-          }}
-        >
-          V
-        </div>
-      )}
+      <img
+        src="/logo.png"
+        alt="VisiWeal"
+        style={{ width: 80, height: 80, marginBottom: 24, borderRadius: 12 }}
+      />
 
       <div
         style={{
@@ -276,7 +295,7 @@ export function ExecutiveSummaryPage({ result }: { result: DiagnosticResult }) {
     recommendedModelLabel,
     matchConfidence,
     signalStrength,
-    consistencyRatio,
+    consistencyScore,
     percentages,
     assessmentMetadata,
   } = result;
@@ -313,7 +332,7 @@ export function ExecutiveSummaryPage({ result }: { result: DiagnosticResult }) {
         {[
           { label: "Match Confidence", value: fmtPct(matchConfidence), color: BRAND.accent },
           { label: "Signal Strength", value: signalStrength, color: MODEL_COLORS[recommendedModel] },
-          { label: "Consistency Ratio", value: fmtPct(consistencyRatio), color: BRAND.primary },
+          { label: "Consistency Score", value: fmtPct(consistencyScore), color: BRAND.primary },
         ].map((m) => (
           <div
             key={m.label}
@@ -1134,7 +1153,7 @@ export function AboutVisiwealPage({ result }: { result: DiagnosticResult }) {
 
   return (
     <ReportPage pageIndex={11} result={result}>
-      <PageHeader title="About Visiweal" assessmentId={assessmentMetadata.assessmentId} />
+      <PageHeader title="About VisiWeal" assessmentId={assessmentMetadata.assessmentId} />
 
       <div
         style={{
@@ -1145,18 +1164,23 @@ export function AboutVisiwealPage({ result }: { result: DiagnosticResult }) {
           marginBottom: 16,
         }}
       >
-        <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>Visiweal</div>
+        <div style={{ fontSize: 18, fontWeight: 700, marginBottom: 8 }}>VisiWeal</div>
         <div style={{ fontSize: 10, lineHeight: 1.6, color: "#D1D5DB" }}>
-          Visiweal is a premier financial advisory firm serving enterprises across the MENA region.
-          We specialize in capital mobilization, strategic financial planning, M&A advisory, and
-          fractional CFO services — helping businesses navigate complex financial landscapes with
-          institutional rigor and regional expertise.
+          We are a premier strategic advisory firm headquartered in Dubai, serving enterprise
+          clients across the Middle East and beyond. Our name — VisiWeal — embodies our purpose:
+          transforming strategic vision into measurable wealth.
+        </div>
+        <div style={{ fontSize: 10, lineHeight: 1.6, color: "#D1D5DB", marginTop: 8 }}>
+          With deep expertise across M&A, financial advisory, digital transformation, and CFO
+          services, we bring institutional-grade capabilities to every engagement, combined with
+          the agility and personal commitment of a focused partnership.
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}>
+      <div style={{ display: "flex", gap: 12, marginBottom: 16 }}>
         <div
           style={{
+            flex: 1,
             padding: 12,
             borderRadius: 8,
             backgroundColor: BRAND.cardBg,
@@ -1164,17 +1188,27 @@ export function AboutVisiwealPage({ result }: { result: DiagnosticResult }) {
           }}
         >
           <div style={{ fontSize: 9, fontWeight: 600, color: BRAND.accent, marginBottom: 8 }}>
-            Contact Information
+            Contact
           </div>
           <div style={{ fontSize: 9, color: BRAND.text, lineHeight: 1.8 }}>
-            <div>📍 {CONTACT.address}</div>
-            <div>✉️ {CONTACT.email}</div>
-            <div>📞 {CONTACT.phone}</div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 14, textAlign: "center" }}>📍</span>
+              <span>{CONTACT.address}</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 14, textAlign: "center" }}>✉️</span>
+              <span>{CONTACT.email}</span>
+            </div>
+            <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <span style={{ width: 14, textAlign: "center" }}>📞</span>
+              <span>{CONTACT.phone}</span>
+            </div>
           </div>
         </div>
 
         <div
           style={{
+            flex: 1,
             padding: 12,
             borderRadius: 8,
             backgroundColor: BRAND.cardBg,
@@ -1182,11 +1216,17 @@ export function AboutVisiwealPage({ result }: { result: DiagnosticResult }) {
           }}
         >
           <div style={{ fontSize: 9, fontWeight: 600, color: BRAND.accent, marginBottom: 8 }}>
-            Social Media
+            Follow Us
           </div>
-          <div style={{ fontSize: 9, color: BRAND.text, lineHeight: 1.8 }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
             {SOCIAL.map((s) => (
-              <div key={s.label}>🔗 {s.label}: {s.url}</div>
+              <div
+                key={s.label}
+                style={{ display: "flex", alignItems: "center", gap: 6, fontSize: 9, color: BRAND.text }}
+              >
+                {SOCIAL_ICONS[s.label]}
+                <span>{s.label}</span>
+              </div>
             ))}
           </div>
         </div>
@@ -1231,32 +1271,21 @@ export function BackCoverPage({ result }: { result: DiagnosticResult }) {
         boxSizing: "border-box",
       }}
     >
-      <div
-        style={{
-          width: 64,
-          height: 64,
-          borderRadius: 16,
-          backgroundColor: BRAND.accent,
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          fontSize: 28,
-          fontWeight: 700,
-          marginBottom: 20,
-        }}
-      >
-        V
-      </div>
+      <img
+        src="/logo.png"
+        alt="VisiWeal"
+        style={{ width: 72, height: 72, marginBottom: 20, borderRadius: 12 }}
+      />
 
       <div style={{ fontSize: 16, fontWeight: 700, marginBottom: 8 }}>
-        Visiweal
+        VisiWeal
       </div>
 
       <div style={{ fontSize: 10, color: "#9CA3AF", marginBottom: 24, maxWidth: 300, lineHeight: 1.6 }}>
-        Institutional financial intelligence, deployed for the MENA enterprise.
+        Transforming strategic vision into measurable wealth.
       </div>
 
-      <Divider />
+      <div style={{ width: 60, height: 1, backgroundColor: "rgba(59,169,158,0.3)", marginBottom: 20 }} />
 
       <div style={{ fontSize: 9, color: "#6B7280", lineHeight: 2 }}>
         <div>{CONTACT.address}</div>
@@ -1264,24 +1293,37 @@ export function BackCoverPage({ result }: { result: DiagnosticResult }) {
         <div>{CONTACT.phone}</div>
       </div>
 
-      <div style={{ display: "flex", gap: 12, marginTop: 20 }}>
+      <div style={{ display: "flex", gap: 16, marginTop: 20 }}>
         {SOCIAL.map((s) => (
           <div
             key={s.label}
             style={{
-              fontSize: 9,
-              color: BRAND.accent,
-              textDecoration: "underline",
-              cursor: "pointer",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              gap: 4,
             }}
           >
-            {s.label}
+            <div
+              style={{
+                width: 32,
+                height: 32,
+                borderRadius: 8,
+                backgroundColor: "rgba(59,169,158,0.1)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              {SOCIAL_ICONS[s.label]}
+            </div>
+            <span style={{ fontSize: 7, color: "#9CA3AF" }}>{s.label}</span>
           </div>
         ))}
       </div>
 
       <div style={{ marginTop: 32, fontSize: 8, color: "#4B5563" }}>
-        © {new Date().getFullYear()} Visiweal. All rights reserved.
+        © {new Date().getFullYear()} VisiWeal. All rights reserved.
       </div>
       <div style={{ fontSize: 7, color: "#4B5563", marginTop: 4 }}>
         Assessment ID: {result.assessmentMetadata.assessmentId}

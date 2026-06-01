@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useEffect, useState, useCallback } from "react";
+import { useRef, useEffect, useCallback } from "react";
 import type { DiagnosticResult } from "./diagnostic-engine";
 import {
   CoverPage,
@@ -24,7 +24,6 @@ interface Props {
 }
 
 export default function CfoPdfReport({ result, onPdfReady, onError }: Props) {
-  const [logoDataUrl, setLogoDataUrl] = useState<string | undefined>(undefined);
   const coverRef = useRef<HTMLDivElement>(null);
   const summaryRef = useRef<HTMLDivElement>(null);
   const modelRef = useRef<HTMLDivElement>(null);
@@ -35,21 +34,6 @@ export default function CfoPdfReport({ result, onPdfReady, onError }: Props) {
   const roadmapRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const backRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    async function loadLogo() {
-      try {
-        const res = await fetch("/logo.png");
-        const blob = await res.blob();
-        const reader = new FileReader();
-        reader.onloadend = () => setLogoDataUrl(reader.result as string);
-        reader.readAsDataURL(blob);
-      } catch {
-        setLogoDataUrl(undefined);
-      }
-    }
-    loadLogo();
-  }, []);
 
   const capture = useCallback(async () => {
     if (!coverRef.current) return;
@@ -89,6 +73,11 @@ export default function CfoPdfReport({ result, onPdfReady, onError }: Props) {
           logging: false,
           useCORS: true,
           allowTaint: true,
+          onclone: (doc) => {
+            const baseStyle = doc.createElement("style");
+            baseStyle.textContent = `body{color:#000;background:#fff}*{box-sizing:border-box}`;
+            doc.head.appendChild(baseStyle);
+          },
         });
 
         const imgData = canvas.toDataURL("image/jpeg", 0.92);
@@ -117,9 +106,9 @@ export default function CfoPdfReport({ result, onPdfReady, onError }: Props) {
   }, [capture]);
 
   return (
-    <div style={{ position: "absolute", left: "-9999px", top: 0, zIndex: -1 }}>
+    <div style={{ position: "fixed", left: "-9999px", top: 0, zIndex: -1, color: "#000", backgroundColor: "#fff" }}>
       <div ref={coverRef}>
-        <CoverPage result={result} logoDataUrl={logoDataUrl} />
+        <CoverPage result={result} />
       </div>
       <div ref={summaryRef}>
         <ExecutiveSummaryPage result={result} />

@@ -128,7 +128,7 @@ function HeroSection({ badge, title, sub, locale, serviceKey }: { badge: string;
           <motion.p variants={heroItem} className="max-w-2xl text-body text-text-tertiary md:text-lg">{sub}</motion.p>
           <motion.div variants={heroItem} className="mt-10 flex flex-col gap-4 sm:flex-row">
             <HoverBorderGradient containerClassName="rounded-full" className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-brand-400 to-brand-600 px-8 py-3.5 text-sm font-medium text-white shadow-glow-teal md:text-base" highlightColor="#14B8A6">
-              <Link href={"/" + locale + "/book-consultation"} className="inline-flex items-center gap-2">{title}</Link>
+              <Link href={"/" + locale + "/book-consultation"} className="inline-flex items-center gap-2">Book a Strategic Consultation</Link>
             </HoverBorderGradient>
           </motion.div>
         </motion.div>

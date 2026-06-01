@@ -188,18 +188,18 @@ export default function Hero() {
             className="text-label mb-5 text-brand-400/90"
             {...item()}
           >
-            AI-Native Financial Advisory
+            Strategic Financial Advisory
           </motion.p>
 
           <motion.h1
             className="text-display leading-[1.08] tracking-tight text-text-primary"
             {...item(0.15)}
           >
-            <span className="font-semibold">Strategic Financial</span>
+            Creating Enterprise Value{" "}
             <br />
-            Intelligence for the{" "}
+            Through{" "}
             <span className="animate-text-glow-pulse text-gradient-brand">
-              Future Enterprise
+              Critical Business Decisions
             </span>
           </motion.h1>
 
@@ -207,9 +207,9 @@ export default function Hero() {
             className="mt-6 max-w-2xl text-body md:mt-8 md:text-lg"
             {...item(0.3)}
           >
-            M&A Advisory, Digital Transformation, Fractional CFO,
-            and enterprise financial strategy designed for the
-            modern organization.
+            VisiWeal advises business owners, boards, investors,
+            and executive leadership teams on the decisions that
+            shape growth, strengthen performance, and define long-term success.
           </motion.p>
 
           <motion.div
@@ -220,7 +220,7 @@ export default function Hero() {
               href={`/${locale}/book-consultation`}
               className="inline-flex items-center justify-center rounded-full bg-gradient-to-b from-brand-400 to-brand-600 px-8 py-3.5 text-sm font-medium text-white shadow-glow-teal transition-all hover:shadow-lg md:text-base"
             >
-              Book Consultation
+              Book a Strategic Consultation
             </Link>
 
             <Link

@@ -464,7 +464,7 @@ export const diagnosticData: DiagnosticData = {
       pillar: "Governance & Control Infrastructure",
       pillarKey: "governance",
       sequence: 10,
-      text: "How robust is your internal control environment against leakage, fraud, and misallocation?",
+      text: "How strong is your internal control environment against leakage, fraud, and misallocation?",
       options: [
         {
           id: "A",
@@ -808,7 +808,7 @@ export const resultTemplates: Record<ModelKey, ResultTemplate> = {
       "Your profile shows stable operations with low strategic complexity, best served by a cost-efficient outsourced finance arrangement.",
     rationale: {
       intro:
-        "Based on your responses, your financial profile is well-suited to a Managed Outsourced Finance model. Your liquidity position is predictable, your regulatory footprint is minimal, and your strategic demands are primarily compliance-oriented rather than transformational.",
+        "Based on your responses, your financial profile is well-suited to a Managed Outsourced Finance model. Your liquidity position is predictable, your regulatory footprint is minimal, and your strategic demands are primarily compliance-oriented rather than growth-oriented.",
       capital:
         "Your capital structure is straightforward with predictable cash flows and no active fundraising mandate, requiring standard financial oversight.",
       jurisdictional:

@@ -12,8 +12,8 @@ export async function generateMetadata({ params }: Props) {
   const baseUrl = "https://visiweal.com";
   const path = locale === "en" ? "/contact" : "/ar/contact";
   return {
-    title: "Contact Us — " + t("title"),
-    description: "Get in touch with Visiweal's team of strategic M&A, financial advisory, and fractional CFO experts in Dubai, Riyadh, and across the Middle East. Contact our offices for a confidential discussion.",
+    title: "Financial Advisory for Dubai and the Middle East | VisiWeal",
+    description: "Contact VisiWeal for strategic M&A, financial advisory, and fractional CFO services across Dubai, Riyadh, and the MENA region. Book a strategic consultation.",
     alternates: {
       canonical: `${baseUrl}${path}`,
       languages: {
@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: Props) {
       },
     },
     openGraph: {
-      title: `Contact Us | Visiweal`,
-      description: "Reach Visiweal's premium strategic advisory team serving enterprise clients across the MENA region and beyond.",
+      title: "Financial Advisory for Dubai and the Middle East | VisiWeal",
+      description: "Strategic M&A, financial advisory, and fractional CFO services for enterprises across the MENA region. Book a strategic consultation.",
       images: [{ url: `${baseUrl}/opengraph-image`, width: 1200, height: 630 }],
     },
   };
@@ -34,12 +34,12 @@ export default async function ContactPage({ params }: Props) {
   return (
     <>
       <LocalBusinessSchema
-        name="Visiweal"
+        name="VisiWeal"
         description="Premium M&A, Financial Advisory, and Fractional CFO services for enterprise clients across the Middle East and beyond."
       />
       <BreadcrumbSchema
         items={[
-          { name: "Visiweal", url: "https://visiweal.com" },
+          { name: "VisiWeal", url: "https://visiweal.com" },
           { name: "Contact", url: `https://visiweal.com/${locale === "en" ? "contact" : "ar/contact"}` },
         ]}
       />
