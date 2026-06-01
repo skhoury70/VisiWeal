@@ -230,6 +230,8 @@ export default function BookConsultationForm() {
 
   const inputStyle =
     "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-gray-600 focus:border-teal-500/30 focus:bg-white/[0.06]";
+  const selectStyle =
+    "w-full rounded-xl border border-white/10 bg-[#071017] px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-gray-600 focus:border-teal-500/30 focus:bg-[#0a1a24]";
 
   const requiredLabel = (label: string, isReq = true) => (
     <span>{label}{isReq && <span className="ml-1 text-red-400">*</span>}</span>
@@ -460,7 +462,7 @@ export default function BookConsultationForm() {
                     <div className="space-y-5">
                       <div>
                         <label className="mb-1.5 block text-sm text-gray-400" htmlFor="book-hearabout">{t("hearAbout")}</label>
-                        <select suppressHydrationWarning id="book-hearabout" className={inputStyle} value={data.hearAbout} onChange={(e) => update("hearAbout", e.target.value)}>
+                        <select suppressHydrationWarning id="book-hearabout" className={selectStyle} value={data.hearAbout} onChange={(e) => update("hearAbout", e.target.value)}>
                           <option value="" className="bg-[#071017]">{t("selectHearAbout")}</option>
                           {hearAboutOptions.map((opt) => (
                             <option key={opt} value={opt} className="bg-[#071017]">{opt}</option>

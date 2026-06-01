@@ -74,6 +74,8 @@ export default function ContactForm() {
   const contactMethods = t.raw("form.contactMethods") as string[];
   const inputStyle =
     "w-full rounded-xl border border-white/10 bg-white/[0.03] px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-gray-600 focus:border-teal-500/30 focus:bg-white/[0.06]";
+  const selectStyle =
+    "w-full rounded-xl border border-white/10 bg-[#071017] px-4 py-3 text-sm text-white outline-none transition-all placeholder:text-gray-600 focus:border-teal-500/30 focus:bg-[#0a1a24]";
 
   const update = (key: keyof FormData, value: string) => {
     setData((prev) => ({ ...prev, [key]: value }));
@@ -316,7 +318,7 @@ export default function ContactForm() {
                           <select
                             suppressHydrationWarning
                             id="contact-service"
-                            className={inputStyle}
+                            className={selectStyle}
                             value={data.service}
                             onChange={(e) => update("service", e.target.value)}
                           >

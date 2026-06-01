@@ -230,7 +230,7 @@ export default function CfoRoiCalculator() {
             <select
               value={currency}
               onChange={(e) => setCurrency(e.target.value)}
-              className="rounded-lg border border-white/[0.08] bg-white/[0.03] px-2.5 py-1.5 text-xs font-semibold text-[#D8E4E8] backdrop-blur-xl transition-colors focus:border-[#1DBFA0]/40 focus:outline-none"
+              className="rounded-lg border border-white/[0.08] bg-[#0C1820] px-2.5 py-1.5 text-xs font-semibold text-[#D8E4E8] transition-colors focus:border-[#1DBFA0]/40 focus:outline-none"
             >
               {Object.values(CURRENCIES).map((c) => (
                 <option key={c.code} value={c.code} className="bg-[#0C1820]">
@@ -313,7 +313,7 @@ export default function CfoRoiCalculator() {
           <select
             value={industry}
             onChange={(e) => setIndustry(e.target.value)}
-            className="w-full rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-2 text-sm text-[#D8E4E8] backdrop-blur-xl transition-colors focus:border-[#1DBFA0]/40 focus:outline-none"
+            className="w-full rounded-lg border border-white/[0.08] bg-[#0C1820] px-3 py-2 text-sm text-[#D8E4E8] transition-colors focus:border-[#1DBFA0]/40 focus:outline-none"
           >
             {Object.entries(INDUSTRIES).map(([key, cfg]) => (
               <option key={key} value={key} className="bg-[#0C1820]">{cfg.label}</option>
