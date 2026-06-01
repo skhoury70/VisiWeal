@@ -35,118 +35,120 @@ export default function Navigation() {
   const switchPath = pathname.replace(`/${locale}`, `/${otherLocale}`);
 
   return (
-    <header
-      className="fixed top-0 z-50 w-full border-b border-gray-200/50 bg-white/95 backdrop-blur-xl shadow-sm transition-all duration-300"
-    >
-      <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
-        <Link href="/" className="flex items-center gap-2">
-          <Image
-            src="/logo.png"
-            alt="Visiweal"
-            width={56}
-            height={56}
-            className="h-14 w-auto"
-            priority
-          />
-        </Link>
+    <>
+      <header
+        className="fixed top-0 z-50 w-full border-b border-gray-200/50 bg-white/95 backdrop-blur-xl shadow-sm transition-all duration-300"
+      >
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="Visiweal"
+              width={56}
+              height={56}
+              className="h-14 w-auto"
+              priority
+            />
+          </Link>
 
-        <nav className="hidden items-center gap-1 md:flex">
-          {navItems.map((item) => {
-            const href = `/${locale}${item.href === "/" ? "" : item.href}`;
-            const isActive = pathname === href;
-            if (item.key === "services") {
-              return (
-                <div
-                  key={item.key}
-                  className="relative"
-                  onMouseEnter={() => setMegaOpen(true)}
-                  onMouseLeave={() => setMegaOpen(false)}
-                >
-                  <Link
-                    href={href}
-                    className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                      isActive || megaOpen
-                        ? "text-teal-600"
-                        : "text-gray-600 hover:text-gray-900"
-                    }`}
+          <nav className="hidden items-center gap-1 md:flex">
+            {navItems.map((item) => {
+              const href = `/${locale}${item.href === "/" ? "" : item.href}`;
+              const isActive = pathname === href;
+              if (item.key === "services") {
+                return (
+                  <div
+                    key={item.key}
+                    className="relative"
+                    onMouseEnter={() => setMegaOpen(true)}
+                    onMouseLeave={() => setMegaOpen(false)}
                   >
-                    {t(item.key)}
-                    {isActive && (
-                      <span className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-teal-500" />
-                    )}
-                  </Link>
-                  {megaOpen && (
-                    <div className="absolute left-0 mt-0 w-64 rounded-b-2xl border border-gray-200 bg-white shadow-xl">
-                      <div className="p-4">
-                        <div className="space-y-1">
-                          {[
-                            { key: "maAdvisory", href: "/services/ma-advisory" },
-                            { key: "financialAdvisory", href: "/services/financial-advisory" },
-                            { key: "digitalTransformation", href: "/services/digital-transformation" },
-                            { key: "fractionalCFO", href: "/services/fractional-cfo" },
-                            { key: "corporateRestructuring", href: "/services/corporate-restructuring" },
-                            { key: "feasibilityStudies", href: "/services/feasibility-studies" },
-                          ].map((s) => (
-                            <Link
-                              key={s.key}
-                              href={`/${locale}${s.href}`}
-                              className="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
-                            >
-                              {t(s.key)}
-                            </Link>
-                          ))}
+                    <Link
+                      href={href}
+                      className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                        isActive || megaOpen
+                          ? "text-teal-600"
+                          : "text-gray-600 hover:text-gray-900"
+                      }`}
+                    >
+                      {t(item.key)}
+                      {isActive && (
+                        <span className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-teal-500" />
+                      )}
+                    </Link>
+                    {megaOpen && (
+                      <div className="absolute left-0 mt-0 w-64 rounded-b-2xl border border-gray-200 bg-white shadow-xl">
+                        <div className="p-4">
+                          <div className="space-y-1">
+                            {[
+                              { key: "maAdvisory", href: "/services/ma-advisory" },
+                              { key: "financialAdvisory", href: "/services/financial-advisory" },
+                              { key: "digitalTransformation", href: "/services/digital-transformation" },
+                              { key: "fractionalCFO", href: "/services/fractional-cfo" },
+                              { key: "corporateRestructuring", href: "/services/corporate-restructuring" },
+                              { key: "feasibilityStudies", href: "/services/feasibility-studies" },
+                            ].map((s) => (
+                              <Link
+                                key={s.key}
+                                href={`/${locale}${s.href}`}
+                                className="group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900"
+                              >
+                                {t(s.key)}
+                              </Link>
+                            ))}
+                          </div>
                         </div>
                       </div>
-                    </div>
+                    )}
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={item.key}
+                  href={href}
+                  className={`relative px-4 py-2 text-sm font-medium transition-colors ${
+                    isActive
+                      ? "text-teal-600"
+                      : "text-gray-600 hover:text-gray-900"
+                  }`}
+                >
+                  {t(item.key)}
+                  {isActive && (
+                    <span className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-teal-500" />
                   )}
-                </div>
+                </Link>
               );
-            }
-            return (
-              <Link
-                key={item.key}
-                href={href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors ${
-                  isActive
-                    ? "text-teal-600"
-                    : "text-gray-600 hover:text-gray-900"
-                }`}
-              >
-                {t(item.key)}
-                {isActive && (
-                  <span className="absolute bottom-0 left-1/2 h-0.5 w-6 -translate-x-1/2 rounded-full bg-teal-500" />
-                )}
-              </Link>
-            );
-          })}
-        </nav>
+            })}
+          </nav>
 
-        <div className="flex items-center gap-4">
-          <Link
-            href={switchPath}
-            className="hidden rounded-md border border-teal-500/30 px-3 py-1.5 text-sm font-semibold text-teal-600 transition-colors hover:bg-teal-50 hover:text-teal-700 md:block"
-          >
-            {locale === "en" ? "AR" : "EN"}
-          </Link>
+          <div className="flex items-center gap-4">
+            <Link
+              href={switchPath}
+              className="hidden rounded-md border border-teal-500/30 px-3 py-1.5 text-sm font-semibold text-teal-600 transition-colors hover:bg-teal-50 hover:text-teal-700 md:block"
+            >
+              {locale === "en" ? "AR" : "EN"}
+            </Link>
 
-          <Link
-            href={`/${locale}/book-consultation`}
-            className="hidden rounded-full bg-gradient-to-r from-teal-600 to-teal-400 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:shadow-teal-500/40 md:block"
-          >
-            {t("bookConsultation")}
-          </Link>
+            <Link
+              href={`/${locale}/book-consultation`}
+              className="hidden rounded-full bg-gradient-to-r from-teal-600 to-teal-400 px-5 py-2 text-sm font-semibold text-white shadow-lg shadow-teal-500/20 transition-all hover:shadow-teal-500/40 md:block"
+            >
+              {t("bookConsultation")}
+            </Link>
 
-          <button
-            className="flex flex-col gap-1.5 md:hidden"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
-            <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "opacity-0" : ""}`} />
-            <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
-          </button>
+            <button
+              className="flex flex-col gap-1.5 md:hidden"
+              onClick={() => setMobileOpen(!mobileOpen)}
+              aria-label="Toggle menu"
+            >
+              <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "translate-y-2 rotate-45" : ""}`} />
+              <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "opacity-0" : ""}`} />
+              <span className={`h-0.5 w-6 bg-gray-800 transition-all ${mobileOpen ? "-translate-y-2 -rotate-45" : ""}`} />
+            </button>
+          </div>
         </div>
-      </div>
+      </header>
 
       {mobileOpen && (
         <div className="fixed inset-0 top-20 z-40 bg-white md:hidden">
@@ -182,6 +184,6 @@ export default function Navigation() {
           </nav>
         </div>
       )}
-    </header>
+    </>
   );
 }
