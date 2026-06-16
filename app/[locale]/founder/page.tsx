@@ -115,7 +115,7 @@ export default async function FounderPage({ params }: Props) {
                 <Badge variant="brand" className="mb-6">
                   {t("title")}
                 </Badge>
-                <h1 className="mb-4 text-5xl font-display font-light leading-tight tracking-tight text-white md:text-7xl whitespace-nowrap">
+                <h1 className="mb-4 text-5xl font-display font-light leading-tight tracking-tight text-white md:text-7xl">
                   {t("name")}
                 </h1>
                 <p className="mb-2 text-lg font-medium text-teal-400">

@@ -725,19 +725,25 @@
     "sub": "The Work Speaks. So Do the People Who Commissioned It.",
     "items": [
       {
+        "quote": "As Group CFO, Sleiman was a trusted member of the executive leadership team and an important contributor to the Group's strategic decision-making. His leadership was instrumental in restructuring a $19 million debt portfolio and securing a new $20 million multi-currency credit facility, improving liquidity by 35% and strengthening the Group's financial flexibility during a critical period. He consistently demonstrated the ability to manage complex stakeholder relationships, align financial strategy with business objectives, and execute with discipline. What distinguishes Sleiman is his combination of strategic perspective, commercial acumen, and ability to deliver results in complex environments. I would strongly recommend him to any organization seeking a CFO who can create tangible value beyond the finance function.",
+        "author": "Marwan Diab",
+        "title": "Group COO",
+        "company": "Obegi Chemicals Group",
+        "avatar": "/images/testimonials/Marwan.png"
+      },
+      {
         "quote": "VisiWeal's M&A advisory expertise was instrumental in our AED 450M acquisition. Their team's depth of regional knowledge and transaction experience is unmatched.",
         "author": "Group CEO",
-        "company": "UAE Real Estate Conglomerate"
+        "title": "",
+        "company": "UAE Real Estate Conglomerate",
+        "avatar": ""
       },
       {
         "quote": "Their Fractional CFO service transformed our financial operations within 6 months. We gained institutional-grade financial management without the overhead of a full-time hire.",
         "author": "Founder & Chairman",
-        "company": "GCC Technology Company"
-      },
-      {
-        "quote": "Unparalleled strategic insight for our regional expansion. True partners who understand both the numbers and the narrative behind them.",
-        "author": "CFO",
-        "company": "MENA Healthcare Group"
+        "title": "",
+        "company": "GCC Technology Company",
+        "avatar": ""
       }
     ]
   },

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import GlassCard from "@/components/effects/glass-card";
@@ -12,7 +13,9 @@ export default function Testimonials() {
   const items = t.raw("items") as Array<{
     quote: string;
     author: string;
+    title: string;
     company: string;
+    avatar: string;
   }>;
 
   return (
@@ -34,7 +37,7 @@ export default function Testimonials() {
           </div>
         </ScrollReveal>
 
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (
             <motion.div
               key={i}
@@ -44,16 +47,17 @@ export default function Testimonials() {
               transition={{ duration: 0.7, delay: i * 0.12, ease }}
             >
               <GlassCard className="flex h-full flex-col">
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  className="mb-5 h-8 w-8 text-brand-400/40"
-                >
-                  <path d="M10 11h-4v-1c0-1.1.9-2 2-2h1v-2h-1c-2.21 0-4 1.79-4 4v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                  <path d="M20 11h-4v-1c0-1.1.9-2 2-2h1v-2h-1c-2.21 0-4 1.79-4 4v5c0 1.1.9 2 2 2h4c1.1 0 2-.9 2-2v-4c0-1.1-.9-2-2-2z" />
-                </svg>
+                {item.avatar && (
+                  <div className="mb-5 h-16 w-16 overflow-hidden rounded-full ring-2 ring-teal-500/20">
+                    <Image
+                      src={item.avatar}
+                      alt={item.author}
+                      width={64}
+                      height={64}
+                      className="h-full w-full object-cover"
+                    />
+                  </div>
+                )}
 
                 <p className="text-body-small leading-relaxed text-text-secondary flex-1">
                   &ldquo;{item.quote}&rdquo;
@@ -63,7 +67,12 @@ export default function Testimonials() {
                   <p className="text-label text-xs font-medium text-text-primary">
                     {item.author}
                   </p>
-                  <p className="text-caption text-text-tertiary mt-0.5">
+                  {item.title && (
+                    <p className="text-caption text-text-tertiary mt-0.5">
+                      {item.title}
+                    </p>
+                  )}
+                  <p className="text-caption text-text-tertiary">
                     {item.company}
                   </p>
                 </div>
