@@ -24,6 +24,16 @@ export default function Navigation() {
   const setScrolled = useState(false)[1];
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaOpen, setMegaOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+
+  const subServices = [
+    { key: "maAdvisory", href: "/services/ma-advisory" },
+    { key: "financialAdvisory", href: "/services/financial-advisory" },
+    { key: "digitalTransformation", href: "/services/digital-transformation" },
+    { key: "fractionalCFO", href: "/services/fractional-cfo" },
+    { key: "corporateRestructuring", href: "/services/corporate-restructuring" },
+    { key: "feasibilityStudies", href: "/services/feasibility-studies" },
+  ] as const;
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 80);
@@ -151,10 +161,47 @@ export default function Navigation() {
       </header>
 
       {mobileOpen && (
-        <div className="fixed inset-0 top-20 z-40 bg-white md:hidden">
+        <div className="fixed inset-0 top-20 z-40 overflow-y-auto bg-white md:hidden">
           <nav className="flex flex-col gap-2 p-6">
             {navItems.map((item, i) => {
               const href = `/${locale}${item.href === "/" ? "" : item.href}`;
+              if (item.key === "services") {
+                return (
+                  <div key={item.key}>
+                    <button
+                      className="flex w-full items-center justify-between border-b border-gray-100 py-4 text-lg font-medium text-gray-700 transition-colors hover:text-teal-600"
+                      onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                    >
+                      <span>{t(item.key)}</span>
+                      <svg
+                        className={`h-5 w-5 transition-transform ${mobileServicesOpen ? "rotate-180" : ""}`}
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="m6 9 6 6 6-6" />
+                      </svg>
+                    </button>
+                    {mobileServicesOpen && (
+                      <div className="ml-4 space-y-1 pb-2">
+                        {subServices.map((s) => (
+                          <Link
+                            key={s.key}
+                            href={`/${locale}${s.href}`}
+                            className="block border-b border-gray-50 py-3 pl-2 text-base text-gray-500 transition-colors hover:text-teal-600"
+                            onClick={() => setMobileOpen(false)}
+                          >
+                            {t(s.key)}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              }
               return (
                 <Link
                   key={item.key}

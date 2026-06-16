@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Marquee } from "@/components/ui/marquee";
@@ -16,6 +17,40 @@ const clients = [
 const ease = [0.16, 1, 0.3, 1] as const;
 
 export default function ClientsMarquee() {
+  const [isMobile, setIsMobile] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const rafRef = useRef<number>(0);
+  const [paused, setPaused] = useState(false);
+
+  useEffect(() => {
+    setIsMobile("ontouchstart" in window || window.matchMedia("(pointer: coarse)").matches);
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile || paused) return;
+    const el = scrollRef.current;
+    if (!el) return;
+    if (el.children.length === 0) return;
+
+    const scroll = () => {
+      const half = el.scrollWidth / 2;
+      if (el.scrollLeft >= half) {
+        el.scrollLeft = 0;
+      } else {
+        el.scrollLeft += 0.6;
+      }
+      rafRef.current = requestAnimationFrame(scroll);
+    };
+    rafRef.current = requestAnimationFrame(scroll);
+
+    return () => cancelAnimationFrame(rafRef.current);
+  }, [isMobile, paused]);
+
+  const handleLogoClick = () => {
+    cancelAnimationFrame(rafRef.current);
+    setPaused(true);
+  };
+
   return (
     <Section className="border-t border-border">
       <Container>
@@ -31,29 +66,57 @@ export default function ClientsMarquee() {
           </span>
         </motion.div>
 
-        <Marquee
-          pauseOnHover
-          repeat={6}
-          className="mt-10 [--duration:30s] [--gap:4rem]"
-        >
-          {clients.map(({ name, logo, w, h, url }) => (
-            <a
-              key={name}
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group flex items-center justify-center rounded-lg border border-border-subtle bg-white/[0.04] px-8 py-4 backdrop-blur-sm transition-all duration-500 [perspective:400px] hover:border-white hover:bg-white/[0.08]"
-            >
-              <Image
-                src={logo}
-                alt={name}
-                width={w}
-                height={h}
-                className="h-10 w-auto object-contain opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:[transform:rotateX(2deg)_rotateY(-8deg)_scale(1.08)]"
-              />
-            </a>
-          ))}
-        </Marquee>
+        {isMobile ? (
+          <div
+            ref={scrollRef}
+            onTouchStart={handleLogoClick}
+            className="mt-10 flex gap-6 overflow-x-auto [-webkit-overflow-scrolling:touch] [scroll-snap-type:x_mandatory]"
+            style={{ scrollbarWidth: "none" }}
+          >
+            {[...clients, ...clients].map(({ name, logo, w, h, url }, i) => (
+              <a
+                key={`${name}-${i}`}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={handleLogoClick}
+                className="flex-[0_0_auto] [scroll-snap-align:start] group flex items-center justify-center rounded-lg border border-border-subtle bg-white/[0.04] px-8 py-4 backdrop-blur-sm transition-all duration-500 hover:border-white hover:bg-white/[0.08]"
+              >
+                <Image
+                  src={logo}
+                  alt={name}
+                  width={w}
+                  height={h}
+                  className="h-10 w-auto object-contain opacity-60 transition-all duration-500 group-hover:opacity-100"
+                />
+              </a>
+            ))}
+          </div>
+        ) : (
+          <Marquee
+            pauseOnHover
+            repeat={6}
+            className="mt-10 [--duration:30s] [--gap:4rem]"
+          >
+            {clients.map(({ name, logo, w, h, url }) => (
+              <a
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center justify-center rounded-lg border border-border-subtle bg-white/[0.04] px-8 py-4 backdrop-blur-sm transition-all duration-500 [perspective:400px] hover:border-white hover:bg-white/[0.08]"
+              >
+                <Image
+                  src={logo}
+                  alt={name}
+                  width={w}
+                  height={h}
+                  className="h-10 w-auto object-contain opacity-60 transition-all duration-500 group-hover:opacity-100 group-hover:[transform:rotateX(2deg)_rotateY(-8deg)_scale(1.08)]"
+                />
+              </a>
+            ))}
+          </Marquee>
+        )}
       </Container>
     </Section>
   );
