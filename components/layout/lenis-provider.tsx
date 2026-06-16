@@ -5,12 +5,15 @@ import Lenis from "lenis";
 
 export default function LenisProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
+    const isMobile = "ontouchstart" in window || window.matchMedia("(pointer: coarse)").matches;
+
     const lenis = new Lenis({
-      lerp: 0.1,
-      duration: 1.2,
+      duration: isMobile ? 0.6 : 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       orientation: "vertical",
       gestureOrientation: "vertical",
+      touchMultiplier: isMobile ? 0.5 : undefined,
+      wheelMultiplier: isMobile ? 0.5 : undefined,
     });
 
     function raf(time: number) {

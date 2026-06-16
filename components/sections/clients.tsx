@@ -34,7 +34,7 @@ export default function ClientsMarquee() {
         <Marquee
           pauseOnHover
           repeat={6}
-          className="mt-10 [--duration:80s] [--gap:4rem]"
+          className="mt-10 [--duration:30s] [--gap:4rem]"
         >
           {clients.map(({ name, logo, w, h, url }) => (
             <a

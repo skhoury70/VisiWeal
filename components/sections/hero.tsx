@@ -54,6 +54,9 @@ export default function Hero() {
     if (rm) return;
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
 
+    const isMobile = "ontouchstart" in window || window.matchMedia("(pointer: coarse)").matches;
+    if (isMobile) ScrollTrigger.normalizeScroll(true);
+
     const ctx = gsap.context(() => {
       gsap.to(grad1Ref.current, {
         yPercent: 12,
