@@ -1,13 +1,9 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { useReducedMotion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { NumberTicker } from "@/components/ui/number-ticker";
 import { FlickeringGrid } from "@/components/ui/flickering-grid";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
   { value: 3.5, suffix: "B+", label: "Total Transaction Value Advised", prefix: "$", decimals: 1 },
@@ -20,33 +16,20 @@ export default function Stats() {
   const rm = useReducedMotion();
   const sectionRef = useRef<HTMLElement>(null);
 
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el || rm) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const containerVariants = {
+    visible: {
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        el.querySelectorAll(".stat-item"),
-        { y: 30, opacity: 0 },
-        {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          ease: "power2.out",
-          stagger: 0.15,
-          scrollTrigger: {
-            trigger: el,
-            start: "top 85%",
-            end: "top 40%",
-            scrub: 1,
-          },
-        },
-      );
-    }, el);
-
-    return () => ctx.revert();
-  }, [rm]);
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 1, ease: "power2.out" },
+    },
+  };
 
   return (
     <section
@@ -65,9 +48,15 @@ export default function Stats() {
       </div>
 
       <div className="container-base relative z-10">
-        <div className="grid grid-cols-2 gap-12 md:gap-16 lg:grid-cols-4">
+        <motion.div
+          className="grid grid-cols-2 gap-12 md:gap-16 lg:grid-cols-4"
+          variants={rm ? undefined : containerVariants}
+          initial={rm ? undefined : "hidden"}
+          whileInView={rm ? undefined : "visible"}
+          viewport={{ once: true, margin: "-80px" }}
+        >
           {stats.map((s) => (
-            <div key={s.label} className="stat-item text-center">
+            <motion.div key={s.label} className="stat-item text-center" variants={rm ? undefined : itemVariants}>
               <div className="text-metric mb-2 tracking-tight text-text-primary md:font-semibold">
                 {s.prefix ?? ""}
                 <NumberTicker
@@ -82,7 +71,7 @@ export default function Stats() {
               </p>
             </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

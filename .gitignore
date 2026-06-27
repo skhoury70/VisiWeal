@@ -43,6 +43,9 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
+# Agent workspace
+.omo/
+
 # Credential files (Google service account, OAuth secrets)
 docs/*.json
 !docs/schema.sql

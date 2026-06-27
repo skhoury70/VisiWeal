@@ -1,14 +1,10 @@
 "use client";
 
-import { useEffect, useRef } from "react";
-import { motion, useReducedMotion } from "framer-motion";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
 import { GlowingEffect } from "@/components/ui/glowing-effect";
 import Link from "next/link";
 import { useLocale } from "next-intl";
-
-gsap.registerPlugin(ScrollTrigger);
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
@@ -79,48 +75,31 @@ export default function Services() {
   const gridRef = useRef<HTMLDivElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
 
-  useEffect(() => {
-    if (rm) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const { scrollYProgress: revealProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start 80%", "start 40%"],
+  });
 
-    const ctx = gsap.context(() => {
-      gsap.fromTo(
-        gridRef.current,
-        { clipPath: "inset(5% 3% 5% 3% round 4px)", opacity: 0.6 },
-        {
-          clipPath: "inset(0% 0% 0% 0% round 0px)",
-          opacity: 1,
-          duration: 1.8,
-          ease: "power2.out",
-          scrollTrigger: {
-            trigger: sectionRef.current,
-            start: "top 80%",
-            end: "top 40%",
-            scrub: 1,
-          },
-        },
-      );
+  const clipPathVal = useTransform(
+    revealProgress,
+    [0, 1],
+    ["inset(5% 3% 5% 3% round 4px)", "inset(0% 0% 0% 0% round 0px)"],
+  );
+  const revealOpacity = useTransform(revealProgress, [0, 1], [0.6, 1]);
 
-      gsap.to(bgRef.current, {
-        yPercent: 15,
-        ease: "none",
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top bottom",
-          end: "bottom top",
-          scrub: 1,
-        },
-      });
-    });
+  const { scrollYProgress: bgProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  });
 
-    return () => ctx.revert();
-  }, [rm]);
+  const bgY = useTransform(bgProgress, [0, 1], ["0%", "15%"]);
 
   return (
     <section ref={sectionRef} className="section-padding relative overflow-hidden bg-surface">
       <div className="absolute inset-0" aria-hidden="true">
-        <div
+        <motion.div
           ref={bgRef}
+          style={rm ? {} : { y: bgY }}
           className="glow-orb-md absolute right-[-10%] top-[20%] h-[60vh] w-[40vw] bg-gradient-to-bl from-glow-teal/5 via-glow-teal-subtle/3 to-transparent"
         />
       </div>
@@ -145,6 +124,7 @@ export default function Services() {
 
         <motion.div
           ref={gridRef}
+          style={rm ? {} : { clipPath: clipPathVal, opacity: revealOpacity }}
           className="grid gap-px border border-border-subtle bg-border-subtle md:grid-cols-2 lg:grid-cols-3"
           variants={rm ? undefined : containerVariants}
           initial={rm ? undefined : "hidden"}
