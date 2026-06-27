@@ -27,7 +27,7 @@ export default function Stats() {
     visible: {
       y: 0,
       opacity: 1,
-      transition: { duration: 1, ease: "power2.out" },
+      transition: { duration: 1, ease: "easeOut" as const },
     },
   };
 
@@ -69,7 +69,7 @@ export default function Stats() {
               <p className="text-caption leading-relaxed text-text-tertiary">
                 {s.label}
               </p>
-            </div>
+            </motion.div>
           ))}
         </motion.div>
       </div>

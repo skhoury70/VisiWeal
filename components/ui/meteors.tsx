@@ -23,23 +23,34 @@ export const Meteors = ({
   angle = 215,
   className,
 }: MeteorsProps) => {
+  const [ready, setReady] = useState(false)
   const [meteorStyles, setMeteorStyles] = useState<Array<React.CSSProperties>>(
     []
   )
 
   useEffect(() => {
-    const styles = [...new Array(number)].map(() => ({
-      "--angle": -angle + "deg",
-      top: "-5%",
-      left: `calc(0% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
-      animationDelay: Math.random() * (maxDelay - minDelay) + minDelay + "s",
-      animationDuration:
-        Math.floor(Math.random() * (maxDuration - minDuration) + minDuration) +
-        "s",
-    }))
-    // eslint-disable-next-line react-hooks/set-state-in-effect
-    setMeteorStyles(styles)
+    const raf = requestAnimationFrame(() => {
+      const ic = requestIdleCallback(
+        () => {
+          const styles = [...new Array(number)].map(() => ({
+            "--angle": -angle + "deg",
+            top: "-5%",
+            left: `calc(0% + ${Math.floor(Math.random() * window.innerWidth)}px)`,
+            animationDelay: Math.random() * (maxDelay - minDelay) + minDelay + "s",
+            animationDuration:
+              Math.floor(Math.random() * (maxDuration - minDuration) + minDuration) +
+              "s",
+          }))
+          setMeteorStyles(styles)
+          setReady(true)
+        },
+        { timeout: 500 }
+      )
+    })
+    return () => cancelAnimationFrame(raf)
   }, [number, minDelay, maxDelay, minDuration, maxDuration, angle])
+
+  if (!ready) return null
 
   return (
     <>
